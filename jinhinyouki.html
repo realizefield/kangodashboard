@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看護師国試 腎・泌尿器系 江原予備校</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Root ── */
+:root{
+  --bg:#0b0f1a; --sf:#111827; --sf2:#1e2a3a; --sf3:#243040;
+  --ac:#06b6d4; --ac2:#ef4444; --ac3:#22c55e; --ac4:#3b82f6;
+  --ac5:#f59e0b; --ac6:#a78bfa;
+  --tx:#e2e8f0; --txd:#64748b; --txm:#94a3b8;
+  --bd:#1e2d3d; --bd2:#2d3f52;
+  --r:10px; --r2:6px;
+  --rankA:#22c55e; --rankB:#f59e0b; --rankC:#ef4444;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;}
+
+/* ── TOPBAR ── */
+#topbar{
+  background:linear-gradient(135deg,#0b0f1a 0%,#111827 100%);
+  border-bottom:1px solid var(--bd);
+  padding:0 20px;
+  height:56px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;
+}
+.app-logo{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;
+  background:linear-gradient(135deg,var(--ac),var(--ac4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;}
+.app-sub{font-size:10px;color:var(--txd);font-family:'DM Mono',monospace;letter-spacing:1px;}
+.topbar-nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;}
+.tnav{padding:6px 12px;border-radius:6px;border:none;background:transparent;
+  color:var(--txm);font-family:'Noto Sans JP',sans-serif;font-size:12px;cursor:pointer;
+  transition:all .2s;white-space:nowrap;}
+.tnav:hover{background:var(--sf2);color:var(--tx);}
+.tnav.on{background:var(--ac);color:#fff;font-weight:700;}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;
+  background:var(--ac2);color:#fff;border-radius:99px;font-size:10px;
+  min-width:18px;height:18px;padding:0 4px;margin-left:4px;font-weight:700;}
+
+/* ── PAGES ── */
+.page{display:none;min-height:calc(100vh - 56px);}
+.page.active{display:block;animation:fadeUp .25s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── LAYOUT ── */
+.container{max-width:1080px;margin:0 auto;padding:24px 20px;}
+
+/* ── CARDS ── */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:14px;}
+.card-title{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;
+  color:var(--ac);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+
+/* ── UNIT LIST PAGE ── */
+.page-header{padding:28px 0 20px;}
+.page-header h1{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:900;
+  background:linear-gradient(135deg,var(--ac),var(--ac4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.page-header p{font-size:13px;color:var(--txm);margin-top:6px;}
+
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--txm);}
+.legend span{display:inline-flex;align-items:center;gap:4px;}
+.legend .lg-A{color:var(--rankA);font-weight:700;}
+.legend .lg-B{color:var(--rankB);font-weight:700;}
+.legend .lg-C{color:var(--rankC);font-weight:700;}
+
+.progress-summary{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;margin-bottom:24px;
+}
+.prog-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:16px;text-align:center;position:relative;overflow:hidden;}
+.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.prog-card.green::before{background:var(--ac3);}
+.prog-card.amber::before{background:var(--ac5);}
+.prog-card.red::before{background:var(--ac2);}
+.prog-card.blue::before{background:var(--ac);}
+.prog-num{font-family:'DM Mono',monospace;font-size:32px;font-weight:700;}
+.prog-label{font-size:11px;color:var(--txd);margin-top:4px;}
+
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+.unit-card{
+  background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;
+}
+.unit-card:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 24px rgba(6,182,212,.15);}
+.unit-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;}
+.unit-card.rank-A::before{background:var(--rankA);}
+.unit-card.rank-B::before{background:var(--rankB);}
+.unit-card.rank-C::before{background:var(--rankC);}
+.unit-card.rank-none::before{background:var(--bd2);}
+
+.unit-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.unit-icon{font-size:22px;flex-shrink:0;}
+.unit-name{font-size:14px;font-weight:700;color:var(--tx);line-height:1.4;}
+.unit-desc{font-size:11px;color:var(--txd);margin-top:2px;}
+.unit-qcount{font-size:10px;color:var(--ac);font-family:'DM Mono',monospace;margin-top:4px;}
+.unit-qcount.empty{color:var(--txd);}
+
+.unit-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.rank-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;
+  border-radius:99px;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;}
+.rank-badge.A{background:rgba(34,197,94,.15);color:var(--rankA);border:1px solid rgba(34,197,94,.3);}
+.rank-badge.B{background:rgba(245,158,11,.15);color:var(--rankB);border:1px solid rgba(245,158,11,.3);}
+.rank-badge.C{background:rgba(239,68,68,.15);color:var(--rankC);border:1px solid rgba(239,68,68,.3);}
+.rank-badge.none{background:var(--sf2);color:var(--txd);border:1px solid var(--bd2);}
+
+.done-check{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--txd);}
+.done-check input[type=checkbox]{width:15px;height:15px;accent-color:var(--ac3);cursor:pointer;}
+.unit-progress-bar{height:3px;background:var(--bd2);border-radius:2px;overflow:hidden;margin-top:10px;}
+.unit-progress-fill{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac4));border-radius:2px;transition:width .5s;}
+
+.rank-selector{display:flex;gap:4px;margin-left:auto;}
+.rank-btn{width:26px;height:26px;border-radius:50%;border:2px solid transparent;
+  background:var(--sf2);font-size:11px;font-weight:700;cursor:pointer;
+  transition:all .15s;font-family:'DM Mono',monospace;color:var(--txm);}
+.rank-btn.A:hover,.rank-btn.A.sel{background:rgba(34,197,94,.2);border-color:var(--rankA);color:var(--rankA);}
+.rank-btn.B:hover,.rank-btn.B.sel{background:rgba(245,158,11,.2);border-color:var(--rankB);color:var(--rankB);}
+.rank-btn.C:hover,.rank-btn.C.sel{background:rgba(239,68,68,.2);border-color:var(--rankC);color:var(--rankC);}
+
+.study-btn{width:30px;height:26px;border-radius:6px;border:1px solid var(--bd2);
+  background:var(--sf2);font-size:13px;cursor:pointer;
+  transition:all .15s;display:inline-flex;align-items:center;justify-content:center;}
+.study-btn:hover{background:rgba(6,182,212,.15);border-color:var(--ac);transform:scale(1.05);}
+
+/* ── QUIZ PAGE ── */
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;}
+.quiz-meta{font-size:11px;color:var(--txd);font-family:'DM Mono',monospace;}
+.quiz-title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:var(--tx);margin-bottom:4px;}
+
+.qprogbar{height:4px;background:var(--bd);border-radius:2px;margin-bottom:20px;overflow:hidden;}
+.qprogfill{height:100%;background:linear-gradient(90deg,var(--ac),var(--ac4));transition:width .4s;}
+
+.qcard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:24px;margin-bottom:12px;}
+.qtext{font-size:14px;line-height:1.85;font-weight:500;margin-bottom:18px;color:var(--tx);}
+.qtext .qcat{display:inline-block;padding:2px 8px;border-radius:4px;
+  background:rgba(6,182,212,.15);color:var(--ac);font-size:10px;
+  font-family:'DM Mono',monospace;margin-bottom:10px;margin-right:6px;}
+.qtext .qsrc{display:inline-block;padding:2px 8px;border-radius:4px;
+  background:rgba(245,158,11,.15);color:var(--ac5);font-size:10px;
+  font-family:'DM Mono',monospace;margin-bottom:10px;}
+
+.choice{width:100%;text-align:left;padding:13px 16px;border-radius:8px;
+  border:1px solid var(--bd2);background:rgba(30,42,58,.6);color:var(--tx);
+  font-family:'Noto Sans JP',sans-serif;font-size:13.5px;cursor:pointer;
+  margin-bottom:8px;transition:all .15s;line-height:1.5;display:flex;align-items:flex-start;gap:10px;}
+.choice:hover:not(:disabled){border-color:var(--ac);background:var(--sf2);}
+.choice.correct{border-color:var(--ac3);background:rgba(34,197,94,.12);color:var(--ac3);}
+.choice.wrong{border-color:var(--ac2);background:rgba(239,68,68,.1);color:var(--ac2);}
+.choice.selected{border-color:var(--ac);background:rgba(6,182,212,.12);}
+.choice:disabled{cursor:default;}
+.choice-num{width:22px;height:22px;border-radius:50%;background:var(--bd2);
+  color:var(--txm);font-size:11px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;font-family:'DM Mono',monospace;margin-top:1px;}
+.choice.correct .choice-num{background:var(--ac3);color:#fff;}
+.choice.wrong .choice-num{background:var(--ac2);color:#fff;}
+.choice.selected .choice-num{background:var(--ac);color:#fff;}
+
+.expbox{background:var(--sf2);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;
+  padding:14px 16px;margin-top:10px;font-size:12.5px;line-height:1.75;display:none;}
+.expbox.show{display:block;animation:fadeUp .3s;}
+.expbox .exp-label{font-size:10px;color:var(--ac);font-family:'DM Mono',monospace;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+
+.btn{padding:9px 20px;border-radius:7px;border:none;font-family:'Noto Sans JP',sans-serif;
+  font-size:13px;cursor:pointer;transition:all .2s;font-weight:700;}
+.btn-primary{background:var(--ac);color:#fff;} .btn-primary:hover{background:#0891b2;}
+.btn-secondary{background:var(--sf2);color:var(--tx);border:1px solid var(--bd2);}
+.btn-secondary:hover{border-color:var(--ac);color:var(--ac);}
+.btn-warn{background:rgba(239,68,68,.15);color:var(--ac2);border:1px solid rgba(239,68,68,.3);}
+.btn-warn:hover{background:rgba(239,68,68,.25);}
+.btn-review{background:rgba(245,158,11,.15);color:var(--ac5);border:1px solid rgba(245,158,11,.3);}
+.btn-review:hover{background:rgba(245,158,11,.25);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+
+/* RESULT */
+.result-card{text-align:center;padding:40px 24px;}
+.result-score{font-family:'Noto Serif JP',serif;font-size:72px;font-weight:900;
+  background:linear-gradient(135deg,var(--ac),var(--ac4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.result-msg{font-size:15px;color:var(--txm);margin:8px 0 24px;}
+.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0;}
+.stat-box{background:var(--sf2);border-radius:var(--r2);padding:14px;text-align:center;}
+.stat-n{font-family:'DM Mono',monospace;font-size:30px;font-weight:700;}
+.stat-l{font-size:10px;color:var(--txd);margin-top:2px;}
+.stat-n.green{color:var(--ac3);} .stat-n.red{color:var(--ac2);} .stat-n.blue{color:var(--ac);}
+
+/* ── REVIEW PAGE ── */
+.review-empty{text-align:center;padding:60px 20px;color:var(--txd);}
+.review-empty .icon{font-size:48px;margin-bottom:12px;}
+.review-item{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:16px;margin-bottom:10px;display:flex;align-items:flex-start;gap:12px;}
+.review-item-body{flex:1;}
+.review-q{font-size:13px;color:var(--tx);line-height:1.6;margin-bottom:6px;}
+.review-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.rtag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;
+  font-family:'DM Mono',monospace;}
+.rtag-unit{background:rgba(6,182,212,.15);color:var(--ac);}
+.rtag-wrong{background:rgba(239,68,68,.15);color:var(--ac2);}
+
+/* ── START SCREEN ── */
+.start-options{display:grid;gap:10px;margin-top:14px;}
+.start-btn-big{background:var(--sf2);border:1px solid var(--bd2);border-radius:var(--r);
+  padding:18px;cursor:pointer;text-align:left;transition:all .2s;color:var(--tx);
+  font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:700;}
+.start-btn-big:hover{border-color:var(--ac);background:var(--sf3);}
+.start-btn-big.primary{background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(59,130,246,.15));
+  border-color:rgba(6,182,212,.4);}
+.start-btn-big.primary:hover{border-color:var(--ac);}
+
+.unit-select-list{margin-top:14px;display:grid;gap:6px;max-height:300px;overflow-y:auto;
+  padding:8px;background:var(--sf2);border-radius:var(--r);}
+.unit-select-item{display:flex;align-items:center;gap:10px;padding:8px 12px;
+  border-radius:6px;cursor:pointer;transition:all .15s;font-size:13px;}
+.unit-select-item:hover{background:var(--sf3);}
+.unit-select-item.sel{background:rgba(6,182,212,.15);}
+.unit-select-item input{accent-color:var(--ac);cursor:pointer;}
+.unit-select-item.disabled{opacity:.4;cursor:not-allowed;}
+.unit-select-item.disabled:hover{background:transparent;}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+  background:var(--sf3);color:var(--tx);padding:10px 20px;border-radius:8px;
+  font-size:13px;border:1px solid var(--bd2);box-shadow:0 4px 16px rgba(0,0,0,.4);
+  opacity:0;pointer-events:none;transition:all .3s;z-index:1000;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-8px);}
+
+/* ── EMPTY ── */
+.empty-state{text-align:center;padding:60px 20px;color:var(--txd);}
+.empty-state .icon{font-size:48px;margin-bottom:12px;}
+.empty-state h3{font-size:16px;color:var(--txm);margin-bottom:6px;font-family:'Noto Serif JP',serif;}
+.empty-state p{font-size:12px;line-height:1.7;}
+
+/* ── STUDY PAGE ── */
+.stabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--bd);}
+.stab{padding:8px 14px;border-radius:8px 8px 0 0;border:none;background:transparent;
+  color:var(--txm);font-family:'Noto Sans JP',sans-serif;font-size:12px;cursor:pointer;
+  transition:all .15s;font-weight:500;display:flex;align-items:center;gap:6px;}
+.stab:hover{background:var(--sf2);color:var(--tx);}
+.stab.on{background:var(--sf);color:var(--ac);font-weight:700;border-bottom:2px solid var(--ac);}
+
+.study-section{display:none;animation:fadeUp .25s ease;}
+.study-section.active{display:block;}
+
+.study-h2{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;
+  color:var(--tx);margin-bottom:14px;padding-bottom:10px;
+  border-bottom:2px solid var(--ac);display:flex;align-items:center;gap:10px;}
+.study-h2 .icon{font-size:24px;}
+
+.study-h3{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;
+  color:var(--ac);margin:18px 0 10px;padding-left:10px;border-left:3px solid var(--ac);}
+
+.study-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:18px 20px;margin-bottom:14px;line-height:1.85;font-size:13.5px;}
+.study-card p{margin-bottom:10px;color:var(--tx);}
+.study-card p:last-child{margin-bottom:0;}
+.study-card ul{margin:8px 0 8px 20px;color:var(--tx);}
+.study-card ul li{margin-bottom:5px;font-size:13px;}
+.study-card .em{color:var(--ac5);font-weight:700;}
+.study-card .key{background:rgba(6,182,212,.15);color:var(--ac);
+  padding:1px 6px;border-radius:4px;font-weight:700;font-size:12.5px;}
+.study-card .warn{background:rgba(239,68,68,.12);color:var(--ac2);
+  padding:1px 6px;border-radius:4px;font-weight:700;font-size:12.5px;}
+.study-card .num{font-family:'DM Mono',monospace;color:var(--ac3);font-weight:700;}
+
+.study-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12.5px;}
+.study-table th{background:var(--sf2);color:var(--ac);padding:8px 10px;
+  text-align:left;font-weight:700;border:1px solid var(--bd2);font-size:12px;}
+.study-table td{padding:8px 10px;border:1px solid var(--bd2);color:var(--tx);vertical-align:top;}
+.study-table tr:nth-child(even) td{background:rgba(30,42,58,.4);}
+
+.tip-box{background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(59,130,246,.08));
+  border-left:3px solid var(--ac);border-radius:0 8px 8px 0;
+  padding:12px 16px;margin:12px 0;font-size:12.5px;line-height:1.7;}
+.tip-box .tip-label{font-size:10px;color:var(--ac);font-family:'DM Mono',monospace;
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+
+.warn-box{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(245,158,11,.08));
+  border-left:3px solid var(--ac2);border-radius:0 8px 8px 0;
+  padding:12px 16px;margin:12px 0;font-size:12.5px;line-height:1.7;}
+.warn-box .warn-label{font-size:10px;color:var(--ac2);font-family:'DM Mono',monospace;
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+
+.point-box{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);
+  border-radius:8px;padding:14px 16px;margin:12px 0;}
+.point-box .point-label{font-size:11px;color:var(--ac5);font-family:'Noto Serif JP',serif;
+  font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.point-box ul{margin:0 0 0 18px;}
+.point-box li{font-size:12.5px;line-height:1.75;color:var(--tx);margin-bottom:4px;}
+
+/* ── FLOW DIAGRAM ── */
+.flow-diagram{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0;}
+.flow-step{width:100%;max-width:340px;background:var(--sf2);border:1px solid var(--bd2);
+  border-radius:10px;padding:12px 16px;display:grid;grid-template-columns:40px 1fr;
+  gap:10px;align-items:center;position:relative;}
+.flow-step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:10px 0 0 10px;}
+.flow-step.blue::before{background:var(--ac4);}
+.flow-step.green::before{background:var(--ac3);}
+.flow-step.amber::before{background:var(--ac5);}
+.flow-step.purple::before{background:var(--ac6);}
+.flow-step.red::before{background:var(--ac2);}
+.flow-step.result::before{background:linear-gradient(180deg,var(--ac),var(--ac3));}
+.flow-step .fs-num{grid-row:span 2;font-family:'DM Mono',monospace;font-size:22px;
+  font-weight:700;color:var(--ac);text-align:center;}
+.flow-step .fs-name{font-weight:700;font-size:13px;color:var(--tx);}
+.flow-step .fs-detail{font-size:11px;color:var(--txm);line-height:1.5;}
+.flow-arrow{color:var(--txd);font-size:14px;line-height:1;}
+
+/* ── ANATOMY DIAGRAM (SVG-like) ── */
+.anatomy-diagram{display:flex;justify-content:center;padding:14px;background:var(--sf2);
+  border-radius:8px;margin:12px 0;}
+.anatomy-diagram svg{max-width:100%;height:auto;}
+
+/* ── COMPARISON GRID ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;}
+.compare-card{background:var(--sf2);border:1px solid var(--bd2);border-radius:8px;padding:14px;}
+.compare-card.left{border-top:3px solid var(--ac4);}
+.compare-card.right{border-top:3px solid var(--ac2);}
+.compare-card h4{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--tx);}
+.compare-card.left h4{color:var(--ac4);}
+.compare-card.right h4{color:var(--ac2);}
+.compare-card ul{margin:0 0 0 16px;}
+.compare-card li{font-size:12px;line-height:1.7;color:var(--tx);margin-bottom:3px;}
+
+/* ── BADGE LABEL ── */
+.lbl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:10px 0;}
+.lbl-card{background:var(--sf2);border:1px solid var(--bd2);border-radius:8px;
+  padding:10px 12px;text-align:center;}
+.lbl-card .lbl-num{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:var(--ac);}
+.lbl-card .lbl-text{font-size:11px;color:var(--txm);margin-top:2px;}
+
+/* ── CKD STAGE BAR ── */
+.ckd-stage-bar{display:flex;gap:2px;margin:8px 0 4px;border-radius:8px;overflow:hidden;
+  box-shadow:0 1px 4px rgba(0,0,0,.3);}
+.ckd-stage{flex:1;padding:12px 4px;text-align:center;color:#fff;}
+.ckd-stage.g1{background:linear-gradient(180deg,#16a34a,#22c55e);}
+.ckd-stage.g2{background:linear-gradient(180deg,#84cc16,#a3e635);}
+.ckd-stage.g3a{background:linear-gradient(180deg,#eab308,#facc15);}
+.ckd-stage.g3b{background:linear-gradient(180deg,#f59e0b,#fb923c);}
+.ckd-stage.g4{background:linear-gradient(180deg,#ea580c,#f97316);}
+.ckd-stage.g5{background:linear-gradient(180deg,#b91c1c,#dc2626);}
+.ckd-stage-name{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;}
+.ckd-stage-num{font-family:'DM Mono',monospace;font-size:10px;margin-top:2px;opacity:.95;}
+
+/* ── BLADDER TOGGLE DIAGRAM ── */
+.bladder-toggle{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;}
+.bladder-state{background:var(--sf2);border:1px solid var(--bd2);border-radius:10px;
+  padding:14px;}
+.bladder-state.storage{border-top:3px solid var(--ac4);}
+.bladder-state.voiding{border-top:3px solid var(--ac2);}
+.bladder-state h4{font-size:14px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.bladder-state.storage h4{color:var(--ac4);}
+.bladder-state.voiding h4{color:var(--ac2);}
+.bladder-row{display:flex;justify-content:space-between;padding:6px 0;
+  border-bottom:1px dashed var(--bd2);font-size:12px;}
+.bladder-row:last-child{border-bottom:none;}
+.bladder-row .br-name{color:var(--txm);}
+.bladder-row .br-state{font-weight:700;}
+.br-relax{color:var(--ac3);}
+.br-contract{color:var(--ac2);}
+.bladder-nerve{margin-top:8px;padding:8px 10px;background:var(--bg);border-radius:6px;
+  font-size:11px;color:var(--txm);text-align:center;font-family:'DM Mono',monospace;}
+
+/* ── INCONTINENCE TYPE CARD ── */
+.inc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.inc-card{background:var(--sf2);border:1px solid var(--bd2);border-radius:10px;
+  padding:14px;border-top:3px solid;}
+.inc-card.stress{border-top-color:var(--ac4);}
+.inc-card.urge{border-top-color:var(--ac2);}
+.inc-card.overflow{border-top-color:var(--ac5);}
+.inc-card.functional{border-top-color:var(--ac6);}
+.inc-card.reflex{border-top-color:var(--ac3);}
+.inc-card h4{font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px;}
+.inc-card .inc-cause{font-size:11px;color:var(--txm);margin-bottom:6px;line-height:1.5;}
+.inc-card .inc-care{font-size:11px;color:var(--ac3);background:rgba(34,197,94,.1);
+  padding:4px 8px;border-radius:4px;display:inline-block;}
+
+@media (max-width:600px){
+  .compare-grid{grid-template-columns:1fr;}
+  .bladder-toggle{grid-template-columns:1fr;}
+}
+
+.study-quick-jump{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);
+  padding:14px;margin-bottom:18px;}
+.study-quick-jump-title{font-size:11px;color:var(--txd);
+  font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:8px;}
+.study-quick-jump-btns{display:flex;flex-wrap:wrap;gap:6px;}
+.qjbtn{padding:5px 10px;border-radius:6px;border:1px solid var(--bd2);
+  background:var(--sf2);color:var(--txm);font-size:11px;cursor:pointer;
+  transition:all .15s;font-family:'Noto Sans JP',sans-serif;}
+.qjbtn:hover{border-color:var(--ac);color:var(--ac);background:var(--sf3);}
+
+/* ── FLASHCARD ── */
+.fc-area{max-width:560px;margin:0 auto;text-align:center;}
+.fc-wrap{perspective:1200px;height:240px;margin-bottom:16px;cursor:pointer;}
+.fc-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.fc-wrap.flipped .fc-inner{transform:rotateY(180deg);}
+.fc-face{position:absolute;width:100%;height:100%;backface-visibility:hidden;
+  border-radius:var(--r);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:22px;}
+.fc-front{background:linear-gradient(135deg,#0e2942,#1a1e36);border:1px solid rgba(6,182,212,.4);
+  box-shadow:0 4px 20px rgba(6,182,212,.1);}
+.fc-back{background:linear-gradient(135deg,#0f2820,#1a2230);border:1px solid rgba(34,197,94,.4);
+  transform:rotateY(180deg);box-shadow:0 4px 20px rgba(34,197,94,.1);}
+.fc-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  font-family:'DM Mono',monospace;margin-bottom:8px;}
+.fc-front .fc-lbl{color:var(--ac);} .fc-back .fc-lbl{color:var(--ac3);}
+.fc-main{font-size:17px;font-weight:700;font-family:'Noto Serif JP',serif;
+  line-height:1.5;white-space:pre-line;color:var(--tx);}
+.fc-sub{font-size:11px;color:var(--txd);margin-top:5px;}
+.fc-hint{font-size:10px;color:var(--txd);margin-top:12px;font-family:'DM Mono',monospace;}
+.fc-nav{display:flex;gap:10px;justify-content:center;align-items:center;}
+.fc-counter{font-family:'DM Mono',monospace;font-size:13px;color:var(--txm);
+  min-width:60px;font-weight:700;}
+.fc-back .fc-main{font-size:13px;text-align:left;line-height:1.7;}
+.fc-unit-tag{display:inline-block;padding:3px 10px;border-radius:99px;
+  background:rgba(6,182,212,.15);color:var(--ac);font-size:10px;
+  font-family:'DM Mono',monospace;margin-bottom:10px;}
+.fc-unit-filter{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  margin-bottom:14px;padding:10px;background:var(--sf);border:1px solid var(--bd);
+  border-radius:var(--r);}
+.fc-filter-btn{padding:5px 11px;border-radius:6px;border:1px solid var(--bd2);
+  background:var(--sf2);color:var(--txm);font-size:11px;cursor:pointer;
+  transition:all .15s;}
+.fc-filter-btn:hover{border-color:var(--ac);color:var(--ac);}
+.fc-filter-btn.on{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:700;}
+
+/* 自動再生コントロール */
+.fc-auto-controls{display:flex;align-items:center;gap:10px;justify-content:center;
+  flex-wrap:wrap;margin-bottom:14px;padding:12px;background:var(--sf);
+  border:1px solid var(--bd);border-radius:var(--r);}
+.fc-auto-label{font-size:11px;color:var(--txd);font-family:'DM Mono',monospace;
+  letter-spacing:1px;font-weight:700;}
+.fc-auto-btns{display:flex;gap:4px;}
+.fc-speed-btn{padding:5px 12px;border-radius:6px;border:1px solid var(--bd2);
+  background:var(--sf2);color:var(--txm);font-size:11px;cursor:pointer;
+  transition:all .15s;font-family:'DM Mono',monospace;font-weight:700;}
+.fc-speed-btn:hover{border-color:var(--ac6);color:var(--ac6);}
+.fc-speed-btn.on{background:var(--ac6);color:#fff;border-color:var(--ac6);}
+.fc-play-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--ac3);
+  background:rgba(34,197,94,.12);color:var(--ac3);font-size:12px;cursor:pointer;
+  transition:all .15s;font-weight:700;}
+.fc-play-btn:hover{background:rgba(34,197,94,.22);}
+.fc-play-btn.playing{background:rgba(239,68,68,.12);color:var(--ac2);
+  border-color:var(--ac2);}
+.fc-play-btn:disabled{opacity:.4;cursor:not-allowed;}
+
+/* 進捗バー（自動再生時） */
+.fc-progress-bar{height:3px;background:var(--bd2);border-radius:2px;
+  margin:0 0 14px;overflow:hidden;}
+.fc-progress-fill{height:100%;background:linear-gradient(90deg,var(--ac6),var(--ac));
+  width:0%;transition:width .1s linear;}
+
+/* 覚えたボタン */
+.btn-mastered{padding:10px 24px;border-radius:8px;border:1px solid var(--ac3);
+  background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(16,185,129,.1));
+  color:var(--ac3);font-size:13px;cursor:pointer;font-weight:700;
+  transition:all .2s;font-family:'Noto Sans JP',sans-serif;
+  box-shadow:0 2px 8px rgba(34,197,94,.1);}
+.btn-mastered:hover{background:linear-gradient(135deg,rgba(34,197,94,.25),rgba(16,185,129,.2));
+  transform:translateY(-1px);box-shadow:0 4px 12px rgba(34,197,94,.2);}
+.btn-mastered:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+.btn-mastered:active{transform:translateY(0);}
+
+/* ── responsive ── */
+@media (max-width:600px){
+  .container{padding:16px 12px;}
+  .page-header h1{font-size:22px;}
+  .unit-grid{grid-template-columns:1fr;}
+  .result-score{font-size:52px;}
+  .tnav-label{display:none;}
+  .tnav{padding:6px 8px;}
+  .fc-wrap{height:220px;}
+  .fc-main{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ TOPBAR ═══════════════ -->
+<div id="topbar">
+  <div>
+    <div class="app-logo">江原予備校</div>
+    <div class="app-sub">JIN-HINYOUKI / KIDNEY-UROLOGY</div>
+  </div>
+  <div class="topbar-nav">
+    <button class="tnav on" onclick="nav('home')">🏠 <span class="tnav-label">単元一覧</span></button>
+    <button class="tnav" onclick="nav('study')">📖 <span class="tnav-label">レビューブック</span></button>
+    <button class="tnav" onclick="nav('flash')">🃏 <span class="tnav-label">フラッシュ</span></button>
+    <button class="tnav" onclick="nav('start')">📝 <span class="tnav-label">演習開始</span></button>
+    <button class="tnav" onclick="nav('review')">🔁 <span class="tnav-label">復習</span><span id="review-badge" class="badge-count" style="display:none;">0</span></button>
+  </div>
+</div>
+
+<!-- ═══════════════ HOME : 単元一覧 ═══════════════ -->
+<div id="page-home" class="page active">
+  <div class="container">
+    <div class="page-header">
+      <h1>🫘 腎・泌尿器系</h1>
+      <p>各単元のABC評価・完了チェック・進捗を管理できます。単元名をクリックすると演習が始まります。</p>
+      <div class="legend">
+        <span><span class="lg-A">A</span> 確認済み・得意</span>
+        <span><span class="lg-B">B</span> 再度チェック</span>
+        <span><span class="lg-C">C</span> 苦手・難しい</span>
+        <span>☐ 未完了 / ☑ 完了</span>
+      </div>
+    </div>
+
+    <div class="progress-summary" id="progress-summary"></div>
+
+    <div class="unit-grid" id="unit-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ STUDY : 学習ページ ═══════════════ -->
+<div id="page-study" class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>📖 学習ノート</h1>
+      <p>腎・泌尿器系の重要ポイントを単元別にまとめました。問題演習の前後にご活用ください。</p>
+    </div>
+
+    <div class="stabs" id="stabs">
+      <button class="stab on" onclick="showStudy('s01')">🫘 腎臓の構造</button>
+      <button class="stab" onclick="showStudy('s02')">💧 細胞外液の調節</button>
+      <button class="stab" onclick="showStudy('s03')">🦠 腎盂腎炎・腎炎</button>
+      <button class="stab" onclick="showStudy('s04')">💉 ネフローゼ・腎不全</button>
+      <button class="stab" onclick="showStudy('s05')">⚙️ 透析</button>
+      <button class="stab" onclick="showStudy('s06')">🔄 腎移植</button>
+      <button class="stab" onclick="showStudy('s07')">🔍 膀胱・膀胱鏡</button>
+      <button class="stab" onclick="showStudy('s08')">🚽 排尿・尿失禁</button>
+      <button class="stab" onclick="showStudy('s09')">🪨 尿路結石</button>
+      <button class="stab" onclick="showStudy('s10')">⚠️ 膀胱癌</button>
+      <button class="stab" onclick="showStudy('s11')">♂️ 男性生殖器・前立腺</button>
+      <button class="stab" onclick="showStudy('s12')">🏥 検査・全般</button>
+    </div>
+
+    <!-- ───── s01 腎臓の構造と機能 ───── -->
+    <div class="study-section active" id="study-s01">
+      <h2 class="study-h2"><span class="icon">🫘</span>腎臓の構造と機能</h2>
+
+      <h3 class="study-h3">腎臓の解剖</h3>
+      <div class="study-card">
+        <p>腎臓は<span class="key">後腹膜</span>に左右1対あるソラマメ形の臓器です。長さ約10cm、幅約5cm、厚さ約3cm、重量は片方約120〜150gで、心臓の約半分程度の重さです。</p>
+        <p>肝臓が右側に位置するため、<span class="em">右腎は左腎より2〜3cm低い位置</span>にあります。</p>
+        <ul>
+          <li>腎門：腎静脈・腎動脈・尿管が出入りする部分</li>
+          <li>腎門の並び順（前方から）：<span class="key">V → A → U</span>（腎静脈・腎動脈・尿管）</li>
+          <li>腎動脈は<span class="em">腹大動脈から分岐</span>、腎静脈は<span class="em">下大静脈に合流</span></li>
+          <li>腎臓の血流量は心拍出量の<span class="num">20〜25%</span>（800〜1,200mL/分）</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">ネフロン（腎単位）</h3>
+      <div class="study-card">
+        <p>ネフロンは尿生成の機能単位で、1つの腎臓に<span class="num">約100万個</span>あります。</p>
+        <p>構成：<span class="key">腎小体</span>（糸球体＋ボウマン嚢）＋ <span class="key">尿細管</span></p>
+        <p>原尿の流れ：</p>
+        <ul>
+          <li>糸球体で濾過 → ボウマン嚢 → <span class="em">近位尿細管</span> → ヘンレループ → 遠位尿細管 → 集合管 → 腎杯</li>
+          <li>1日の原尿量：約<span class="num">150L</span>　最終的な尿量：約<span class="num">1〜1.5L/日</span>（原尿の約1%）</li>
+        </ul>
+        <div class="tip-box">
+          <div class="tip-label">国試ポイント</div>
+          原尿の<span class="em">99%が尿細管で再吸収</span>されます。グルコース・アミノ酸・低分子量蛋白質は近位尿細管でほぼ100%再吸収。老廃物は再吸収されないため濃縮されて排泄されます。
+        </div>
+      </div>
+
+      <h3 class="study-h3">尿路</h3>
+      <div class="study-card">
+        <ul>
+          <li><span class="em">上部尿路</span>：腎臓・腎杯・腎盂・尿管</li>
+          <li><span class="em">下部尿路</span>：膀胱・尿道</li>
+          <li>尿管：腎盂と膀胱をつなぐ、長さ<span class="num">25〜30cm</span></li>
+          <li><span class="key">蠕動運動</span>を行う：腎盂・尿管</li>
+          <li>尿管の3か所の生理的狭窄部：腎盂尿管移行部・総腸骨動脈との交叉部・尿管膀胱移行部</li>
+          <li>腎盂・尿管・膀胱・後部尿道の粘膜：<span class="em">移行上皮</span></li>
+          <li>膀胱容量：平均<span class="num">300〜500mL</span>　尿意：150〜200mL程度</li>
+        </ul>
+        <div class="point-box">
+          <div class="point-label">★ 男女の尿道の違い</div>
+          <ul>
+            <li>男性の尿道：約<span class="num">16〜20cm</span></li>
+            <li>女性の尿道：約<span class="num">3〜4cm</span></li>
+            <li>女性は短いため<span class="warn">逆行性尿路感染</span>を起こしやすい</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">正常尿</h3>
+      <div class="study-card">
+        <ul>
+          <li>1日尿量：約<span class="num">1〜1.5L</span></li>
+          <li>pH：<span class="num">4.5〜8.0</span></li>
+          <li>尿比重：<span class="num">1.003〜1.030</span>（脱水で高張、水分過剰で低張）</li>
+          <li>排尿直後の色：<span class="em">淡黄色</span>(直接ビリルビン・ビタミンB2による)</li>
+          <li>アンモニア臭：尿中の尿素が排尿後に分解されて発生</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">📊 尿生成の流れ（視覚図）</h3>
+      <div class="study-card">
+        <div class="flow-diagram">
+          <div class="flow-step blue">
+            <div class="fs-num">①</div>
+            <div class="fs-name">糸球体</div>
+            <div class="fs-detail">血液を濾過<br>原尿 約150L/日</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step green">
+            <div class="fs-num">②</div>
+            <div class="fs-name">近位尿細管</div>
+            <div class="fs-detail">65〜80%再吸収<br>Na⁺/K⁺/Cl⁻/HCO₃⁻<br>グルコース/アミノ酸 100%</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step amber">
+            <div class="fs-num">③</div>
+            <div class="fs-name">ヘンレループ</div>
+            <div class="fs-detail">下行脚：水<br>上行脚：Na⁺・Cl⁻</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step purple">
+            <div class="fs-num">④</div>
+            <div class="fs-name">遠位尿細管</div>
+            <div class="fs-detail">アルドステロン作用<br>Na⁺再吸収/K⁺分泌</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step red">
+            <div class="fs-num">⑤</div>
+            <div class="fs-name">集合管</div>
+            <div class="fs-detail">バソプレシン作用<br>水の再吸収</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step result">
+            <div class="fs-num">→</div>
+            <div class="fs-name">最終尿</div>
+            <div class="fs-detail">原尿の<span class="num" style="color:#22c55e;">約1%</span><br>1〜1.5L/日</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s02 細胞外液の調節 ───── -->
+    <div class="study-section" id="study-s02">
+      <h2 class="study-h2"><span class="icon">💧</span>細胞外液の調節</h2>
+
+      <h3 class="study-h3">腎臓の働き</h3>
+      <div class="study-card">
+        <ul>
+          <li>体内の老廃物の排泄</li>
+          <li>水・電解質の調節</li>
+          <li>酸塩基平衡の維持</li>
+          <li>ホルモン産生：<span class="em">エリスロポエチン</span>・レニン・<span class="em">活性型ビタミンD</span></li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">尿細管における再吸収・分泌</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>部位</th><th>主な働き</th></tr>
+          <tr><td>近位尿細管</td><td>原尿成分の<span class="num">65〜80%</span>を再吸収（Na⁺・K⁺・Cl⁻・HCO₃⁻・水・グルコース・アミノ酸など）</td></tr>
+          <tr><td>ヘンレループ下行脚</td><td>主に<span class="key">水</span>を再吸収</td></tr>
+          <tr><td>ヘンレループ上行脚</td><td>Na⁺・Cl⁻を再吸収</td></tr>
+          <tr><td>遠位尿細管</td><td><span class="key">アルドステロン</span>がNa⁺再吸収・K⁺排泄を促進</td></tr>
+          <tr><td>集合管</td><td><span class="key">バソプレシン</span>(ADH)が水の再吸収を促進</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">主なホルモンの働き</h3>
+      <div class="study-card">
+        <ul>
+          <li><span class="em">バソプレシン（ADH）</span>：集合管に作用、水を再吸収。血漿浸透圧で調節</li>
+          <li><span class="em">アルドステロン</span>：副腎皮質ホルモン。Na⁺再吸収＋K⁺排泄</li>
+          <li><span class="em">レニン</span>：傍糸球体細胞で生成。血圧低下・Cl⁻減少・交感神経刺激で分泌</li>
+          <li><span class="em">心房性Na利尿ペプチド（ANP）</span>：心房で産生。Na排泄を促進</li>
+          <li><span class="em">エリスロポエチン</span>：赤血球生成促進因子。腎臓で産生</li>
+        </ul>
+        <div class="tip-box">
+          <div class="tip-label">RAA系の流れ</div>
+          血圧低下 → 傍糸球体細胞からレニン分泌 → アンジオテンシノーゲン → アンジオテンシンⅠ → <span class="em">ACE</span>（アンジオテンシン変換酵素）→ アンジオテンシンⅡ → 血管収縮＋アルドステロン分泌 → 血圧上昇
+        </div>
+      </div>
+
+      <h3 class="study-h3">📊 RAA系の流れ（視覚図）</h3>
+      <div class="study-card">
+        <div class="flow-diagram">
+          <div class="flow-step red">
+            <div class="fs-num">⚠</div>
+            <div class="fs-name">血圧低下/Cl⁻減少</div>
+            <div class="fs-detail">傍糸球体細胞が感知</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step blue">
+            <div class="fs-num">①</div>
+            <div class="fs-name">レニン分泌</div>
+            <div class="fs-detail">傍糸球体細胞より<br>アンジオテンシノーゲンを活性化</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step blue">
+            <div class="fs-num">②</div>
+            <div class="fs-name">アンジオテンシンⅠ</div>
+            <div class="fs-detail">↓ ACE（変換酵素）</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step amber">
+            <div class="fs-num">③</div>
+            <div class="fs-name">アンジオテンシンⅡ</div>
+            <div class="fs-detail">血管収縮作用<br>副腎皮質に作用</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step purple">
+            <div class="fs-num">④</div>
+            <div class="fs-name">アルドステロン分泌</div>
+            <div class="fs-detail">遠位尿細管・集合管<br>Na⁺再吸収/K⁺排泄</div>
+          </div>
+          <div class="flow-arrow">▼</div>
+          <div class="flow-step result">
+            <div class="fs-num">↑</div>
+            <div class="fs-name">血圧上昇</div>
+            <div class="fs-detail">循環血液量増加</div>
+          </div>
+        </div>
+        <div class="warn-box">
+          <div class="warn-label">薬剤との関連</div>
+          ACE阻害薬・ARB（アンジオテンシンⅡ受容体拮抗薬）はこの経路を遮断して降圧効果を発揮。糸球体内圧を低下させ腎保護作用も期待できる。
+        </div>
+      </div>
+
+      <h3 class="study-h3">糸球体濾過と腎機能評価</h3>
+      <div class="study-card">
+        <p>糸球体は分子量の大きい物質を濾過しません。アルブミン（66,000）・γグロブリン（156,000）・赤血球などは濾過されません。<span class="em">ミオグロビン（17,200）は分子量が小さいため濾過</span>されます。</p>
+        <table class="study-table">
+          <tr><th>検査値</th><th>基準値</th><th>意義</th></tr>
+          <tr><td>血清クレアチニン</td><td>男0.65〜1.09 / 女0.46〜0.82 mg/dL</td><td>腎機能の指標。低下＝腎機能良好</td></tr>
+          <tr><td>BUN（血清尿素窒素）</td><td>9〜21 mg/dL</td><td>腎機能と肝代謝の指標</td></tr>
+          <tr><td>クレアチニンクリアランス</td><td>91〜130 mL/分</td><td>糸球体濾過量の代用</td></tr>
+          <tr><td>GFR（糸球体濾過量）</td><td>≧90 mL/分/1.73m²</td><td>腎機能の最重要指標</td></tr>
+        </table>
+        <div class="point-box">
+          <div class="point-label">★ GFRの推定に使う物質</div>
+          <ul>
+            <li><span class="key">クレアチニン</span>：生体内物質。eGFRに使用（最も実用的）</li>
+            <li>イヌリン：最も正確だが外因性物質（玉ねぎなどに含まれる多糖類）</li>
+            <li>パラアミノ馬尿酸：腎血漿流量（RPF）の指標</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">酸塩基平衡</h3>
+      <div class="study-card">
+        <p>血液pHは<span class="num">7.35〜7.45</span>に保たれている。主に<span class="em">炭酸水素イオン（HCO₃⁻）</span>と<span class="em">動脈血二酸化炭素分圧（PaCO₂）</span>で決まる。HCO₃⁻は腎臓が、PaCO₂は肺が調節。</p>
+        <table class="study-table">
+          <tr><th>異常</th><th>原因例</th></tr>
+          <tr><td>代謝性アシドーシス</td><td>下痢（アルカリ性腸液喪失）、慢性腎不全、糖尿病性ケトアシドーシス</td></tr>
+          <tr><td>代謝性アルカローシス</td><td>嘔吐（酸性胃液喪失）</td></tr>
+          <tr><td>呼吸性アシドーシス</td><td>呼吸抑制（CO₂蓄積）</td></tr>
+          <tr><td>呼吸性アルカローシス</td><td>過換気症候群（CO₂吐き出しすぎ）</td></tr>
+        </table>
+
+        <h4 style="font-size:13px;color:var(--ac);margin:14px 0 8px;">🔑 覚え方マトリクス</h4>
+        <div class="compare-grid">
+          <div class="compare-card left">
+            <h4>🍋 アシドーシス（酸性に傾く）</h4>
+            <ul>
+              <li><span class="em">代謝性</span>：下痢・腎不全・DKA<br>→ HCO₃⁻が減る or H⁺が増える</li>
+              <li><span class="em">呼吸性</span>：呼吸抑制<br>→ CO₂が体内に蓄積</li>
+            </ul>
+          </div>
+          <div class="compare-card right">
+            <h4>🧊 アルカローシス（塩基性に傾く）</h4>
+            <ul>
+              <li><span class="em">代謝性</span>：嘔吐<br>→ H⁺（胃酸）を喪失</li>
+              <li><span class="em">呼吸性</span>：過換気症候群<br>→ CO₂を吐きすぎる</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tip-box">
+          <div class="tip-label">語呂合わせ</div>
+          <span class="em">「下痢で慢腎は酸（さん）になる、嘔吐は塩基（えんき）」</span><br>
+          下痢・慢性腎不全 → 代謝性アシドーシス<br>
+          嘔吐 → 代謝性アルカローシス
+        </div>
+      </div>
+
+      <h3 class="study-h3">尿検査</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>項目</th><th>陽性で疑う病態</th></tr>
+          <tr><td>尿蛋白</td><td>急性・慢性糸球体腎炎、糖尿病腎症、ネフローゼ症候群</td></tr>
+          <tr><td>尿糖</td><td>糖尿病、膵炎、甲状腺機能亢進症、妊娠</td></tr>
+          <tr><td>尿潜血</td><td>急性・慢性糸球体腎炎、結石、腫瘍、溶血性貧血</td></tr>
+          <tr><td>尿ケトン体</td><td>糖尿病、飢餓、下痢、嘔吐、発熱</td></tr>
+          <tr><td>ウロビリノーゲン</td><td>肝炎・肝硬変・溶血性貧血</td></tr>
+        </table>
+        <div class="warn-box">
+          <div class="warn-label">注意</div>
+          <span class="em">ビタミンC（アスコルビン酸）</span>を大量摂取すると、試験紙法による尿潜血検査の反応が阻害されて<span class="warn">偽陰性</span>になる。
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s03 腎盂腎炎・腎炎 ───── -->
+    <div class="study-section" id="study-s03">
+      <h2 class="study-h2"><span class="icon">🦠</span>腎盂腎炎・糸球体腎炎</h2>
+
+      <h3 class="study-h3">急性腎盂腎炎</h3>
+      <div class="study-card">
+        <p>細菌感染による腎実質・腎盂・腎杯の炎症。原因菌は<span class="warn">大腸菌（グラム陰性桿菌）が約9割</span>。感染経路は尿道からの<span class="em">上行性感染</span>が主で、膀胱炎に続いて起こることが多い。</p>
+        <ul>
+          <li>解剖学的に尿道の短い<span class="em">女性</span>に起こりやすい</li>
+          <li>片腎性が多い</li>
+          <li>悪寒戦慄を伴う高熱、患側の腰背部痛、<span class="key">CVA叩打痛</span></li>
+          <li>採尿時：初尿は破棄し<span class="em">中間尿</span>を用いて細菌培養</li>
+          <li>治療：抗菌薬（ペニシリン系・セフェム系・キノロン系）</li>
+        </ul>
+        <div class="point-box">
+          <div class="point-label">★ CVA叩打痛とは</div>
+          <ul>
+            <li>CVA = 肋骨脊柱角（Costo-Vertebral Angle）</li>
+            <li>背中で肋骨下端と脊椎の交わる角を叩くと痛む</li>
+            <li>腎臓の炎症（腎盂腎炎・腎結石症など）でみられる特徴的所見</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">急性糸球体腎炎</h3>
+      <div class="study-card">
+        <p>主に<span class="em">溶血性レンサ球菌（溶連菌）</span>感染による免疫複合体が糸球体に沈着して生じる（Ⅲ型アレルギー）。</p>
+        <ul>
+          <li>溶連菌感染の咽頭炎・扁桃炎・丹毒などの<span class="num">10日〜2週間後</span>に発症</li>
+          <li>3〜10歳の<span class="em">男児に好発</span>（平均7歳）</li>
+          <li>三大徴候：<span class="warn">血尿・浮腫（眼瞼浮腫）・高血圧</span></li>
+          <li>蛋白尿・乏尿もみられる</li>
+          <li>多くは3〜6か月で治癒。小児はほぼ完治、成人は20〜30%が慢性化</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">IgA腎症</h3>
+      <div class="study-card">
+        <p>糸球体性血尿や蛋白尿が持続的にみられ、糸球体にIgAの優位な沈着を認める腎疾患。<span class="em">無症状で健康診断の尿異常で発見</span>されることが多い。感冒時の肉眼的血尿でも発見される。</p>
+        <ul>
+          <li>確定診断：<span class="key">腎生検</span>（メサンギウム領域へのIgA沈着とメサンギウム細胞の増殖性変化）</li>
+          <li>診断後20年で<span class="warn">約40%が末期腎不全</span>に進行</li>
+          <li>治療：生活指導（禁煙、体重・運動量の調節）、食事療法（食塩制限、低蛋白食）、薬物療法（降圧薬、副腎皮質ステロイド）</li>
+          <li>慢性扁桃炎が原因の場合は扁桃摘出術を行うことがある</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">経皮的腎生検</h3>
+      <div class="study-card">
+        <ul>
+          <li>原因不明の蛋白尿・血尿・ネフローゼ症候群・急性腎障害などで実施</li>
+          <li>体位：<span class="em">腹臥位</span>（腎臓は後腹膜臓器のため背中側からアプローチ）</li>
+          <li>穿刺時：腎臓が動くと危険なため<span class="warn">呼吸を止める</span></li>
+          <li>検査後：<span class="warn">6〜24時間程度ベッド上安静</span>。血尿・穿刺部出血・腰痛などの観察</li>
+          <li>検査後4週間は重い荷物を持つことは控える</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ───── s04 ネフローゼ・腎不全 ───── -->
+    <div class="study-section" id="study-s04">
+      <h2 class="study-h2"><span class="icon">💉</span>ネフローゼ症候群・腎不全</h2>
+
+      <h3 class="study-h3">ネフローゼ症候群</h3>
+      <div class="study-card">
+        <p>糸球体係蹄壁の障害に伴う蛋白質漏出の亢進によって、<span class="warn">高蛋白尿・低アルブミン血症・浮腫・脂質異常症</span>を起こす症候群。</p>
+        <div class="point-box">
+          <div class="point-label">★ ネフローゼ症候群の診断基準（成人）</div>
+          <ul>
+            <li>① 蛋白尿：<span class="num">3.5g/日以上</span>が持続（<span class="warn">必須</span>）</li>
+            <li>② 低アルブミン血症：血清アルブミン値<span class="num">3.0g/dL以下</span>（<span class="warn">必須</span>）</li>
+            <li>③ 浮腫</li>
+            <li>④ 脂質異常症（高LDLコレステロール血症）</li>
+          </ul>
+          <p style="margin-top:8px;font-size:11px;color:var(--txd);">※ ①②が必須条件、③は必要条件ではないが重要な所見、④は必須ではない</p>
+        </div>
+        <ul>
+          <li>治療：保温・食事療法（食塩制限、低蛋白食）・感染症予防</li>
+          <li>薬物療法：副腎皮質ステロイドが中心。免疫抑制薬を併用することも</li>
+          <li>小児では<span class="em">約80%が微小変化群</span>でステロイドが奏効しやすい</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">急性腎障害（AKI）</h3>
+      <div class="study-card">
+        <p>数時間〜数週間で急激な腎機能低下を起こす状態。<span class="em">可逆性</span>のことが多い（慢性腎不全は不可逆性）。</p>
+        <table class="study-table">
+          <tr><th>分類</th><th>原因</th></tr>
+          <tr><td>腎前性</td><td>循環の異常：心不全、急性心筋梗塞、大量出血、熱傷、ショック</td></tr>
+          <tr><td>腎性</td><td>腎臓自体の異常：急性尿細管壊死（薬剤・造影剤）、急性糸球体腎炎</td></tr>
+          <tr><td>腎後性</td><td>尿路の異常：悪性腫瘍の骨盤腔内浸潤、前立腺肥大症、両側尿管結石</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">慢性腎臓病（CKD）/ 慢性腎不全（CRF）</h3>
+      <div class="study-card">
+        <p>腎臓の障害（蛋白尿など）や腎機能の悪化（GFR低下）が<span class="warn">3か月以上持続</span>する状態をCKDと呼ぶ。</p>
+        <p>CKDの重症度は、原因(C)・GFR区分(G1〜G5)・蛋白尿区分(A1〜A3)の3つからなる<span class="em">CGA分類</span>で評価。</p>
+        <table class="study-table">
+          <tr><th>ステージ</th><th>GFR (mL/分/1.73m²)</th><th>定義</th></tr>
+          <tr><td>G1</td><td>≧90</td><td>正常または高値</td></tr>
+          <tr><td>G2</td><td>60〜89</td><td>正常または軽度低下</td></tr>
+          <tr><td>G3a</td><td>45〜59</td><td>軽度〜中等度低下</td></tr>
+          <tr><td>G3b</td><td>30〜44</td><td>中等度〜高度低下</td></tr>
+          <tr><td>G4</td><td>15〜29</td><td>高度低下</td></tr>
+          <tr><td>G5</td><td>&lt;15</td><td>末期腎不全（ESKD）</td></tr>
+        </table>
+
+        <h4 style="font-size:13px;color:var(--ac);margin:14px 0 8px;">📊 ステージ別 リスクの可視化</h4>
+        <div class="ckd-stage-bar">
+          <div class="ckd-stage g1"><div class="ckd-stage-name">G1</div><div class="ckd-stage-num">≧90</div></div>
+          <div class="ckd-stage g2"><div class="ckd-stage-name">G2</div><div class="ckd-stage-num">60-89</div></div>
+          <div class="ckd-stage g3a"><div class="ckd-stage-name">G3a</div><div class="ckd-stage-num">45-59</div></div>
+          <div class="ckd-stage g3b"><div class="ckd-stage-name">G3b</div><div class="ckd-stage-num">30-44</div></div>
+          <div class="ckd-stage g4"><div class="ckd-stage-name">G4</div><div class="ckd-stage-num">15-29</div></div>
+          <div class="ckd-stage g5"><div class="ckd-stage-name">G5</div><div class="ckd-stage-num">＜15</div></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--txd);font-family:'DM Mono',monospace;margin-top:4px;padding:0 4px;">
+          <span>← 腎機能 良好</span>
+          <span>末期腎不全 →</span>
+        </div>
+        <div class="tip-box" style="margin-top:14px;">
+          <div class="tip-label">透析導入の目安</div>
+          <span class="em">G4（GFR 15〜29）</span>に至った時点で透析療法や腎移植について説明。<br>
+          <span class="em">G5（GFR ＜15）</span>になれば透析または腎移植を検討。
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-label">CKD進行に伴う症状</div>
+          浮腫・高血圧・うっ血性心不全・肺水腫・尿毒症・<span class="warn">高カリウム血症</span>・高リン血症・<span class="warn">低カルシウム血症</span>・代謝性アシドーシス・腎性貧血（エリスロポエチン産生低下）
+        </div>
+      </div>
+
+      <h3 class="study-h3">CKDの治療と看護</h3>
+      <div class="study-card">
+        <ul>
+          <li>食事療法の基本：<span class="key">食塩摂取制限</span>（3〜6g/日）、<span class="em">高カロリー・低蛋白食</span></li>
+          <li>進行に合わせてK・Pの制限、水分制限</li>
+          <li>降圧薬：ACE阻害薬・ARBを用いる（糸球体内圧低下による腎保護）</li>
+          <li>進行とともに<span class="warn">心血管疾患のリスク上昇</span></li>
+          <li>末期腎不全（ESKD）になれば<span class="em">透析療法または腎移植</span>が必要</li>
+        </ul>
+        <div class="point-box">
+          <div class="point-label">★ なぜ食塩制限が重要なのか</div>
+          <ul>
+            <li>腎機能低下 → Na排泄障害 → 体内総Na量↑</li>
+            <li>Naは水分を貯留させる → 血液中の水分↑ → 循環血漿量↑</li>
+            <li>循環血漿量↑ → 血圧上昇 → さらに腎機能悪化（悪循環）</li>
+            <li>食塩制限で総Na量を増やさないことが重要</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">糖尿病腎症</h3>
+      <div class="study-card">
+        <ul>
+          <li>糖尿病による細小血管（糸球体血管）障害により糸球体硬化が生じ腎機能が低下</li>
+          <li><span class="warn">透析導入原因の第1位（41.6%）</span></li>
+          <li>初期は<span class="em">微量アルブミン尿（試験紙法では蛋白尿－）</span>。微量アルブミン尿の測定が早期診断に有用</li>
+          <li>進行は<span class="warn">不可逆性</span>。早期発見・早期治療が重要</li>
+          <li>治療：血糖コントロール（HbA1c 7.0%未満）と血圧コントロール（130/80mmHg未満）</li>
+          <li>降圧薬：ACE阻害薬・ARB（腎保護効果）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ───── s05 透析 ───── -->
+    <div class="study-section" id="study-s05">
+      <h2 class="study-h2"><span class="icon">⚙️</span>透析療法</h2>
+
+      <h3 class="study-h3">透析療法の基本</h3>
+      <div class="study-card">
+        <p>透析の目的：<span class="key">①除水 ②電解質バランスの是正 ③尿毒症物質の除去</span>。これにより、過剰水分による高血圧・肺水腫の改善、高カリウム血症や代謝性アシドーシスの改善、尿毒症症状の改善が期待される。</p>
+        <p>透析導入の指標：<span class="em">糸球体濾過量（GFR）</span>。全身状態・栄養状態を総合的に評価。</p>
+        <p>透析導入原因疾患（令和4年末）：</p>
+        <ul>
+          <li>1位：<span class="warn">糖尿病腎症</span>（38.7%）</li>
+          <li>2位：腎硬化症（18.7%）</li>
+          <li>3位：慢性糸球体腎炎（14.0%）</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">血液透析（HD）と腹膜透析（CAPD）の比較</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th></th><th>血液透析（HD）</th><th>腹膜透析（CAPD）</th></tr>
+          <tr><td>体液量変動</td><td>大きい</td><td>小さい</td></tr>
+          <tr><td>蛋白質喪失</td><td>少ない</td><td>多い</td></tr>
+          <tr><td>食事制限</td><td>厳しい（食塩・P・K）</td><td>緩やか（食塩・P・エネルギー）</td></tr>
+          <tr><td>方法</td><td>シャント造設</td><td>腹膜カテーテル挿入</td></tr>
+          <tr><td>治療形態</td><td>通院</td><td>在宅</td></tr>
+          <tr><td>通院</td><td>週2〜3回</td><td>月1〜2回</td></tr>
+          <tr><td>所要時間</td><td>1回3〜5時間</td><td>1回20〜30分</td></tr>
+          <tr><td>頻度</td><td>週2〜3回</td><td>1日3〜5回</td></tr>
+          <tr><td>合併症</td><td>不均衡症候群、低血圧、不整脈、筋けいれん</td><td>腹膜炎、カテーテル出口部感染、被囊性腹膜硬化症</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">血液透析（HD）</h3>
+      <div class="study-card">
+        <ul>
+          <li>透析膜を通して血中の不要な物質を除去</li>
+          <li>前腕などの血管から脱血→ダイアライザー（透析器）で浄化→返血</li>
+          <li>1回3〜5時間、週2〜3回</li>
+          <li>バスキュラーアクセス：主に<span class="em">内シャント</span>（橈骨動脈と橈側皮静脈を吻合）</li>
+          <li>抗凝固薬（ヘパリンなど）使用 → 透析後は出血徴候に注意</li>
+          <li>透析中は<span class="warn">シャント肢での採血・血圧測定は禁忌</span></li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">不均衡症候群</div>
+          血液透析の合併症の1つで、初回導入時に多い。透析後半〜終了直後に頭痛・悪心・嘔吐・痙攣などが出現する。原因は、血液中より脳脊髄液中の尿素除去が遅れるため、血液と脳脊髄液の浸透圧差により脳浮腫が起こることによる。
+        </div>
+      </div>
+
+      <h3 class="study-h3">CAPD（持続携行式腹膜透析）</h3>
+      <div class="study-card">
+        <ul>
+          <li>腹腔内に透析液を注入し、腹膜を透析膜として用いる</li>
+          <li>1日3〜5回、自分で透析液を交換</li>
+          <li>導入には<span class="em">自己管理</span>ができ、無菌的な手技操作が行えること、またはサポートできる家族がいることが必要</li>
+          <li>体外循環を行わないため<span class="key">心血管系の負荷が小さい</span></li>
+          <li>残存している腎機能が保持され、尿量も保たれやすい</li>
+          <li>主要な合併症：<span class="warn">腹膜炎</span>（透析中止の原因となるため要注意）</li>
+        </ul>
+        <div class="point-box">
+          <div class="point-label">★ 腹膜炎の早期発見ポイント</div>
+          <ul>
+            <li><span class="em">腹痛</span>（典型的症状）</li>
+            <li><span class="em">透析液の排液のにごり</span>（混濁）</li>
+            <li>発熱</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s06 腎移植 ───── -->
+    <div class="study-section" id="study-s06">
+      <h2 class="study-h2"><span class="icon">🔄</span>腎移植</h2>
+
+      <h3 class="study-h3">生体腎移植</h3>
+      <div class="study-card">
+        <ul>
+          <li>原則、自分の腎臓は残したまま提供された腎臓を<span class="em">骨盤腔内</span>に入れ、新たに膀胱につなぐ</li>
+          <li>手術直後から尿量が増えてくるのが順調な経過</li>
+          <li><span class="warn">術直後の最重要観察項目は尿量</span></li>
+          <li>術後1か月で腎機能が安定したら、月1回程度の通院</li>
+          <li>移植腎の生着によって厳密な蛋白質・水分制限は解除</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">免疫抑制薬の管理</h3>
+      <div class="study-card">
+        <p>移植後の拒絶反応を防ぐためタクロリムスなどの免疫抑制薬を生涯服用する。<span class="warn">易感染状態</span>となるため日常生活に注意が必要。</p>
+        <div class="warn-box">
+          <div class="warn-label">タクロリムス使用時の注意</div>
+          <ul style="margin:6px 0 0 18px;">
+            <li><span class="warn">グレープフルーツとの併用注意</span>：代謝が阻害され血中濃度が上昇</li>
+            <li><span class="warn">生ワクチン禁忌</span>：風疹・麻疹・水痘・BCGなど（発症の危険）</li>
+            <li>2回分まとめての服用は禁忌（血中濃度上昇により腎障害などの副作用）</li>
+            <li>飼い犬など感染リスクとなり得るペットは半年程度別の場所で預かる提案も</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">退院後の生活</h3>
+      <div class="study-card">
+        <ul>
+          <li>体重管理は継続が必要：合併症による腎障害（浮腫・尿量減少）の早期発見に有効</li>
+          <li>感染予防：人混みを避ける、マスク着用、手洗い・うがい</li>
+          <li>定期的な受診で拒絶反応・感染症のチェック</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ───── s07 膀胱・膀胱鏡検査 ───── -->
+    <div class="study-section" id="study-s07">
+      <h2 class="study-h2"><span class="icon">🔍</span>膀胱・膀胱鏡検査</h2>
+
+      <h3 class="study-h3">膀胱の解剖</h3>
+      <div class="study-card">
+        <ul>
+          <li>位置：恥骨結合の後ろ、<span class="em">直腸の前方</span>（女性では子宮も間に位置）</li>
+          <li>粘膜上皮：<span class="key">移行上皮</span>（伸縮性に富む）</li>
+          <li>筋層：<span class="num">3層構造</span>（内縦走筋・中輪状筋・外縦走筋）</li>
+          <li>漿膜（腹膜）：上面と後面のみ覆う</li>
+          <li>容量：平均300〜500mL、150〜200mLで尿意を感じる</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">膀胱鏡検査</h3>
+      <div class="study-card">
+        <p>経尿道的に膀胱に挿入し、膀胱および尿道の内腔を観察する内視鏡検査。膀胱癌の診断、血尿（特に無症候性肉眼的血尿）や排尿障害の原因精査、尿管ステントの逆行性挿入・留置に用いる。</p>
+        <ul>
+          <li>体位：<span class="em">砕石位</span></li>
+          <li>麻酔：男性は<span class="key">局所麻酔</span>、女性は無麻酔</li>
+          <li><span class="warn">無菌操作</span>で行う</li>
+          <li>外来でも施行可能（入院は不要）</li>
+          <li>前日の食事制限はない</li>
+          <li>検査前は排尿を済ませて膀胱内を空にする</li>
+          <li>膀胱には<span class="em">減菌水または生理食塩水</span>を注入しつつ観察（CO₂は不適）</li>
+          <li>検査後：<span class="em">水分摂取を促す</span>（尿路感染予防）、排尿時痛・出血の有無に注意</li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">禁忌</div>
+          急性単純性膀胱炎や急性前立腺炎などの<span class="warn">尿路感染がある場合</span>は、感染症状の増悪が生じることがあるため原則的に行わない。
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s08 排尿・尿失禁 ───── -->
+    <div class="study-section" id="study-s08">
+      <h2 class="study-h2"><span class="icon">🚽</span>排尿機序と尿失禁</h2>
+
+      <h3 class="study-h3">蓄尿と排尿のメカニズム</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th></th><th>蓄尿時</th><th>排尿時</th></tr>
+          <tr><td>排尿筋（膀胱平滑筋）</td><td>弛緩</td><td><span class="warn">収縮</span></td></tr>
+          <tr><td>内尿道括約筋</td><td>収縮</td><td>弛緩</td></tr>
+          <tr><td>外尿道括約筋</td><td>収縮</td><td>弛緩</td></tr>
+          <tr><td>主な神経</td><td>下腹神経（交感）<br>陰部神経（体性）</td><td><span class="em">骨盤内臓神経（副交感）</span></td></tr>
+        </table>
+
+        <h4 style="font-size:13px;color:var(--ac);margin:14px 0 8px;">📊 蓄尿期 vs 排尿期（対比図）</h4>
+        <div class="bladder-toggle">
+          <div class="bladder-state storage">
+            <h4>💧 蓄尿期（尿をためる）</h4>
+            <div class="bladder-row">
+              <span class="br-name">排尿筋</span>
+              <span class="br-state br-relax">弛緩</span>
+            </div>
+            <div class="bladder-row">
+              <span class="br-name">内尿道括約筋</span>
+              <span class="br-state br-contract">収縮</span>
+            </div>
+            <div class="bladder-row">
+              <span class="br-name">外尿道括約筋</span>
+              <span class="br-state br-contract">収縮</span>
+            </div>
+            <div class="bladder-nerve">下腹神経（交感）+陰部神経</div>
+          </div>
+          <div class="bladder-state voiding">
+            <h4>🚽 排尿期（尿を出す）</h4>
+            <div class="bladder-row">
+              <span class="br-name">排尿筋</span>
+              <span class="br-state br-contract">収縮</span>
+            </div>
+            <div class="bladder-row">
+              <span class="br-name">内尿道括約筋</span>
+              <span class="br-state br-relax">弛緩</span>
+            </div>
+            <div class="bladder-row">
+              <span class="br-name">外尿道括約筋</span>
+              <span class="br-state br-relax">弛緩</span>
+            </div>
+            <div class="bladder-nerve">骨盤内臓神経（副交感）</div>
+          </div>
+        </div>
+        <div class="tip-box">
+          <div class="tip-label">覚え方</div>
+          <span class="em">「蓄尿は緊張、排尿はリラックス」</span><br>
+          蓄尿時 → 交感神経優位（がんばってためる）→ 括約筋は収縮、排尿筋は弛緩<br>
+          排尿時 → 副交感神経優位（リラックスして出す）→ 括約筋は弛緩、排尿筋は収縮
+        </div>
+
+        <div class="point-box">
+          <div class="point-label">★ 排尿の機序の流れ</div>
+          <ul>
+            <li>① 膀胱に尿が充満 → <span class="em">膀胱壁が伸展</span>（最初の刺激）</li>
+            <li>② 伸展刺激が大脳に伝わる</li>
+            <li>③ 尿意として知覚される（150〜200mL）</li>
+            <li>④ 大脳・橋の排尿中枢から排尿の命令</li>
+            <li>⑤ 排尿筋が収縮、内・外尿道括約筋が弛緩 → 排尿</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">下部尿路症状の3分類</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>分類</th><th>症状例</th></tr>
+          <tr><td><span class="em">蓄尿症状</span></td><td>頻尿、尿意切迫感、切迫性尿失禁、腹圧性尿失禁、夜尿症</td></tr>
+          <tr><td><span class="em">排尿症状</span></td><td>尿勢の低下、排尿遅延、尿線途絶、腹圧排尿</td></tr>
+          <tr><td><span class="em">排尿後症状</span></td><td>残尿感、排尿後滴下</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">排尿の異常</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>用語</th><th>定義</th><th>主な原因</th></tr>
+          <tr><td>乏尿</td><td>400mL/日以下</td><td>腎前性（ショック・脱水）、腎性、腎後性の急性腎不全</td></tr>
+          <tr><td>無尿</td><td>100mL/日以下</td><td>腎性、腎後性（両側尿路閉塞）</td></tr>
+          <tr><td>尿閉</td><td>排出不能</td><td>下部尿路の狭窄・閉塞、神経障害</td></tr>
+          <tr><td>多尿</td><td>3,000mL/日以上</td><td>尿崩症、糖尿病、心因性多尿症</td></tr>
+          <tr><td>頻尿</td><td>日中8回以上</td><td>前立腺肥大、過活動膀胱、膀胱炎、神経疾患</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">尿失禁の分類</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>種類</th><th>病態</th><th>主な原因</th><th>対応</th></tr>
+          <tr><td>腹圧性</td><td>咳・くしゃみで漏出</td><td>妊娠・出産、肥満、加齢（骨盤底筋群の弛緩）</td><td><span class="key">骨盤底筋群訓練</span></td></tr>
+          <tr><td>切迫性</td><td>急な尿意で間に合わない</td><td>過活動膀胱、神経因性膀胱、細菌性膀胱炎</td><td>膀胱訓練、抗コリン薬</td></tr>
+          <tr><td>溢流性</td><td>残尿が大量となり溢れ出る</td><td>前立腺肥大、神経因性膀胱、低活動膀胱</td><td>原疾患治療＋<span class="key">間欠的自己導尿</span></td></tr>
+          <tr><td>反射性</td><td>尿意なく排尿筋の不随意収縮で流出</td><td>橋〜仙髄より上位の脊髄障害</td><td>抗コリン薬＋<span class="key">間欠的自己導尿</span></td></tr>
+          <tr><td>機能性</td><td>運動・認知障害でトイレに間に合わない</td><td>認知症、ADL障害</td><td>排尿時間管理、トイレ誘導、環境整備</td></tr>
+        </table>
+
+        <h4 style="font-size:13px;color:var(--ac);margin:14px 0 8px;">📊 尿失禁の5タイプ（カード一覧）</h4>
+        <div class="inc-grid">
+          <div class="inc-card stress">
+            <h4>💧 腹圧性</h4>
+            <div class="inc-cause">咳・くしゃみ・運動などで腹圧が上昇したときに少量の尿が漏れる。<br><span style="color:var(--ac4);">妊娠・出産・肥満・加齢</span></div>
+            <div class="inc-care">対応：骨盤底筋群訓練</div>
+          </div>
+          <div class="inc-card urge">
+            <h4>⚡ 切迫性</h4>
+            <div class="inc-cause">急な強い尿意でトイレに間に合わない。<br><span style="color:var(--ac2);">過活動膀胱・神経因性膀胱・膀胱炎</span></div>
+            <div class="inc-care">対応：膀胱訓練・抗コリン薬</div>
+          </div>
+          <div class="inc-card overflow">
+            <h4>🌊 溢流性</h4>
+            <div class="inc-cause">膀胱に大量の尿が溜まり、溢れて少しずつ漏れる。<br><span style="color:var(--ac5);">前立腺肥大・神経因性膀胱</span></div>
+            <div class="inc-care">対応：原疾患治療＋間欠的自己導尿</div>
+          </div>
+          <div class="inc-card reflex">
+            <h4>🔄 反射性</h4>
+            <div class="inc-cause">膀胱に一定量の尿が溜まると反射で漏れる。尿意はない。<br><span style="color:var(--ac3);">脊髄損傷など神経障害</span></div>
+            <div class="inc-care">対応：間欠的自己導尿</div>
+          </div>
+          <div class="inc-card functional">
+            <h4>🚶 機能性</h4>
+            <div class="inc-cause">排尿機能は正常だがトイレに間に合わない。<br><span style="color:var(--ac6);">認知症・ADL障害</span></div>
+            <div class="inc-care">対応：環境整備・トイレ誘導</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="study-h3">過活動膀胱</h3>
+      <div class="study-card">
+        <ul>
+          <li><span class="key">尿意切迫感</span>を主症状とし、通常は頻尿、ときに切迫性尿失禁を伴う症候群</li>
+          <li>原因：神経因性（中枢の排尿制御機能の異常）と非神経因性（膀胱の機能的変化）に分類</li>
+          <li>有病率は加齢とともに増加し、80歳以上で最も高くなる</li>
+          <li>治療：行動療法（膀胱訓練、生活指導、骨盤底筋群の訓練）、薬物療法（抗コリン薬、β刺激薬）</li>
+          <li>水分制限は脱水の危険があり<span class="warn">行わない</span></li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">尿閉</h3>
+      <div class="study-card">
+        <p>尿が膀胱内に存在するにもかかわらず、排出不能な状態。下部尿路の狭窄・閉塞（前立腺肥大症、結石の嵌頓など）や、排尿筋を支配する末梢神経の障害、あるいは中枢神経障害でみられる。</p>
+        <p><span class="warn">緊急の処置（導尿）が必要</span>。ただし急激な排尿は低血圧の原因となるため、ゆっくり排尿させる。</p>
+      </div>
+    </div>
+
+    <!-- ───── s09 尿路結石 ───── -->
+    <div class="study-section" id="study-s09">
+      <h2 class="study-h2"><span class="icon">🪨</span>尿路結石症</h2>
+
+      <h3 class="study-h3">尿路結石症の概要</h3>
+      <div class="study-card">
+        <ul>
+          <li>尿成分の一部が析出・結晶化し、結石として出現した状態</li>
+          <li>結石形成促進因子：尿pH異常、尿流停滞（前立腺肥大症、神経因性膀胱）、慢性尿路感染症、尿中結石成分の増加、脱水</li>
+          <li>上部尿路結石の多くは<span class="em">片側性</span>で、青年・壮年期の男性に好発</li>
+          <li><span class="warn">再発率が高い</span>ため、原因に対する治療と生活指導が重要</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">症状と検査</h3>
+      <div class="study-card">
+        <ul>
+          <li>上部尿路結石：腎疝痛・側腹部から下腹部への放散痛、血尿、悪心・嘔吐の腹膜刺激症状</li>
+          <li>結石が尿管膀胱移行部に達すると、頻尿・残尿感を自覚することがある</li>
+          <li>検査：腎尿管膀胱部単純撮影（KUB）、静脈性尿路造影（IVU、DIU）、超音波検査、CT</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">治療</h3>
+      <div class="study-card">
+        <ul>
+          <li>疝痛発作：NSAIDsなどの鎮痛・鎮痙薬で疼痛緩和</li>
+          <li>保存療法：<span class="key">2L/日以上</span>の尿量となる水分摂取・適度な運動を勧める</li>
+          <li>砕石術：<span class="em">体外衝撃波結石破砕術（ESWL）</span>、経皮的腎結石破砕術（PNL）、経尿道的尿管結石破砕術（TUL）</li>
+          <li>結石溶解薬（種類により異なる）：シュウ酸カルシウム結石・尿酸結石→クエン酸製剤、シスチン結石→チオプロニン</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">生活指導</h3>
+      <div class="study-card">
+        <ul>
+          <li>水分摂取：<span class="warn">1日2L程度</span>、結石を尿と一緒に体外に排出するため</li>
+          <li>適度な運動を勧める（過度な安静は骨脱灰→高Ca尿症の要因に）</li>
+          <li>結石成分に合わせた食生活の改善</li>
+          <li>シュウ酸を多く含む食品を控える：ほうれん草、たけのこ、さつまいも、コーヒー、紅茶、緑茶</li>
+          <li>動物性蛋白質（プリン体多く尿酸値↑）、アルコールは控える</li>
+          <li>自然排石があった場合は回収し、医師や看護師に報告（再発予防に有用）</li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">高尿酸血症・痛風</div>
+          <ul style="margin:6px 0 0 18px;">
+            <li>痛風結節は無痛性</li>
+            <li>痛風発作はアルコールで誘発される（プリン体・尿酸排泄低下）</li>
+            <li>急性期に尿酸降下薬は投与しない（発作悪化）</li>
+            <li>治療目標：血清尿酸値6.0mg/dL以下</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s10 膀胱癌 ───── -->
+    <div class="study-section" id="study-s10">
+      <h2 class="study-h2"><span class="icon">⚠️</span>膀胱癌・尿路ストーマ</h2>
+
+      <h3 class="study-h3">膀胱癌</h3>
+      <div class="study-card">
+        <ul>
+          <li>大部分は悪性腫瘍であり、ほとんどが<span class="em">尿路上皮癌（移行上皮癌）</span></li>
+          <li>50〜70歳代の男性に好発（男女比3〜5:1）</li>
+          <li>原因：<span class="warn">喫煙、芳香族アミン化合物</span>（染料工場などの職業性）</li>
+          <li>症状：<span class="key">無症候性肉眼的血尿</span>（80%）、ときに膀胱炎症状（膀胱刺激症状）</li>
+          <li>確定診断：<span class="em">経尿道的膀胱腫瘍切除術（TURBT）</span>による組織生検</li>
+          <li>表在性癌：TURBTや膀胱内注入療法（BCG、ドキソルビシンなど）</li>
+          <li>浸潤癌：根治的膀胱全摘除術＋骨盤リンパ節郭清＋尿路変向術</li>
+          <li><span class="warn">再発しやすい</span>ため、術後の定期的な検査が必要</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">尿路ストーマ（ウロストミー）</h3>
+      <div class="study-card">
+        <p>膀胱全摘除術により尿の正常な排泄経路が欠損する場合などに、人工的に排尿経路をつくることを<span class="em">尿路変向術</span>という。代表的な術式は<span class="key">回腸導管造設術</span>。</p>
+        <p>回腸導管造設術：小腸（回腸）の一部を利用して尿管をつなぎ、人工肛門のように右下腹部皮膚に固定する。</p>
+        <ul>
+          <li>ストーマの色：正常時は<span class="em">桃色〜鮮紅色</span></li>
+          <li>白色や淡黄色：血行障害</li>
+          <li>灰色〜黒色：壊死の可能性</li>
+          <li>尿路ストーマには括約筋がなく、尿が絶えず流れているため<span class="warn">パウチ（集尿バッグ）を装着</span></li>
+          <li>尿意は消失する</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">尿路ストーマと日常生活</h3>
+      <div class="study-card">
+        <ul>
+          <li>入浴：装具をつけたまま入浴可能（尿路ストーマでは尿が絶えず流れているため）</li>
+          <li>食事：消化器ストーマではないため食事制限は基本不要</li>
+          <li>水分摂取：尿路感染予防・腎機能維持のため<span class="warn">1日1,500〜2,000mL</span>を十分に摂取</li>
+          <li>外出・旅行時：装具の交換用物品一式を<span class="em">2回分程度</span>持参</li>
+          <li>術前看護：ボディイメージの変容や性機能障害について十分に説明</li>
+          <li>術後合併症：尿管の吻合不全・吻合部狭窄・腎盂腎炎</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ───── s11 男性生殖器・前立腺 ───── -->
+    <div class="study-section" id="study-s11">
+      <h2 class="study-h2"><span class="icon">♂️</span>男性生殖器・前立腺疾患</h2>
+
+      <h3 class="study-h3">男性生殖器の解剖</h3>
+      <div class="study-card">
+        <ul>
+          <li>男性生殖器：<span class="em">精巣（睾丸）・精巣上体（副睾丸）・前立腺・陰茎</span>など</li>
+          <li>精巣：白膜という結合組織に包まれ、<span class="em">陰嚢</span>という袋の中に収まる</li>
+          <li>精細管で精子が作られ、間質で男性ホルモン（<span class="key">テストステロン</span>）が分泌される</li>
+          <li>射精時の精液量：1回2〜4mL、1mLあたり3,500〜15,000万個の精子</li>
+          <li>勃起：<span class="em">副交感神経</span>支配　射精：<span class="em">交感神経</span>支配</li>
+          <li>右精巣静脈は下大静脈に流入、左精巣静脈は左腎静脈に流入</li>
+        </ul>
+        <div class="point-box">
+          <div class="point-label">★ 精子の通る経路</div>
+          <ul>
+            <li>精巣 → 精巣上体 → 精管 → 射精管 → <span class="warn">尿道</span>（前立腺内で合流）→ 体外</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">前立腺の解剖</h3>
+      <div class="study-card">
+        <ul>
+          <li>前立腺は<span class="em">クルミ大</span>で、後部尿道を取り囲んでいる</li>
+          <li>位置：膀胱の下、直腸の前面、尿道を取り囲む</li>
+          <li>形：栗の実のような腺組織</li>
+          <li>前立腺液（精液の成分の一部）を分泌</li>
+          <li>男の直腸指診：腹側に栗の実のような臓器を触知できる</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">前立腺肥大症（BPH）</h3>
+      <div class="study-card">
+        <p>尿道周囲腺（前立腺の<span class="em">移行領域</span>）の加齢に伴う腺腫様の過形成であり、排尿障害を起こす疾患。高齢男性にみられ、原因として性ホルモンが強く関与している。</p>
+        <p>症状の経過：</p>
+        <ul>
+          <li>第1期（膀胱刺激期）：頻尿（特に夜間頻尿）、遅延性排尿、尿線細小</li>
+          <li>第2期（残尿発生期）：排尿困難、残尿の発生</li>
+          <li>第3期（慢性尿閉期）：溢流性尿失禁、急性尿閉、慢性尿閉により<span class="warn">水腎症・水尿管症</span>を合併、腎後性腎不全に至る</li>
+        </ul>
+        <p>検査：</p>
+        <ul>
+          <li>直腸診：表面が平滑で弾力性のある腫大した前立腺を触知（前立腺癌では石のような硬さ）</li>
+          <li>経直腸的超音波検査、尿流量測定、残尿測定</li>
+        </ul>
+        <p>治療：</p>
+        <ul>
+          <li>薬物療法：<span class="key">α₁遮断薬</span>、5α還元酵素阻害薬、ホスホジエステラーゼ5阻害薬</li>
+          <li>手術療法：<span class="em">経尿道的前立腺切除術（TURP）</span>、ホルミウムレーザー前立腺核出術（HoLEP）</li>
+        </ul>
+      </div>
+
+      <h3 class="study-h3">TURP術後の看護</h3>
+      <div class="study-card">
+        <ul>
+          <li>術後合併症：<span class="warn">逆行性射精、尿道狭窄</span></li>
+          <li>後出血の有無に注意</li>
+          <li>術後は尿路刺激症状（強い尿意等）やカテーテルの違和感がある（鎮痛薬で緩和）</li>
+          <li>創部からの出血が膀胱内で固まらないようにトリプルルーメンカテーテルで膀胱灌流を行うことがある</li>
+          <li>カテーテル挿入中は<span class="warn">腹圧をかけることは避ける</span>（出血の誘因）、排便コントロール</li>
+          <li>カテーテル抜去後・退院後も、再出血のリスクを鑑みて排便時の強いいきみや重い物の挙上は控える</li>
+          <li>カテーテル抜去後は尿量を保つため<span class="em">水分摂取を促す</span></li>
+          <li>術後尿失禁に対しては<span class="key">骨盤底筋訓練</span>を指導</li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">TUR反応</div>
+          灌流液が大量に静脈内に吸収されて血中Na濃度が下がることにより起こる一種のショック状態。症状（血圧低下、悪心・嘔吐、頭痛、生あくび等）を見逃さないようにする。近年は灌流液に生理食塩水を用いることができるため、頻度が減っている。
+        </div>
+      </div>
+
+      <h3 class="study-h3">前立腺癌</h3>
+      <div class="study-card">
+        <ul>
+          <li>前立腺の<span class="em">辺縁領域</span>に好発する上皮性悪性腫瘍で、95%以上が腺癌</li>
+          <li>50歳以上に多く、近年日本でも増加傾向（部位別罹患者数1位）</li>
+          <li>初期は無症状。<span class="warn">PSA（前立腺特異抗原）</span>検査で早期発見可能</li>
+          <li>進行すると排尿障害（前立腺肥大症と同様の症状）</li>
+          <li>転移：<span class="warn">骨転移が多い</span>（多くは造骨性）、次いでリンパ節転移</li>
+          <li>骨転移には腰椎・骨盤・大腿骨頚部などが多く、強い疼痛を生じる（体性痛）</li>
+        </ul>
+        <p>検査：</p>
+        <ul>
+          <li>腫瘍マーカー：<span class="key">PSA上昇</span>（4ng/mL以上で疑い、10ng/mL以上で確定診断的）</li>
+          <li>直腸診：石のような硬さの前立腺を触知</li>
+          <li>前立腺針生検により確定診断</li>
+        </ul>
+        <p>治療：</p>
+        <ul>
+          <li>手術療法：前立腺全摘除術（合併症：尿失禁、勃起障害、性機能障害）</li>
+          <li>放射線療法：根治療法（外照射、組織内照射）</li>
+          <li>ホルモン療法：<span class="em">抗アンドロゲン薬</span>（5α還元酵素阻害薬など）、LH-RHアナログ製剤</li>
+          <li>ホルモン療法の副作用：更年期障害様症状、女性化乳房</li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">注意</div>
+          前立腺癌の発生には男性ホルモンの関与が指摘されており、テストステロン補充療法は<span class="warn">行わない</span>。
+        </div>
+      </div>
+    </div>
+
+    <!-- ───── s12 検査・全般 ───── -->
+    <div class="study-section" id="study-s12">
+      <h2 class="study-h2"><span class="icon">🏥</span>腎・泌尿器の検査・全般</h2>
+
+      <h3 class="study-h3">腎機能検査</h3>
+      <div class="study-card">
+        <table class="study-table">
+          <tr><th>機能</th><th>検査</th></tr>
+          <tr><td>腎血漿流量（RPF）</td><td>パラアミノ馬尿酸（PAH）クリアランス、PSP排泄試験15分値、レノグラム</td></tr>
+          <tr><td>糸球体濾過量（GFR）</td><td><span class="em">Ccr</span>（クレアチニンクリアランス）、イヌリンクリアランス</td></tr>
+          <tr><td>近位尿細管機能</td><td>尿中β2-ミクログロブリン排泄量、NAG排泄量、PSP排泄試験120分値</td></tr>
+          <tr><td>遠位尿細管・集合管機能</td><td>フィッシュバーグ濃縮試験、塩化アンモニウム負荷試験</td></tr>
+        </table>
+      </div>
+
+      <h3 class="study-h3">腎・泌尿器のエックス線撮影</h3>
+      <div class="study-card">
+        <ul>
+          <li><span class="em">KUB</span>（腎尿管膀胱部単純撮影）：腎臓の大きさや形、尿路結石の有無、消化管のガス像が観察できる</li>
+          <li><span class="em">IVU</span>（静脈性尿路造影）/ <span class="em">DIU</span>（点滴静注尿路造影）：造影剤を用いて腎盂・腎杯・尿管・膀胱を造影</li>
+          <li>RP（逆行性腎盂造影）</li>
+        </ul>
+        <div class="warn-box">
+          <div class="warn-label">造影検査の注意</div>
+          <ul style="margin:6px 0 0 18px;">
+            <li>IVU・DIUはヨード造影剤を用いるため<span class="warn">アナフィラキシーショック</span>を起こすことがある（要問診）</li>
+            <li>ヨード過敏症の患者では<span class="warn">禁忌</span>、喘息などのアレルギーをもつ患者には原則禁忌</li>
+            <li>腎機能低下時は造影剤使用で腎機能低下を助長するため原則禁忌</li>
+            <li>糞便塊やガスがあると良好な像が得られないため、検査前3〜4時間は<span class="key">禁食</span>（飲水は可）</li>
+            <li>検査終了後は<span class="em">水分を十分に摂る</span>よう指導</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="study-h3">水腎症・水尿管症</h3>
+      <div class="study-card">
+        <p>何らかの原因により尿路が閉塞して尿流出が妨げられた結果、尿路が拡張した病態。腎盂・腎杯が拡張した場合を水腎症、尿管が拡張した場合を水尿管症という。</p>
+        <p>原因：</p>
+        <ul>
+          <li>前立腺癌、尿管癌、膀胱癌などの腫瘍</li>
+          <li>尿路結石</li>
+          <li><span class="em">神経因性膀胱</span>（尿閉）</li>
+          <li>先天的な尿路狭窄</li>
+        </ul>
+        <p>進行すると患側の腎機能が廃絶し、片腎や両側の上部尿路閉塞の場合、<span class="warn">腎後性腎不全</span>へと移行するため、腎瘻造設術、ダブルJステント留置などの速やかな対処が必要。</p>
+      </div>
+
+      <h3 class="study-h3">浮腫の身体所見</h3>
+      <div class="study-card">
+        <ul>
+          <li>腎疾患では<span class="em">圧痕性浮腫</span>がみられる</li>
+          <li>脛骨前面を指で圧迫して指の痕が残るかどうかで判断</li>
+          <li>浮腫が悪化すると急激な体重増加がみられる</li>
+          <li>腎疾患では高血圧になることが多いため、血圧は必ず測定する</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ START : 演習開始選択 ═══════════════ -->
+<div id="page-start" class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>📝 演習を始める</h1>
+      <p>出題方法を選択してください。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span style="color:var(--ac);">●</span> 出題モードを選ぶ</div>
+      <div class="start-options">
+        <button class="start-btn-big primary" onclick="startQuizAll()">
+          🔀 全問題（ランダム）<br><span style="font-size:11px;font-weight:400;opacity:.8;">全 <span id="total-q-count">0</span> 問からランダム出題</span>
+        </button>
+        <button class="start-btn-big" onclick="toggleUnitSelect()">
+          📚 単元を選んで演習<br><span style="font-size:11px;font-weight:400;opacity:.6;">特定の単元に絞って練習</span>
+        </button>
+      </div>
+
+      <div id="unit-select-area" style="display:none;margin-top:14px;">
+        <div style="font-size:12px;color:var(--txd);margin-bottom:8px;">単元を選択してください（複数可）：</div>
+        <div class="unit-select-list" id="unit-select-list"></div>
+        <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end;">
+          <button class="btn btn-secondary" onclick="toggleUnitSelect()">キャンセル</button>
+          <button class="btn btn-primary" onclick="startQuizSelected()" id="start-selected-btn" disabled>選択した単元で開始</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ QUIZ : 問題演習 ═══════════════ -->
+<div id="page-quiz" class="page">
+  <div class="container">
+    <div class="quiz-header">
+      <div>
+        <div class="quiz-title" id="quiz-title">演習中</div>
+        <div class="quiz-meta" id="quiz-meta">Q 1 / 0</div>
+      </div>
+      <button class="btn btn-secondary" onclick="confirmQuit()">✕ 中断</button>
+    </div>
+    <div class="qprogbar"><div class="qprogfill" id="quiz-prog" style="width:0%"></div></div>
+
+    <div id="quiz-area"></div>
+
+    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+      <button class="btn btn-primary" id="q-next-btn" onclick="nextQuestion()" style="display:none;">次の問題 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ RESULT : 結果 ═══════════════ -->
+<div id="page-result" class="page">
+  <div class="container">
+    <div class="card result-card">
+      <div class="result-score" id="result-score">0%</div>
+      <div class="result-msg" id="result-msg">お疲れさまでした</div>
+
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-n green" id="result-correct">0</div><div class="stat-l">正解</div></div>
+        <div class="stat-box"><div class="stat-n red" id="result-wrong">0</div><div class="stat-l">不正解</div></div>
+        <div class="stat-box"><div class="stat-n blue" id="result-total">0</div><div class="stat-l">総数</div></div>
+      </div>
+
+      <div id="result-wrong-summary" style="text-align:left;margin:18px 0;"></div>
+
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-secondary" onclick="nav('home')">🏠 単元一覧へ</button>
+        <button class="btn btn-review" onclick="nav('review')" id="result-review-btn" style="display:none;">🔁 復習リストへ</button>
+        <button class="btn btn-primary" onclick="nav('start')">📝 もう一度演習</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FLASH : フラッシュカード ═══════════════ -->
+<div id="page-flash" class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>🃏 フラッシュカード</h1>
+      <p>キーワードと要点を素早く確認。カードをクリック/タップしてめくれます。</p>
+    </div>
+
+    <div class="fc-unit-filter" id="fc-unit-filter">
+      <button class="fc-filter-btn on" onclick="filterFC('all')">全単元</button>
+    </div>
+
+    <!-- 自動再生コントロール -->
+    <div class="fc-auto-controls">
+      <div class="fc-auto-label">⏱ 自動再生</div>
+      <div class="fc-auto-btns">
+        <button class="fc-speed-btn" data-speed="0" onclick="setFCSpeed(0)">手動</button>
+        <button class="fc-speed-btn" data-speed="2" onclick="setFCSpeed(2)">2秒</button>
+        <button class="fc-speed-btn" data-speed="3" onclick="setFCSpeed(3)">3秒</button>
+        <button class="fc-speed-btn" data-speed="4" onclick="setFCSpeed(4)">4秒</button>
+      </div>
+      <button class="fc-play-btn" id="fc-play-btn" onclick="toggleAutoPlay()">▶ 再生</button>
+    </div>
+
+    <div class="fc-area">
+      <div style="margin-bottom:12px;color:var(--txd);font-size:12px;">📱 カードをクリック/タップしてめくる</div>
+      <div class="fc-wrap" id="fc-card" onclick="flipFC()">
+        <div class="fc-inner">
+          <div class="fc-face fc-front">
+            <div class="fc-unit-tag" id="fc-unit-tag"></div>
+            <div class="fc-lbl">KEYWORD</div>
+            <div class="fc-main" id="fc-front"></div>
+            <div class="fc-sub" id="fc-sub"></div>
+            <div class="fc-hint">↓ クリックして答えを確認</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-lbl">ANSWER</div>
+            <div class="fc-main" id="fc-back"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 進捗バー（自動再生時に表示） -->
+      <div class="fc-progress-bar" id="fc-progress-bar" style="display:none;">
+        <div class="fc-progress-fill" id="fc-progress-fill"></div>
+      </div>
+
+      <div class="fc-nav">
+        <button class="btn btn-secondary" onclick="prevFC()" style="padding:7px 16px;">← 前へ</button>
+        <span class="fc-counter" id="fc-cnt"></span>
+        <button class="btn btn-secondary" onclick="nextFC()" style="padding:7px 16px;">次へ →</button>
+      </div>
+
+      <!-- 覚えたボタン -->
+      <div style="margin-top:14px;text-align:center;">
+        <button class="btn-mastered" onclick="markMastered()" id="fc-mastered-btn">
+          ✓ 覚えた！（このカードを外す）
+        </button>
+      </div>
+
+      <div style="margin-top:14px;text-align:center;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="shuffleFC()" style="font-size:12px;padding:7px 16px;">🔀 シャッフル</button>
+        <button class="btn btn-secondary" onclick="resetFC()" style="font-size:12px;padding:7px 16px;">↺ 最初から</button>
+        <button class="btn btn-warn" onclick="resetMastered()" style="font-size:12px;padding:7px 16px;">🔄 覚えたリセット<span id="fc-mastered-count" style="margin-left:4px;"></span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ REVIEW : 復習 ═══════════════ -->
+<div id="page-review" class="page">
+  <div class="container">
+    <div class="page-header">
+      <h1>🔁 復習リスト</h1>
+      <p>間違えた問題が自動的に登録されます。クリアするまで残り続けます。</p>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+      <button class="btn btn-review" onclick="startReviewQuiz()" id="review-start-btn">🔁 復習問題を解く</button>
+      <button class="btn btn-warn" onclick="clearReview()">🗑 復習リストをクリア</button>
+    </div>
+
+    <div id="review-list"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════
+//  DATA : 単元定義
+// ═══════════════════════════════════════════
+const UNITS = [
+  { id:'u01', icon:'🫘', name:'腎臓の構造と機能',     desc:'解剖・蠕動運動・正常尿' },
+  { id:'u02', icon:'💧', name:'細胞外液の調節',       desc:'クレアチニン・Na再吸収・酸塩基平衡・糸球体濾過' },
+  { id:'u03', icon:'🦠', name:'腎盂腎炎・腎炎',       desc:'急性腎盂腎炎・IgA腎症・腎生検' },
+  { id:'u04', icon:'💉', name:'ネフローゼ・腎不全',   desc:'ネフローゼ症候群・CKD・慢性腎不全' },
+  { id:'u05', icon:'⚙️', name:'透析',                 desc:'血液透析・CAPD・不均衡症候群' },
+  { id:'u06', icon:'🔄', name:'腎移植',               desc:'生体腎移植・免疫抑制薬・退院指導' },
+  { id:'u07', icon:'🔍', name:'膀胱・膀胱鏡検査',     desc:'膀胱解剖・膀胱鏡検査' },
+  { id:'u08', icon:'🚽', name:'排尿機序と尿失禁',     desc:'蓄尿/排尿・過活動膀胱・尿失禁分類' },
+  { id:'u09', icon:'🪨', name:'腎結石・尿路結石',     desc:'ESWL・予防指導・痛風結石' },
+  { id:'u10', icon:'⚠️', name:'膀胱癌',               desc:'膀胱癌・尿路ストーマ・回腸導管' },
+  { id:'u11', icon:'♂️', name:'男性生殖器・前立腺',   desc:'男性生殖器・前立腺肥大症・前立腺癌' },
+  { id:'u12', icon:'🏥', name:'腎・泌尿器全般',       desc:'検査延期判断・水腎症' },
+];
+
+// ═══════════════════════════════════════════
+//  DATA : 問題（111〜114回抽出問題を中心に追加していく）
+// ═══════════════════════════════════════════
+const QUESTIONS = [
+  // ── u01 腎臓の構造と機能 ──
+  {id:'q001',unit:'u11',cat:'男性生殖器',src:'第111回午前80',
+   q:'射出される精子が通るのはどれか。',
+   c:['精嚢','尿管','尿道','膀胱','前立腺'],a:3,
+   e:'正解は3：尿道。\n\n精子の射出（射精）は、交感神経の刺激によって精嚢と精管の平滑筋が収縮し、精液が尿道に送り出されることで起こります。\n\n精子の通過経路：精巣 → 精巣上体 → 精管 → 射精管 → 尿道（前立腺内で合流） → 体外\n\n【誤りの選択肢】\n・1：精嚢は膀胱の後ろで精管の末端に開口する1対の生殖腺で、精子に栄養を与え活性化する液を分泌する\n・2：尿管は左右の腎臓から膀胱をつなぐ2本の平滑筋性の管で、腎臓で生成された尿を膀胱に運ぶ\n・4：膀胱は恥骨結合の後ろに位置する平滑筋性の袋で、蓄尿と排尿に関わる\n・5：前立腺は尿道始部に存在する生殖腺で、前立腺液の分泌によって精子の運動を助けている'},
+
+  {id:'q002',unit:'u01',cat:'腎臓の構造と機能',src:'第110回午後84',
+   q:'蠕動運動がみられるのはどれか。2つ選べ。',
+   c:['腎動脈','腎盂','尿管','膀胱','尿道'],a:[2,3],
+   e:'正解は2・3：腎盂と尿管。\n\n・腎盂：腎実質で生成された尿は腎盂に達すると、腎盂につながる尿管に送られる。腎盂も蠕動運動を行い、集められた尿を尿管に送る\n・尿管：平滑筋性の管で、1分間に4〜5回の蠕動を行うことにより尿を膀胱に運ぶ\n\n【誤りの選択肢】\n・1：腎動脈は腎臓に入る血管で、蠕動運動はしていない\n・4：膀胱は平滑筋性の袋で、伸展性に富んでおり尿量により容積が変化する。蠕動運動は行っていない\n・5：尿道は膀胱の内尿道口から外尿道口に通じる尿路であり、男女により構造が異なる。蠕動運動は行っていない'},
+
+  {id:'q002b',unit:'u01',cat:'正常尿',src:'第99回午後40',
+   q:'成人の正常尿で正しいのはどれか。',
+   c:['尿比重が1.025である。','排尿直後は無色である。','1日尿量は400mLである。','排尿直後にアンモニア臭がある。'],a:1,
+   e:'正解は1：尿比重が1.025である。\n\n尿比重の正常範囲は約1.003〜1.030であり、1.025はその範囲内なので正常尿といえる。\n\n【誤りの選択肢】\n・2：腎臓で生成された時点で淡黄色である。ちなみに黄染の原因は、直接ビリルビン・ビタミンB2による\n・3：飲水量・体重などの差はあるが、おおむね一日尿量は1.5L（＝1,500mL）。1日400mL以下は乏尿である\n・4：アンモニア臭の原因は、尿に含まれている尿素が排尿後に分解されてアンモニアになるためである。排尿直後からアンモニア臭があるわけではない'},
+
+  {id:'q002c',unit:'u01',cat:'腎臓の解剖',src:'第105回午後29',
+   q:'腎臓について正しいのはどれか。',
+   c:['腹腔内にある。','左右の腎臓は同じ高さにある。','腎静脈は下大静脈に合流する。','腎動脈は腹腔動脈から分かれる。'],a:3,
+   e:'正解は3：腎静脈は下大静脈に合流する。\n\n左右それぞれの腎静脈は、ほぼ水平に下大静脈に流入している。\n\n【誤りの選択肢】\n・1：腎臓は後腹壁の腹膜より後ろ（後腹膜）にある臓器で、後腹膜臓器あるいは後腹膜器官といわれる\n・2：肝臓の右側（右葉）が大きく後ろに張り出しているため、右腎は左腎より2〜3cm低い位置にある\n・4：左右それぞれの腎動脈は、それぞれ腹大動脈から直接分岐する。腹腔動脈は腹大動脈から分岐した後、左胃動脈・脾動脈・総肝動脈と分岐していく'},
+
+  // ── u04 ネフローゼ・腎不全 ──（114回午後45 高尿酸血症は腎結石にも関連するが、ここでは尿路結石へ）
+
+  // ── u05 透析 ──（111回午前94-96 CAPD状況設定）
+  {id:'q003',unit:'u05',cat:'透析',src:'第111回午前94',
+   q:'Aさん（50歳、男性、会社員）は妻と高校生の息子との3人暮らし。仕事を生きがいに働き続けていた。慢性腎不全のため透析治療が必要になったが、本人の希望で連続携行式腹膜灌流法〈CAPD〉を導入することになり入院した。Aさんに対する説明として正しいのはどれか。',
+   c:['「食事療法が必要です」','「通院は週に2、3回必要です」','「宿泊を伴う旅行はできません」','「カテーテル挿入術後の翌日から入浴できます」'],a:1,
+   e:'正解は1：「食事療法が必要です」。\n\n慢性腎不全ではナトリウム・カリウム・リンなどの排泄が障害されるため、CAPDを導入しても食事制限は必要です。ただしCAPDは血液透析と比較すると食事制限は緩やかです。\n\n【誤りの選択肢】\n・2：CAPDは患者自身が透析液を交換するため、通院は月1回程度\n・3：必要な医薬品や器材の準備ができれば宿泊を伴う旅行も可能\n・4：術後は縫合創があり、しばらくは清拭となる'},
+
+  {id:'q004',unit:'u05',cat:'透析',src:'第111回午前95',
+   q:'Aさんはできるだけ早い職場復帰を望んでおり、入院中はCAPDの操作に熱心に取り組んでいた。退院後、CAPDを1日4回（0時、6時、12時、18時）行うことになった。Aさんが会社の昼休みにCAPDを行うために必要な設備はどれか。2つ選べ。',
+   c:['透析液を保管する冷蔵庫','透析液を温める電子レンジ','透析液の交換時に使用する個室','CAPDの物品を保管する専用棚','透析液の貯留中に使用するベッド'],a:[3,4],
+   e:'正解は3・4：「個室」「専用棚」。\n\n・3：清潔な環境で透析液を交換できる個室が必要（ほこりが立たない場所が望ましい）\n・4：透析液や交換用品をまとめて保管する専用棚があるとよい\n\n【誤りの選択肢】\n・1：透析液は常温で保管する（冷蔵庫不要）\n・2：温める際には専用の加温器を使う（電子レンジ不可）\n・5：透析液貯留中は通常の生活が可能で、ベッドは不要'},
+
+  {id:'q005',unit:'u05',cat:'透析',src:'第111回午前96',
+   q:'Aさんは「主治医からCAPDの合併症に腹膜炎があると聞きました。腹膜炎に早く気付くにはどうすればよいですか」と看護師に質問した。Aさんに指導する観察項目はどれか。2つ選べ。',
+   c:['腹痛','体重の増加','腹部の張り','下肢のむくみ','透析液の排液のにごり'],a:[1,5],
+   e:'正解は1・5：「腹痛」「透析液の排液のにごり」。\n\n腹膜炎の初期症状として、\n・1：腹痛は腹膜炎の典型的症状\n・5：透析液の排液がにごる（混濁）のは腹膜炎の重要なサイン\n\n【誤りの選択肢】\n・2：体重増加は透析の効率が悪く水分が貯留した時にみられるが、腹膜炎とは関連が薄い\n・3：腹部の張りはCAPD自体でも起こるため、腹膜炎の早期発見には適さない\n・4：下肢のむくみは水分貯留の症状で、腹膜炎とは関連がない'},
+
+  // ── u10 膀胱癌 ──（112回午後71 尿路ストーマ温泉旅行）
+  {id:'q006',unit:'u10',cat:'膀胱癌・尿路ストーマ',src:'第112回午後71',
+   q:'Aさん（68歳、男性）は妻（68歳）と2人暮らし。膀胱癌で尿路ストーマを造設している。Aさんはストーマ装具の交換に慣れてきたため、妻と日帰りで近くの温泉地を旅行する計画を立てており、外来看護師に助言を求めた。外来看護師がAさんに助言する内容で適切なのはどれか。',
+   c:['装具の交換に必要な物品一式を2回分持参する。','旅行中の水分摂取は1日1,000mL以内に控える。','他の入浴客がいなければ装具を外して入浴できる。','オストメイト対応のトイレがなければ旅行先を変更する。'],a:1,
+   e:'正解は1：装具の交換に必要な物品一式を2回分持参する。\n\n外出や旅行の際には不意の漏れなどに備えて、装具の交換用物品一式を持参するよう伝えます。日帰りであっても2回分程度あれば安心です。\n\n【誤りの選択肢】\n・2：水分が不足すると脱水や尿路感染症の原因になる。1日1,000mL以内に控える必要はない\n・3：装具はつけたまま入浴する（尿路ストーマは尿が絶えず流れているため）\n・4：オストメイト対応トイレがあれば便利だが、なくても処理は可能。旅行先を変更する必要はない'},
+
+  // ── u11 男性生殖器・前立腺 ──（114回午後49 前立腺癌）
+  {id:'q007',unit:'u11',cat:'前立腺癌',src:'第114回午後49',
+   q:'前立腺癌について正しいのはどれか。',
+   c:['肺転移の頻度は低い。','血清PSA値が高値となる。','患者の多くは60歳未満である。','テストステロン補充療法が行われる。'],a:2,
+   e:'正解は2：血清PSA値が高値となる。\n\nPSA（前立腺特異抗原）は前立腺癌の代表的な腫瘍マーカーで、4ng/mLを超えると前立腺癌が疑われます。\n\n【誤りの選択肢】\n・1：前立腺癌は骨転移が多いが、肺や肝臓にも転移する。肺転移の頻度が低いとはいえない\n・3：前立腺癌は60歳以上の高齢者に多くみられる\n・4：前立腺癌の治療では抗アンドロゲン薬（男性ホルモンを抑制する薬）が用いられる。テストステロン（男性ホルモン）の補充は前立腺癌を進行させるため行わない'},
+
+  {id:'q008',unit:'u09',cat:'尿管結石・退院指導',src:'第113回午前47',
+   q:'Aさん（47歳、男性、会社員）は、尿管結石による疝痛発作で入院した。入院翌日、自然に排石され、疼痛は消失したものの、結石が残存している。入院前は、ほぼ毎日、飲酒を伴う外食をしていた。Aさんへの退院指導で適切なのはどれか。',
+   c:['「シュウ酸を多く含む食品を摂取しましょう」','「1日2L程度の水分を摂取しましょう」','「排石までは安静にしましょう」','「飲酒量に制限はありません」'],a:2,
+   e:'正解は2：「1日2L程度の水分を摂取しましょう」。\n\n尿路結石の患者には、結石を尿と一緒に体外に排出するために、1日2L程度の水分を摂取し、尿量を増やすことが推奨されています。特に結石が残存している患者には排石を促すように水分の摂取が勧められる。\n\n【誤りの選択肢】\n・1：シュウ酸は結石の成分になるため、結石が残存している場合は積極的な摂取は不適切。シュウ酸を多く含む食品にはほうれん草、たけのこ、さつまいも、コーヒー、紅茶、緑茶などがある\n・3：過度な安静は骨脱灰を促進して高Ca尿症の要因になり、また尿流停滞の原因となり結石形成を促進させる。尿管結石の患者には適度に運動するよう指導する\n・4：アルコールは尿酸を増やす要因であり、高尿酸血症は尿酸結石やシュウ酸カルシウム結石の発生を促進する。アルコールの摂取は控えるよう指導する'},
+
+  {id:'q009',unit:'u09',cat:'高尿酸血症・痛風',src:'第114回午後45',
+   q:'高尿酸血症で正しいのはどれか。',
+   c:['痛風結節は疼痛を伴う。','痛風発作は飲酒で誘発される。','痛風による関節炎の急性期に尿酸降下薬を投与する。','血清尿酸値9.0mg/dL以下を目標にコントロールする。'],a:2,
+   e:'正解は2：痛風発作は飲酒で誘発される。\n\nアルコールは尿酸産生を増加させ排泄を低下させるため、痛風発作の誘因となります。特にビールはプリン体も多く要注意です。\n\n【誤りの選択肢】\n・1：痛風結節は無痛性（結節そのものは痛みを伴わない）\n・3：急性期に尿酸降下薬を投与すると発作が悪化するため、急性期はNSAIDsやコルヒチンで疼痛コントロールし、発作が落ち着いてから尿酸降下薬を開始する\n・4：目標は血清尿酸値6.0mg/dL以下'},
+
+  // ── u02 細胞外液の調節 ──（114回午後26 アンモニア→尿素）
+  {id:'q010',unit:'u02',cat:'尿素・代謝',src:'第114回午後26',
+   q:'タンパク質が分解されて生じたアンモニアは肝臓で（　）に変換される。',
+   c:['尿酸','尿素','亜硝酸','一酸化窒素'],a:2,
+   e:'正解は2：尿素。\n\nタンパク質が分解されるとアンモニアが生じますが、アンモニアは神経毒性が強いため、肝臓で「尿素回路（オルニチン回路）」によって毒性の低い尿素に変換されます。尿素は腎臓で濾過され、尿中に排泄されます。\n\n【ポイント】\n・肝機能が低下するとアンモニアが処理できず血中濃度が上昇 → 肝性脳症の原因\n・腎機能が低下すると尿素が排泄できず血中濃度が上昇 → BUN上昇\n\n【誤りの選択肢】\n・1：尿酸はプリン体（核酸）の代謝産物\n・3：亜硝酸は窒素酸化物の一種\n・4：一酸化窒素（NO）は血管拡張作用がある'},
+
+  {id:'q011',unit:'u02',cat:'糸球体濾過量',src:'第111回午後80',
+   q:'糸球体濾過量の推定に用いられる生体内物質はどれか。',
+   c:['尿素','イヌリン','ビリルビン','クレアチニン','パラアミノ馬尿酸'],a:4,
+   e:'正解は4：クレアチニン。\n\nクレアチニンは筋肉でクレアチンリン酸の代謝産物として生じる「生体内物質」で、糸球体で自由に濾過され、尿細管からほぼ再吸収されないため、糸球体濾過量（GFR）の推定に用いられます。eGFRは血清クレアチニン値・年齢・性別から算出されます。\n\n【誤りの選択肢】\n・1：尿素は集合管で一部再吸収されるため不適\n・2：イヌリンは最も正確だが「外因性」物質（玉ねぎなどに含まれる多糖類）で生体内物質ではない\n・3：ビリルビンは肝機能の指標で、糸球体濾過量推定には用いない\n・5：パラアミノ馬尿酸は腎血漿流量（RPF）の指標だが、生体内物質ではない'},
+
+  {id:'q012',unit:'u02',cat:'尿の検査',src:'第114回午前79',
+   q:'過剰に摂取すると試験紙法による尿潜血検査が偽陰性となるのはどれか。',
+   c:['葉酸','ビタミンA','ビタミンB1','パントテン酸','アスコルビン酸'],a:5,
+   e:'正解は5：アスコルビン酸（ビタミンC）。\n\n尿潜血検査は試験紙法でヘモグロビンを検出する検査ですが、ビタミンC（アスコルビン酸）を大量摂取すると試験紙上の反応が阻害され、偽陰性となります。健康飲料やサプリメントでビタミンCを多く摂っている場合は注意が必要です。\n\n【誤りの選択肢】\n・1：葉酸 → 不足すると巨赤芽球性貧血\n・2：ビタミンA → 不足すると夜盲症\n・3：ビタミンB1 → 不足すると脚気・ウェルニッケ脳症\n・4：パントテン酸 → 皮膚維持・ストレス緩和'},
+
+  // ── u03 腎盂腎炎・腎炎 ──
+  {id:'q013',unit:'u03',cat:'急性腎盂腎炎',src:'第109回午後33',
+   q:'成人の急性腎盂腎炎で正しいのはどれか。',
+   c:['男性に多い。','両腎性が多い。','初尿を用いて細菌培養を行う。','原因菌はGram〈グラム〉陰性桿菌が多い。'],a:4,
+   e:'正解は4：原因菌はグラム陰性桿菌が多い。\n\n急性腎盂腎炎の原因菌の約9割は大腸菌（グラム陰性桿菌）です。\n\n【誤りの選択肢】\n・1：女性に多い（尿道が短く、肛門と近接しているため上行性感染が起こりやすい）\n・2：片腎性が多い\n・3：初尿は尿道の常在菌が混入するため破棄し、中間尿で細菌培養を行う\n\n【症状】悪寒戦慄を伴う高熱、患側の腰部・背部痛、CVA叩打痛'},
+
+  {id:'q014',unit:'u03',cat:'腎盂腎炎',src:'第103回午前34',
+   q:'腎盂腎炎について正しいのはどれか。',
+   c:['両腎性である。','初尿を用いて細菌培養を行う。','肋骨脊柱角の叩打痛が特徴である。','原因菌はGram〈グラム〉陽性球菌が多い。'],a:3,
+   e:'正解は3：肋骨脊柱角（CVA）の叩打痛が特徴。\n\n腎盂腎炎では患側の腎臓に炎症があるため、背中で肋骨下端と脊椎の交わる角（CVA）を叩くと痛みを感じます（CVA叩打痛）。これに加え、悪寒戦慄を伴う高熱、腰背部痛、全身倦怠感などが急性期の症状です。\n\n【誤りの選択肢】\n・1：片腎性が多い\n・2：中間尿を用いる（初尿は常在菌が混入）\n・4：原因菌は大腸菌などのグラム陰性桿菌が多い'},
+
+  {id:'q015',unit:'u03',cat:'経皮的腎生検',src:'第108回午後44',
+   q:'経皮的腎生検を受ける患者への説明で適切なのはどれか。',
+   c:['検査中の体位は仰臥位とする。','穿刺時にくり返し深呼吸をする。','検査後はベッド上安静とする。','検査後2日間は禁食にする。'],a:3,
+   e:'正解は3：検査後はベッド上安静とする。\n\n腎臓は血流が豊富な臓器で、生検後は出血のリスクがあるため、検査後6〜24時間程度はベッド上安静とし、血尿・穿刺部出血・腰痛などの有無、バイタルサインを観察します。\n\n【誤りの選択肢】\n・1：腎臓は後腹膜臓器で背側に位置するため、腹臥位で行う\n・2：穿刺時に腎臓が動くと危険なため、呼吸を止める（息止め）\n・4：検査に伴う異常がなければ食事は可能（ただしベッド上での食事）'},
+
+  {id:'q016',unit:'u03',cat:'IgA腎症',src:'第105回午前94',
+   q:'Aさん（34歳、男性）は、運送会社で配達を担当している。6か月前の職場の健康診断で、血圧142/90mmHgと尿蛋白2＋、尿潜血2＋を指摘されたが放置していた。1週前、感冒様症状の後に紅茶色の尿がみられたため内科を受診した。血清IgAが高値でIgA腎症が疑われ入院した。確定診断のために必要な検査はどれか。',
+   c:['腎生検','尿細胞診','腎血管造影','腹部超音波検査','腎シンチグラフィ'],a:1,
+   e:'正解は1：腎生検。\n\n疾病の最終的な確定診断は病理診断で行われます。腎生検は腎組織の一部を採取して病理学的に評価する検査で、IgA腎症ではメサンギウム領域へのIgA沈着とメサンギウム細胞の増殖性変化の確認により確定診断されます。\n\n【誤りの選択肢】\n・2：尿細胞診は悪性細胞の検出が主目的で、糸球体炎症性病変の診断には不適\n・3〜5：いずれも腎疾患の補助診断には用いられるが、確定診断にはならない\n\n【IgA腎症のポイント】\n・無症状で健康診断の尿異常で発見されることが多い\n・感冒時の肉眼的血尿で発見されることもある\n・診断後20年で約40%が末期腎不全に進行'},
+
+  {id:'q017',unit:'u03',cat:'IgA腎症（減塩食指導）',src:'第105回午前95',
+   q:'AさんはIgA腎症と診断され、塩分1日6gの減塩食が開始された。入院前は塩辛いものが好物で外食が多かったAさんは「味が薄くて食べた気がしない。退院後も続けられるかな」と話している。このときの対応で最も適切なのはどれか。',
+   c:['「つらいですが慣れてきます」','「最初に甘いものを食べてください」','「各食事で均等に塩分を摂取しましょう」','「酸味や香味を利用するとよいでしょう」','「市販のレトルト食品は塩分が少ないので活用するとよいです」'],a:4,
+   e:'正解は4：「酸味や香味を利用するとよいでしょう」。\n\n食事に酸味（酢、レモン等）や香辛料・香味（しそ、生姜、ハーブ等）を加えることで、塩分を控えても味にメリハリが生まれ、薄味でも食べやすくなります。具体的で実践可能な解決策の提示が望ましい対応です。\n\n【誤りの選択肢】\n・1：患者の不安に寄り添ってはいるが、本質的な解決策ではない\n・2：献立次第で逆効果\n・3：運送会社勤務で3食均等に塩分を摂取するのは難しい\n・5：市販のレトルト食品はむしろ塩分が強いため不適切'},
+
+  {id:'q018',unit:'u03',cat:'IgA腎症（緊急処置）',src:'第105回午前96',
+   q:'Aさんは退院後、仕事が忙しくなり一度も受診せずに2年が経過した。2か月前から疲れやすくなったが、仕事のせいだと思い放置していた。1週前から息切れ、食欲不振および浮腫があり、昨日から眠気、悪心および嘔吐が出現したため外来を受診した。体温36.5℃、脈拍98/分、血圧238/112mmHgであった。血液検査データは、尿素窒素100mg/dL、クレアチニン12.0mg/dL、Hb7.1g/dL。胸部エックス線写真で心拡大と肺うっ血とが認められ入院した。直ちに行われるのはどれか。2つ選べ。',
+   c:['輸血','血液透析','利尿薬の内服','胸腔ドレナージ','降圧薬の点滴静脈内注射'],a:[2,5],
+   e:'正解は2・5：血液透析と降圧薬の点滴静脈内注射。\n\n血清クレアチニン値12.0mg/dLは正常の10倍以上で、眠気・悪心・嘔吐・肺うっ血などの尿毒症症状が出現しており、直ちに血液透析が必要です。また血圧238/112mmHgという著しい高血圧をきたしているため、降圧薬の点滴静注も優先されます。\n\n【誤りの選択肢】\n・1：Hb7.1g/dLは輸血を考慮するレベルだが、慢性腎不全の腎性貧血では一律に輸血を決められない\n・3：すでに慢性腎不全による腎機能低下があり、利尿薬の内服より血液透析が優先\n・4：血液透析による除水で肺うっ血は改善が見込まれるため、現時点で胸腔ドレナージの優先度は低い'},
+
+  // ── u04 ネフローゼ症候群・腎不全 ──
+  {id:'q019',unit:'u04',cat:'ネフローゼ症候群',src:'第99回午前33',
+   q:'ネフローゼ症候群で必ずみられるのはどれか。',
+   c:['血尿','体重減少','低蛋白血症','低コレステロール血症'],a:3,
+   e:'正解は3：低蛋白血症。\n\nネフローゼ症候群の診断基準（成人）：\n①蛋白尿：3.5g/日以上が持続（必須）\n②低アルブミン血症：血清アルブミン値3.0g/dL以下（必須、低蛋白血症は総蛋白6.0g/dL以下）\n③浮腫\n④脂質異常症（高LDLコレステロール血症）\n※必須は①②\n\n【誤りの選択肢】\n・1：血尿はネフローゼ症候群ではみられない\n・2：浮腫により体重は増加する。さらにステロイド治療の副作用でも体重増加\n・4：高コレステロール血症（血清コレステロール250mg/dL以上）となることが多い'},
+
+  {id:'q020',unit:'u04',cat:'腎前性腎不全',src:'第98回午後25',
+   q:'腎前性腎不全が起こるのはどれか。',
+   c:['前立腺肥大症','急性心筋梗塞','急性尿細管壊死','急性糸球体腎炎'],a:2,
+   e:'正解は2：急性心筋梗塞。\n\n腎前性腎不全は腎臓の異常ではなく、心拍出量・循環血液量の著明な減少により腎血流が低下して乏尿をきたすものです。急性心筋梗塞・大量出血・熱傷・ショックなどが原因となります。\n\n【誤りの選択肢】\n・1：前立腺肥大症 → 尿路が妨げられ「腎後性」急性腎不全をきたす\n・3：急性尿細管壊死 → 抗生物質、造影剤、抗悪性腫瘍薬などによる「腎性」\n・4：急性糸球体腎炎 → 腎疾患による「腎性」'},
+
+  {id:'q021',unit:'u04',cat:'慢性腎臓病とリン代謝',src:'第113回午後44',
+   q:'慢性腎臓病においてリンの代謝障害によって生じる症状はどれか。',
+   c:['骨痛','貧血','浮腫','不整脈'],a:1,
+   e:'正解は1：骨痛。\n\n慢性腎臓病でリンを体外へ十分に排出できなくなると高リン血症となります。リンはカルシウムと結合しやすいため、高リン血症では低カルシウム血症となります。その結果、副甲状腺ホルモンの分泌が亢進し（二次性副甲状腺機能亢進症）、骨からカルシウムが取り出され、骨がもろくなり骨痛が生じます（CKD-MBD：慢性腎臓病に伴う骨ミネラル代謝異常）。\n\n【誤りの選択肢】\n・2：貧血 → エリスロポエチン産生量低下による腎性貧血\n・3：浮腫 → 糸球体濾過量低下や蛋白尿による低アルブミン血症\n・4：不整脈 → カリウム排泄低下による高カリウム血症'},
+
+  {id:'q022',unit:'u04',cat:'慢性腎不全',src:'第105回午前83',
+   q:'慢性腎不全によって起こるのはどれか。2つ選べ。',
+   c:['低血圧','低リン血症','低カリウム血症','低カルシウム血症','代謝性アシドーシス'],a:[4,5],
+   e:'正解は4・5：低カルシウム血症と代謝性アシドーシス。\n\n・4：腎臓はビタミンDを活性化し腸管でのカルシウム吸収を促す。腎不全ではこの機能が障害され低カルシウム血症となる\n・5：腎臓は主に水素イオン（H⁺）を排泄して身体が酸性に傾くことを防ぐ。腎不全ではH⁺が体内に蓄積し代謝性アシドーシスになる\n\n【誤りの選択肢】\n・1：水・Naの貯留により高血圧となる\n・2：リンの排泄障害により高リン血症となる\n・3：カリウムの排泄障害により高カリウム血症となる（→心停止のリスク）'},
+
+  {id:'q023',unit:'u04',cat:'慢性腎不全',src:'第101回午後82',
+   q:'慢性腎不全で正しいのはどれか。',
+   c:['高蛋白食が必要である。','高カルシウム血症となる。','最も多い原因は腎硬化症である。','糸球体濾過値〈GFR〉は正常である。','代謝性アシドーシスを起こしやすい。'],a:5,
+   e:'正解は5：代謝性アシドーシスを起こしやすい。\n\n腎臓は水素イオン（H⁺）を排泄するため、腎不全ではH⁺が蓄積し代謝性アシドーシスとなります。\n\n【誤りの選択肢】\n・1：慢性腎不全の食事療法は高カロリー・低蛋白食が中心\n・2：ビタミンDの活性化障害により低カルシウム血症となる\n・3：透析導入の原因疾患は1位 糖尿病性腎症、2位 腎硬化症、3位 慢性糸球体腎炎\n・4：腎機能低下によりGFRは低下する'},
+
+  {id:'q024',unit:'u04',cat:'慢性腎臓病・状況設定',src:'第104回午前94',
+   q:'Aさん（52歳、男性）は、5年前に健康診断で高血圧を指摘されていたが、そのままにしていた。5年ぶりに健康診断を受けたところ尿蛋白＋で、内科を受診し腎機能障害を指摘された。Aさんは、身長160cm、体重56kg、体温36.1℃、呼吸数18/分、脈拍64/分、整、血圧166/96mmHg。Hb9.3g/dL、アルブミン3.6g/dL、クレアチニン2.3mg/dL、HbA1c5.6%、K3.9mEq/L、推算糸球体濾過量〈eGFR〉25mL/分/1.73m²。腎機能の悪化によるものと考えられるデータはどれか。',
+   c:['体重','血清カリウム値','ヘモグロビン値','血清アルブミン値'],a:3,
+   e:'正解は3：ヘモグロビン値。\n\nHb9.3g/dLは貧血で、これは腎機能の1つであるエリスロポエチン産生低下による「腎性貧血」です。\n\n【誤りの選択肢】\n・1：身長160cm体重56kgのBMIは約22で正常\n・2：血清Kの基準値は3.5〜5.0mEq/Lで、3.9mEq/Lは正常値\n・4：血清アルブミンの基準値は4.0〜5.0g/dLで、3.6g/dLは軽度低下だが、腎機能障害というより栄養状態を反映する\n\n【腎機能低下に伴う検査値変化】\n・Cr↑、BUN↑、eGFR↓、Hb↓、K↑、P↑、Ca↓、HCO3⁻↓'},
+
+  {id:'q025',unit:'u04',cat:'慢性腎臓病・状況設定',src:'第104回午前95',
+   q:'Aさんは、慢性腎臓病ステージ4と診断され、精査目的で入院した。「特に症状がないのに腎臓が悪いと言われて本当に驚いたよ。高血圧が関係していると医師に言われたけれど、どういうことですか」とAさんが看護師に尋ねた。Aさんへの説明で適切なのはどれか。',
+   c:['「高血圧で尿が少なくなり腎臓を悪くします」','「高血圧が続くと腎臓の濾過機能が低下します」','「高血圧では腎臓病の症状が現れにくくなります」','「腎臓の機能がさらに低下すると血圧は低くなります」'],a:2,
+   e:'正解は2：「高血圧が続くと腎臓の濾過機能が低下します」。\n\n高血圧は動脈硬化を進め、腎硬化症となり糸球体の濾過機能が低下します。逆に腎機能低下によりナトリウムや水分が排泄されず血圧が上昇します。この悪循環を断ち切るため、CKDの治療では降圧管理が重要です。\n\n【誤りの選択肢】\n・1：高血圧で乏尿になるわけではない\n・3：高血圧は腎臓病悪化の要因\n・4：腎機能がさらに低下すれば余分な水分が排泄できず血圧は上昇する'},
+
+  {id:'q026',unit:'u04',cat:'慢性腎臓病・状況設定',src:'第104回午前96',
+   q:'現時点でAさんに起こる危険性が高いのはどれか。',
+   c:['低リン血症','血糖値の上昇','虚血性心疾患','甲状腺機能亢進症'],a:3,
+   e:'正解は3：虚血性心疾患。\n\n高血圧は動脈硬化の促進因子であり、虚血性心疾患（狭心症、心筋梗塞）の危険性が高くなります。CKD患者は心血管疾患のリスクが高く、死亡原因の上位を占めます。\n\n【誤りの選択肢】\n・1：腎機能低下によりリン排泄も妨げられるので高リン血症となる\n・2：HbA1c5.6%は正常で、現時点で血糖値が上昇する危険性は高いとはいえない\n・4：腎機能低下で骨代謝に影響が出るが、副甲状腺の機能亢進であって甲状腺ではない'},
+
+  {id:'q027',unit:'u04',cat:'慢性腎臓病・生活指導',src:'第108回午後49',
+   q:'Aさん（76歳、女性）は、ステージ2の慢性腎臓病と診断された。身長146cm、体重50kg。日常生活は自立し、毎日家事をしている。週2回、ビールをグラス1杯程度飲んでいる。Aさんへの生活指導の内容で優先されるのはどれか。',
+   c:['安静','禁酒','減塩','体重の減量'],a:3,
+   e:'正解は3：減塩。\n\n腎機能が低下すると尿中にナトリウムを排泄する力が弱まり、血液中のナトリウムが増加して高血圧のリスクも高まることから、腎障害時の塩分制限は重要です。\n\n【誤りの選択肢】\n・1：腎障害では運動は勧めないが、過度の安静は必要ない\n・2：一般にアルコールの摂取基準は純アルコール20g/日（ビールで500mL）。週2回グラス1杯程度のビールであれば適正飲酒量\n・4：BMIは約23.5（50÷1.46÷1.46）で、減量の必要はない'},
+
+  {id:'q028',unit:'u04',cat:'慢性腎臓病',src:'第103回午前81',
+   q:'慢性腎臓病の説明で正しいのはどれか。',
+   c:['糖尿病腎症は含まれない。','病期分類の5期から蛋白制限が必要である。','腎障害を示す所見が1週間持続すれば診断できる。','糸球体濾過量〈GFR〉の低下は診断の必要条件である。','病期の進行とともに心血管疾患のリスクも高くなる。'],a:5,
+   e:'正解は5：病期の進行とともに心血管疾患のリスクも高くなる。\n\n病期の進行とともに動脈硬化が進むため、心血管疾患のリスクも高くなります。\n\n【誤りの選択肢】\n・1：糖尿病腎症も含まれる\n・2：蛋白制限は慢性腎臓病が発見され次第、状況に合わせて行う\n・3：腎障害が3か月以上持続すれば診断できる\n・4：CKDとは「腎臓の障害（蛋白尿など）」または「GFR60mL/分/1.73m²未満の腎機能低下」のいずれか、または両方が3か月以上持続するもの。GFR低下は必要条件ではない'},
+
+  // ── u06 腎移植 ──
+  {id:'q029',unit:'u06',cat:'生体腎移植・術後観察',src:'第112回午前91',
+   q:'Aさん（47歳、男性、会社員）は妻と2人暮らしで、自宅の室内で犬を飼っている。15年前に慢性糸球体腎炎と診断され、徐々に腎機能低下が認められたので、2年前から慢性腎不全のため血液透析療法を週3回受けている。今回、弟から腎臓の提供の申し出があり、生体腎移植の目的で入院した。入院3日、Aさんの生体腎移植手術は予定通り終了した。Aさんの手術直後に観察すべき項目で優先度が高いのはどれか。',
+   c:['尿量','血糖値','白血球数','シャント音'],a:1,
+   e:'正解は1：尿量。\n\n生体腎移植では原則、自分の腎臓は残したまま提供された腎臓を骨盤腔内に入れ、新たに膀胱につなぎます。手術直後から尿量が増えてくるのが順調な経過といえることから、優先度の高い観察項目です。\n\n【誤りの選択肢】\n・2：生体腎移植では術後に血糖値が上昇することはあるが、Aさんに糖尿病の情報などはなく優先度が高いとはいえない\n・3：白血球数の上昇はあるが、優先度の高い観察項目とはいえない\n・4：シャント音はシャントの状態を知る上で必要だが、術後の観察として優先度が高いとはいえない'},
+
+  {id:'q030',unit:'u06',cat:'腎移植・退院指導',src:'第112回午前92',
+   q:'Aさんは術前からタクロリムスなど複数の免疫抑制薬を服用している。Aさんは「移植したら免疫抑制薬を飲む必要があることは分かっているのですが、退院後は何に気を付ければよいですか」と看護師に質問した。Aさんへの看護師の説明で適切なのはどれか。',
+   c:['「犬は今まで通り室内で飼育できます」','「グレープフルーツは摂取しないでください」','「感染予防のため風疹のワクチン接種をしてください」','「薬を飲み忘れたときは2回分をまとめて服用してください」'],a:2,
+   e:'正解は2：「グレープフルーツは摂取しないでください」。\n\nタクロリムスはグレープフルーツとの併用により代謝が阻害され、血中濃度が上昇するため併用注意となります。\n\n【誤りの選択肢】\n・1：免疫抑制薬の服用により易感染状態となるため、退院後は飼い犬も感染リスクとなり得る。腎移植後半年間は飼い犬を別の場所で預かってもらうなどの提案をする\n・3：タクロリムスなどの免疫抑制薬では、風疹の生ワクチンの接種により風疹を発症する可能性があるので投与禁忌となる\n・4：免疫抑制薬を2回分まとめて服用すると血中濃度が上昇し、腎障害などの副作用が発現することがあるため不適切'},
+
+  {id:'q031',unit:'u06',cat:'腎移植・退院後生活',src:'第112回午前93',
+   q:'Aさんは順調に回復し、移植後の拒絶反応もなく退院することになった。Aさんは「腎臓が悪くなってから気を付けないといけないことが多かったのですが、移植してこれまでの制約がなくなりますね」と話した。Aさんの退院後の生活で継続が必要なのはどれか。',
+   c:['蛋白質の摂取制限','週3回の通院','水分の制限','体重の管理'],a:4,
+   e:'正解は4：体重の管理。\n\n生体腎移植手術では、術後の合併症による腎障害が起こることがあります。浮腫や尿量の減少などの症状がみられ、体重が増加するため、日々の体重管理により早期に発見することができます。\n\n【誤りの選択肢】\n・1：蛋白質の摂取制限は腎障害がある場合や透析中は必要だが、生体腎移植手術では移植腎の生着によって解除される\n・2：生体腎移植手術では術後1か月で腎機能が安定したら月1回程度の通院となる\n・3：水分の制限も移植腎の生着によって厳密な制限は解除される'},
+
+  // ── u07 膀胱・膀胱鏡検査 ──
+  {id:'q032',unit:'u07',cat:'膀胱の解剖',src:'第104回午後28',
+   q:'膀胱で正しいのはどれか。',
+   c:['漿膜で覆われている。','直腸の後方に存在する。','粘膜は移行上皮である。','筋層は2層構造である。'],a:3,
+   e:'正解は3：粘膜は移行上皮である。\n\n膀胱の粘膜上皮は移行上皮で、伸縮性に富んでいます。これにより尿の貯留時に膀胱が拡張できます。腎盂・尿管・後部尿道も移行上皮です。\n\n【誤りの選択肢】\n・1：膀胱は上面と後面のみ漿膜（腹膜）が覆っている\n・2：膀胱は直腸の前方に位置する（女性では子宮も間に位置する）\n・4：筋層は内縦走筋・中輪状筋・外縦走筋の3層構造'},
+
+  {id:'q033',unit:'u07',cat:'膀胱鏡組織検査',src:'第113回午後47',
+   q:'膀胱鏡による組織検査を受ける成人男性への説明で正しいのはどれか。',
+   c:['「検査前は膀胱に尿をためてください」','「尿道から内視鏡を挿入します」','「膀胱に二酸化炭素を注入します」','「検査後24時間はベッドで安静にします」'],a:2,
+   e:'正解は2：「尿道から内視鏡を挿入します」。\n\n膀胱鏡検査は経尿道的に膀胱に挿入し、膀胱および尿道の内腔を観察する内視鏡検査です。減菌された内視鏡を無菌操作で挿入します。\n\n【誤りの選択肢】\n・1：検査前は排尿を済ませて膀胱内を空にしてもらう\n・3：膀胱には減菌水または生理食塩水を注入しつつ観察する\n・4：検査後にベッド上安静の必要はないが、激しい運動は避けるようにする'},
+
+  {id:'q034',unit:'u07',cat:'膀胱鏡検査',src:'第98回午前62',
+   q:'膀胱鏡検査で適切なのはどれか。',
+   c:['ファウラー位で行う。','全身麻酔下で行う。','無菌操作で行う。','検査後は水分摂取を控える。'],a:3,
+   e:'正解は3：無菌操作で行う。\n\n膀胱鏡検査は尿路感染症のリスクがあるため、無菌操作が必須です。\n\n【誤りの選択肢】\n・1：砕石位で行う\n・2：男性では局所麻酔で行う（女性は無麻酔）\n・4：検査後は尿路感染を防ぐため、多量に水分をとることを指導する'},
+
+  {id:'q035',unit:'u07',cat:'膀胱鏡検査・血尿',src:'第103回午後52',
+   q:'Aさん（42歳、男性）は、血尿を主訴に泌尿器科を受診した。診察の結果、Aさんは膀胱鏡検査を受けることになった。Aさんへの検査についての説明で適切なのはどれか。',
+   c:['「入院が必要です」','「前日は夕食を食べないでください」','「局所麻酔で行います」','「終了後は水分の摂取を控えてください」'],a:3,
+   e:'正解は3：「局所麻酔で行います」。\n\n膀胱鏡検査は男性では尿道に局所麻酔を施行して行います（女性は無麻酔）。\n\n【誤りの選択肢】\n・1：膀胱鏡は外来でも施行される\n・2：前日の食事制限はない\n・4：終了後は尿路感染を防ぐため、多量に水分をとることを指導する'},
+
+  // ── u08 排尿機序と尿失禁 ──
+  {id:'q036',unit:'u08',cat:'排尿反射',src:'第112回午後75',
+   q:'膀胱の蓄尿と排尿反射で正しいのはどれか。',
+   c:['排尿中枢はホルモンによって制御される。','排尿反射は交感神経を介して起こる。','蓄尿時に内尿道括約筋は収縮する。','排尿時に外尿道括約筋は収縮する。','蓄尿時に排尿筋は収縮する。'],a:3,
+   e:'正解は3：蓄尿時に内尿道括約筋は収縮する。\n\n蓄尿時：膀胱壁が伸展 → 下腹神経（交感神経）が興奮 → 排尿筋は弛緩、内尿道括約筋は収縮（尿を漏らさない）。さらに陰部神経（体性神経）の刺激により外尿道括約筋も収縮。\n\n【誤りの選択肢】\n・1：腰髄・仙髄の排尿中枢は大脳皮質が制御する（ホルモンではない）\n・2：排尿反射は副交感神経を介して起こる\n・4：排尿時は外尿道括約筋は弛緩する\n・5：蓄尿時に排尿筋は弛緩する'},
+
+  {id:'q037',unit:'u08',cat:'排尿時の収縮',src:'第109回午前78',
+   q:'排尿時に収縮するのはどれか。',
+   c:['尿管','尿道','膀胱平滑筋','内尿道括約筋','外尿道括約筋'],a:3,
+   e:'正解は3：膀胱平滑筋（排尿筋）。\n\n排尿時：骨盤内臓神経（副交感神経）の刺激により膀胱平滑筋（排尿筋）が収縮し、内尿道括約筋は弛緩。陰部神経（体性神経）の制御で外尿道括約筋も弛緩する。\n\n【誤りの選択肢】\n・1：尿管は腎臓から膀胱までをつなぐ管で、蠕動運動を行う\n・2：尿道は膀胱から尿を体外に排出する管\n・4：内尿道括約筋は排尿時に弛緩する\n・5：外尿道括約筋は排尿時に弛緩する'},
+
+  {id:'q038',unit:'u08',cat:'排尿の機序',src:'第90回',
+   q:'排尿の機序で最初に起こる現象はどれか。',
+   c:['外尿道括約筋の弛緩','膀胱壁の伸展','尿管の圧迫','尿意の知覚'],a:2,
+   e:'正解は2：膀胱壁の伸展。\n\n排尿の機序の流れ：\n①膀胱に尿が充満 → 膀胱壁が伸展（最初の刺激）\n②伸展刺激が大脳に伝わる\n③尿意として知覚される\n④排尿時には外尿道括約筋が弛緩して排尿される\n\n膀胱壁の伸展が「最初」に起こる現象です。'},
+
+  {id:'q039',unit:'u08',cat:'下部尿路症状（蓄尿症状）',src:'第107回午後87',
+   q:'下部尿路症状のうち蓄尿症状はどれか。2つ選べ。',
+   c:['尿失禁','残尿感','腹圧排尿','尿線途絶','尿意切迫感'],a:[1,5],
+   e:'正解は1・5：尿失禁と尿意切迫感。\n\n下部尿路症状は3つに分類されます：\n・蓄尿症状（蓄尿期にみられる）：尿意切迫感、尿失禁、頻尿、夜間頻尿\n・排尿症状（排尿時にみられる）：尿勢低下、排尿遅延、腹圧排尿、尿線途絶\n・排尿後症状（排尿後にみられる）：残尿感、排尿後滴下\n\n【誤りの選択肢】\n・2：残尿感は排尿後症状\n・3：腹圧排尿は排尿症状\n・4：尿線途絶は排尿症状'},
+
+  {id:'q040',unit:'u08',cat:'過活動膀胱',src:'第105回午前48',
+   q:'過活動膀胱の説明で正しいのはどれか。',
+   c:['尿意切迫感がある。','失禁することはない。','水分を制限して治療する。','50歳台の有病率が最も高い。'],a:1,
+   e:'正解は1：尿意切迫感がある。\n\n過活動膀胱（OAB）とは、自分の意志とは関係なく膀胱の収縮による急な尿意（尿意切迫感）を伴う排尿障害です。\n\n【誤りの選択肢】\n・2：急な尿意切迫感から失禁してしまう「切迫性尿失禁」となることが多い\n・3：水分制限は脱水の危険があり行わない。治療は尿を我慢する膀胱訓練、β刺激薬、抗コリン薬などを用いる\n・4：過活動膀胱の有病率は加齢とともに増加し、80歳以上で最も高くなる'},
+
+  {id:'q041',unit:'u08',cat:'尿失禁の種類と対応',src:'第110回午前34',
+   q:'尿失禁の種類と対応の組合せで正しいのはどれか。',
+   c:['溢流性尿失禁 ─ 排尿間隔の記録','機能性尿失禁 ─ 骨盤底筋群訓練','切迫性尿失禁 ─ 下腹部への軽い刺激','反射性尿失禁 ─ 間欠的自己導尿'],a:4,
+   e:'正解は4：反射性尿失禁 ─ 間欠的自己導尿。\n\n反射性尿失禁は脊髄損傷などの神経障害でみられる。膀胱内に一定量の尿が溜まると反射により尿失禁を起こすため、間欠的自己導尿で膀胱を空にする。\n\n【誤りの選択肢】\n・1：溢流性尿失禁は排尿障害により膀胱に多量の尿が溜まり、尿が少しずつ溢れて漏れ出る状態。原疾患の治療と間欠的自己導尿。排尿間隔の記録は失禁種類特定には役立つが直接的対応ではない\n・2：機能性尿失禁は排尿機能に問題はないが、麻痺や認知症などによりトイレに間に合わない失禁。トイレに近い部屋への移動、随時排尿誘導が対応。骨盤底筋群訓練は腹圧性尿失禁の対応\n・3：切迫性尿失禁は急な尿意で間に合わない失禁。膀胱訓練・便秘改善・肥満改善・骨盤底筋訓練。下腹部への軽い刺激は切迫性尿失禁を促進してしまう'},
+
+  {id:'q042',unit:'u08',cat:'尿失禁とその原因',src:'第100回午前38',
+   q:'尿失禁とその原因の組合せで正しいのはどれか。',
+   c:['機能性尿失禁 ─ 膀胱容量の減少','反射性尿失禁 ─ 脊髄障害','切迫尿失禁 ─ 膀胱の過伸展','真性尿失禁 ─ 内分泌障害'],a:2,
+   e:'正解は2：反射性尿失禁 ─ 脊髄障害。\n\n反射性尿失禁は中枢神経の障害や脊髄損傷などでみられる尿失禁。尿意を感じることができないため、尿が一定量たまると自分の意志とは関係なく尿が漏れてしまう。\n\n【誤りの選択肢】\n・1：機能性尿失禁は運動機能障害や認知症などが原因\n・3：切迫性尿失禁は急な尿意でトイレに間に合わない失禁。膀胱の過伸展は溢流性尿失禁の原因\n・4：真性尿失禁は尿道括約筋そのものの欠如や機能異常などによる尿失禁'},
+
+  {id:'q043',unit:'u08',cat:'尿閉・状況設定',src:'第100回午後100',
+   q:'Aさん（74歳、男性）は、強い下腹部痛のため救急車で搬入された。Aさんは顔面蒼白で、冷汗をかき、腹部を押さえている。一緒に来た妻は「夫はいつも尿が出にくい。夜は3回はトイレに行くのに、昨夜は行かなかった。今朝もポタポタとしか出なかった。便秘はしていない」と話した。Aさんは4年前に脳梗塞になり、重い構音障害があるが理解力に問題はなく、身の回りのことは全部自分でできている。Aさんに直ちに行うべき処置はどれか。',
+   c:['導尿','摘便','膀胱瘻の造設','利尿薬の投与'],a:1,
+   e:'正解は1：導尿。\n\n情報から考えて尿閉を起こしているため、導尿をしてゆっくり排尿させる。この問題では血圧の記載がないが、急激に排尿させると低血圧になることがあるため、ゆっくり排尿させる。\n\n【誤りの選択肢】\n・2：便秘はしていないという記載がある\n・3：導尿ができなかった場合は検討されることもあるが、直ちに行うべき処置ではない\n・4：尿を生成する機能に問題はないため、利尿薬は使用しない（尿閉時に使用すると症状は悪化する）'},
+
+  {id:'q044',unit:'u08',cat:'構音障害患者とのコミュニケーション',src:'第100回午後101',
+   q:'処置を終えたAさんは、治療のため入院した。Aさんとコミュニケーションをとるうえで適切なのはどれか。2つ選べ。',
+   c:['筆談用の文房具を準備する。','理解を助ける絵カードを準備する。','構音の間違いを直して練習させる。','補聴器や眼鏡の使用状況を妻に確認する。','問いかけはopen-ended question〈開かれた質問〉にする。'],a:[1,4],
+   e:'正解は1・4。\n\n・1：重い構音障害だが失語症ではないため、筆談ができる可能性も含め、筆記具の準備をする\n・4：聴力や視力に関する情報は記載がないが、実際の状態を妻に確認する必要がある\n\n【誤りの選択肢】\n・2：絵カードはウェルニッケ失語症（言葉の理解が困難）に対する援助。Aさんは理解力に問題はない\n・3：構音のリハビリは必要だが、間違いを指摘されると自発性が失われる恐れがある\n・5：構音障害の強い患者に対する問いかけは、close-ended question（閉じられた質問）にする'},
+
+  {id:'q045',unit:'u08',cat:'機能性尿失禁の対応',src:'第100回午後102',
+   q:'Aさんは、治療後、自力排尿が可能となったが、トイレまで間に合わずに少量の尿失禁を繰り返している。Aさんはトイレで排尿することを強く希望している。Aさんへの看護師の対応として最も適切なのはどれか。',
+   c:['トイレに近い病室に移動する。','水分の摂取を控えるよう説明する。','できるだけ尿意を我慢するように言う。','尿意はなくても、4時間ごとにトイレに行くよう勧める。'],a:1,
+   e:'正解は1：トイレに近い病室に移動する。\n\nトイレまで間に合わないという情報から、機能性尿失禁と考えられる。トイレに近い部屋に移動するとよい。\n\n【誤りの選択肢】\n・2：高齢であり、水分摂取の制限は脱水につながる\n・3：Aさんの問題はトイレまで間に合わないことであるため、我慢するように伝えるのでは問題の解決にはならない\n・4：尿意を感じてからトイレに行くまでに間に合わず失禁するため、時間を見てトイレに誘導することも必要。その際、必ず4時間ごとと限定せず、Aさんの排尿パターンに合わせた時間を設定することが望ましい'},
+
+  // ── u12 腎・泌尿器全般 ──
+  {id:'q046',unit:'u12',cat:'検査延期判断',src:'第100回午後46',
+   q:'午前9時に経静脈性腎盂造影を受ける予定の患者が、検査直前に以下のように話した。検査を延期すべきなのはどれか。',
+   c:['今朝8時に朝食を食べた。','2日前に造影CTを受けた。','最終月経開始から10日目である。','昨夜、腹痛のため鎮痛薬を服用した。'],a:1,
+   e:'正解は1：今朝8時に朝食を食べた。\n\n朝検査を行うときは朝食を、検査が午後のときは昼食をとらないようにする。経静脈性腎盂造影では造影剤を使用するため、必ず絶食にする必要があり、食事をした場合は延期する。\n\n【誤りの選択肢】\n・2：2日前のCTは特に問題はない\n・3：排卵は月経から約14日後であるため、10日目ということは排卵前と考えられる。受精の可能性が低いので延期の必要はない\n・4：鎮痛薬の中には少なからず造影剤と相互作用を起こすものがあるので、医師に相談する'},
+
+  {id:'q047',unit:'u12',cat:'水腎症の原因',src:'第105回午後82',
+   q:'水腎症の原因で正しいのはどれか。2つ選べ。',
+   c:['前立腺癌','陰嚢水腫','ループス腎炎','神経因性膀胱','腎アミロイドーシス'],a:[1,4],
+   e:'正解は1・4：前立腺癌と神経因性膀胱。\n\n水腎症は尿路の通過障害によって、腎臓の内部（腎盂など）が膨張した状態。腎不全に移行するため、治療による通過障害の除去が必要。\n\n・1：前立腺癌では尿の通過障害から尿閉となるため、水腎症を合併しやすい\n・4：神経因性膀胱は膀胱を支配する神経が障害されることで、蓄尿と排尿の機能がうまく働かなくなる病気。排尿困難や尿閉から水腎症となる\n\n【誤りの選択肢】\n・2：陰嚢水腫は陰嚢（精巣の袋）に水がたまって膨らんだ状態。尿路の障害ではないので水腎症は合併しない\n・3：ループス腎炎は全身性エリテマトーデス〈SLE〉に合併する腎障害。尿路の障害は伴わない\n・5：腎アミロイドーシスはアミロイド蛋白が腎臓の糸球体などに沈着して起こるネフローゼ症候群のひとつ。早期の尿路の通過障害は伴わない'},
+
+  // ═══════════════════════════════════════════
+  // QB追加問題（さわ研未収録 + 頻出過去問）
+  // ═══════════════════════════════════════════
+
+  // ── u01 腎臓の構造と機能 ──
+  {id:'q048',unit:'u01',cat:'腎臓の解剖',src:'QB頻出',
+   q:'腎臓について正しいのはどれか。',
+   c:['長さは約20cmである。','重量は片方約500gである。','右腎は左腎より高い位置にある。','腎血流量は心拍出量の20〜25%である。'],a:4,
+   e:'正解は4：腎血流量は心拍出量の20〜25%である。\n\n腎臓には心拍出量の20〜25%（800〜1,200mL/分）もの血液が流入します。これは腎臓が血液を濾過して尿を生成するために、大量の血流を必要とするためです。\n\n【誤りの選択肢】\n・1：腎臓の長さは約10cm（幅約5cm、厚さ約3cm）\n・2：重量は片方約120〜150g（心臓の約半分）\n・3：肝臓が右側にあるため、右腎は左腎より2〜3cm低い位置にある'},
+
+  {id:'q049',unit:'u01',cat:'腎門の構造',src:'QB頻出',
+   q:'腎門部で前方から並ぶ順序として正しいのはどれか。',
+   c:['腎動脈→腎静脈→尿管','腎静脈→腎動脈→尿管','尿管→腎動脈→腎静脈','腎動脈→尿管→腎静脈'],a:2,
+   e:'正解は2：腎静脈→腎動脈→尿管（V→A→U）。\n\n腎門は腎臓に血管・尿管が出入りする部分で、前方から順に「V（腎静脈）→ A（腎動脈）→ U（尿管/腎盂）」の順に並びます。\n\n【ポイント】\n・腎動脈は腹大動脈から直接分岐\n・腎静脈は下大静脈に合流\n・覚え方：「VAU（バウ）」'},
+
+  // ── u02 細胞外液の調節 ──
+  {id:'q050',unit:'u02',cat:'Na再吸収部位',src:'第102回午前77',
+   q:'ナトリウムイオンが再吸収される主な部位はどれか。',
+   c:['近位尿細管','Henle〈ヘンレ〉のループ〈係蹄〉下行脚','Henle〈ヘンレ〉のループ〈係蹄〉上行脚','遠位尿細管','集合管'],a:1,
+   e:'正解は1：近位尿細管。\n\n近位尿細管では原尿成分の多くが再吸収され、ナトリウムイオン（Na⁺）は約65〜80%が再吸収されます。尿細管の中で最も多く再吸収される部位です。\n\n【他の部位の働き】\n・ヘンレ下行脚：主に水を再吸収\n・ヘンレ上行脚：Na⁺・Cl⁻の一部を再吸収\n・遠位尿細管：アルドステロンによりNa⁺再吸収・K⁺排泄\n・集合管：バソプレシンにより水を再吸収（最終的に原尿の1%まで濃縮）'},
+
+  {id:'q051',unit:'u02',cat:'Naイオン再吸収促進',src:'第95回午後12',
+   q:'腎臓でナトリウムイオンの再吸収を促進するのはどれか。',
+   c:['バソプレシン','アルドステロン','レニン','心房性ナトリウム利尿ペプチド'],a:2,
+   e:'正解は2：アルドステロン。\n\nアルドステロン（電解質コルチコイド）は副腎皮質から分泌されるホルモンで、遠位尿細管・集合管に作用してNa⁺の再吸収とK⁺の排泄を促進します。これにより尿細管から水分の再吸収も起こり、循環血漿量が維持されます。\n\n【誤りの選択肢】\n・1：バソプレシン（抗利尿ホルモン）は集合管に作用し、水を再吸収するがNa⁺は再吸収しない\n・3：レニンはアンジオテンシノーゲンをアンジオテンシンⅠに変換する酵素\n・4：心房性ナトリウム利尿ペプチド（ANP）は心臓で合成分泌され、Na⁺の排泄を促進する（再吸収を抑制）'},
+
+  {id:'q052',unit:'u02',cat:'血液pH調節',src:'第110回午前85',
+   q:'血液のpH調節に関わっているのはどれか。2つ選べ。',
+   c:['胃','肺','心臓','腎臓','膵臓'],a:[2,4],
+   e:'正解は2・4：肺と腎臓。\n\n血液pHは7.35〜7.45の極めて狭い範囲に保たれており、主に「炭酸水素イオン（HCO₃⁻）」と「動脈血二酸化炭素分圧（PaCO₂）」によって決まります。\n\n・肺：呼吸により二酸化炭素（CO₂）を排出して動脈血二酸化炭素分圧を調整\n・腎臓：HCO₃⁻の再吸収・H⁺の排泄により調整\n\n【誤りの選択肢】\n・1：胃 → 胃酸（HCl）の分泌で消化を助けるが、血液pH調節には直接関与しない\n・3：心臓 → 血液を循環させるが、pH調節には関与しない\n・5：膵臓 → 消化酵素や血糖調節（インスリン・グルカゴン）が主な役割'},
+
+  // ── u03 腎盂腎炎・腎炎 ──
+  {id:'q053',unit:'u03',cat:'急性糸球体腎炎',src:'QB頻出',
+   q:'急性糸球体腎炎の典型的な症状はどれか。',
+   c:['多尿','体重減少','低血圧','血尿・浮腫・高血圧'],a:4,
+   e:'正解は4：血尿・浮腫・高血圧（三大徴候）。\n\n急性糸球体腎炎は、主に溶血性レンサ球菌（溶連菌）感染後10日〜2週間後に発症することが多い疾患（Ⅲ型アレルギー）。\n\n【典型例】\n・血尿・浮腫（眼瞼浮腫など）・高血圧の三大徴候\n・3〜10歳の男児に好発（平均7歳）\n・蛋白尿や乏尿もみられる\n・血尿は約1〜3か月、蛋白尿は約1〜2か月持続し、その後消失する\n・小児では予後よく、ほとんど完全に治癒する\n\n【誤りの選択肢】\n・1：多尿ではなく乏尿\n・2：浮腫により体重は増加\n・3：高血圧（血液中の水・Na貯留による）'},
+
+  {id:'q054',unit:'u03',cat:'IgA腎症の特徴',src:'QB頻出',
+   q:'IgA腎症について正しいのはどれか。',
+   c:['小児にしか発症しない。','血尿・蛋白尿が持続する。','急性発症が多い。','ステロイドは禁忌である。'],a:2,
+   e:'正解は2：血尿・蛋白尿が持続する。\n\nIgA腎症は糸球体性血尿や蛋白尿が持続的にみられ、糸球体にIgAの優位な沈着を認める腎疾患。\n\n【特徴】\n・大部分は無症状で、健康診断での尿異常（血尿や蛋白尿）で発見されることが多い\n・感冒時の肉眼的血尿で発見されることもある\n・確定診断は腎生検（メサンギウム領域へのIgA沈着）\n・経過は緩慢だが、診断後20年で約40%が末期腎不全（ESKD）に進行\n・治療：生活指導、食事療法（食塩制限、低蛋白食）、薬物療法（降圧薬、副腎皮質ステロイド）\n・慢性扁桃炎が原因の場合は扁桃摘出術を行うこともある'},
+
+  // ── u04 ネフローゼ・腎不全 ──
+  {id:'q055',unit:'u04',cat:'ネフローゼ症候群の浮腫',src:'QB頻出',
+   q:'ネフローゼ症候群でみられる浮腫の主な原因はどれか。',
+   c:['高アルブミン血症','血漿膠質浸透圧の低下','血漿膠質浸透圧の上昇','糸球体濾過量の増加'],a:2,
+   e:'正解は2：血漿膠質浸透圧の低下。\n\nネフローゼ症候群では尿中に大量の蛋白質が漏れ出るため、血漿中の蛋白質（アルブミン）が著明に減少し、低アルブミン血症となります。\n\n血漿のアルブミンは血管内に水分を引き留める働き（膠質浸透圧）があるため、アルブミンが減少すると血漿膠質浸透圧が低下し、水分が間質に移行して浮腫が起こります。\n\n【ポイント】\n・血液中のアルブミン低下 → 末梢毛細血管で間質液から血管内への水の回収が減る → 浮腫\n・腹水・胸水もみられる'},
+
+  {id:'q056',unit:'u04',cat:'急性腎障害の腎前性',src:'QB頻出',
+   q:'腎前性急性腎障害の特徴はどれか。',
+   c:['腎臓自体の障害が原因である。','循環血液量の減少が原因である。','尿路閉塞が原因である。','慢性的に進行する。'],a:2,
+   e:'正解は2：循環血液量の減少が原因である。\n\n急性腎障害（AKI）は障害部位により3つに分類されます：\n\n【腎前性】循環の異常\n・心不全、急性心筋梗塞、大量出血、熱傷、ショックなど\n・循環血液量↓ → 心拍出量↓ → 腎血流↓ → 乏尿\n\n【腎性】腎臓自体の異常\n・急性尿細管壊死（造影剤、抗菌薬、抗悪性腫瘍薬など）\n・急性糸球体腎炎\n\n【腎後性】尿路の異常\n・前立腺肥大症、両側尿管結石、悪性腫瘍の骨盤腔内浸潤など\n\n【ポイント】AKIは可逆性の腎機能障害が多いが、慢性腎不全は不可逆性'},
+
+  {id:'q057',unit:'u04',cat:'尿毒症の症状',src:'QB頻出',
+   q:'尿毒症でみられる症状はどれか。',
+   c:['多尿','低血圧','クスマウル呼吸','貧血の改善'],a:3,
+   e:'正解は3：クスマウル呼吸。\n\n尿毒症は重度の腎機能低下により、水・電解質異常、アシドーシス、尿中排泄物（クレアチニン、BUNなど）の体内貯留が起こり、全身臓器にさまざまな症状がみられる病態。\n\n【尿毒症の主な症状】\n・全身症状：倦怠感\n・神経・精神症状：頭痛、意識障害、けいれん、不穏\n・呼吸症状：クスマウル呼吸（代謝性アシドーシスの代償）、尿毒症性肺水腫\n・循環器症状：高血圧、心膜炎、うっ血性心不全\n・血液症状：腎性貧血、出血傾向\n・消化器症状：悪心、口内炎、アンモニア性口臭\n・皮膚症状：瘙痒症、出血斑、茶褐色化\n・骨症状：CKD-MBD（骨折、骨痛、血管石灰化）'},
+
+  // ── u05 透析 ──
+  {id:'q058',unit:'u05',cat:'血液透析',src:'第112回午後79',
+   q:'血液透析について正しいのはどれか。',
+   c:['合併症は腹膜炎が多い。','食事はカルシウムを制限する。','導入初期には不均衡症候群が起こる。','導入の原因疾患はIgA腎症が最も多い。','透析に用いる半透膜はタンパク質が通過する。'],a:3,
+   e:'正解は3：導入初期には不均衡症候群が起こる。\n\n血液透析の導入初期には、脱力感・頭痛・吐き気・嘔吐・痙攣などの症状がみられる「不均衡症候群」が起こることがあります。これは血液中より脳脊髄液中の尿素除去が遅れるため、血液と脳脊髄液の間の浸透圧差により脳浮腫が起こることが原因です。\n\n【誤りの選択肢】\n・1：腹膜炎が合併症として起こるのは血液透析ではなく腹膜透析の場合\n・2：血液透析が必要となるような腎不全患者では血清リンが上昇し、リンがカルシウムと結合して低カルシウム血症となる。したがってカルシウムの制限はしない\n・4：血液透析導入の原因疾患で最も多いのは糖尿病腎症\n・5：分子量の大きいタンパク質は透析に用いる半透膜を通過しない'},
+
+  {id:'q059',unit:'u05',cat:'透析導入原因疾患',src:'第102回午前81',
+   q:'透析導入患者の原疾患として最も多いのはどれか。',
+   c:['慢性糸球体腎炎','多発性囊胞腎','ループス腎炎','糖尿病腎症','腎硬化症'],a:4,
+   e:'正解は4：糖尿病腎症。\n\n令和4年（2022年）末の集計によると、透析を導入した患者の原疾患は：\n1位：糖尿病腎症（38.7%）\n2位：腎硬化症（18.7%）\n3位：慢性糸球体腎炎（14.0%）\n\n糖尿病性腎症は微量アルブミン尿で始まり、進行性・不可逆性に腎機能が低下します。早期発見・早期治療が重要で、HbA1c 7.0%未満、血圧130/80mmHg未満を目標にコントロールします。'},
+
+  {id:'q060',unit:'u05',cat:'透析導入の判断',src:'第102回午後45',
+   q:'慢性腎不全で透析導入を判断するときの指標となる検査はどれか。',
+   c:['尿酸〈UA〉値','糸球体濾過値〈GFR〉','点滴静注腎盂造影〈DIP〉','PSP〈フェノールスルホンフタレイン〉15分値'],a:2,
+   e:'正解は2：糸球体濾過値〈GFR〉。\n\n透析導入の判断は、基本的にはGFRが指標となります。しかし腎機能の数値のみで判断できるものではなく、腎不全による尿毒症症状や高窒素血症、電解質異常の程度等と合わせて総合的に判断します。\n\n・GFR 15mL/分以下になった場合は透析導入か臓器移植かを選択\n・GFR 30〜15mL/分でも症状や他の血液検査データが異常であれば透析が必要と判断される場合がある\n\n【誤りの選択肢】\n・1：尿酸値は痛風や尿酸結石の指標\n・3：DIPは腎盂・尿管・膀胱の造影検査\n・4：PSP15分値は近位尿細管機能の指標'},
+
+  {id:'q061',unit:'u05',cat:'血液透析中の看護',src:'第105回午後45',
+   q:'維持血液透析中の看護で適切なのはどれか。',
+   c:['シャント肢を抑制する。','室温を18℃に設定する。','筋肉のけいれんの出現に注意する。','患者が吐き気を感じたら座位にする。'],a:3,
+   e:'正解は3：筋肉のけいれんの出現に注意する。\n\n血液透析では除水により血圧が低下するため、筋肉での循環不良をきたしやすい。さらに低カルシウム血症から筋肉のけいれんが出現しやすいので注意する。\n\n【誤りの選択肢】\n・1：シャント肢を抑制する必要はない\n・2：日本透析学会のガイドラインによると、夏季は26℃、冬季は23℃に設定することが望ましい\n・4：透析を導入して間もない頃は、不均衡症候群といって頭痛や吐き気がみられやすい。嘔吐時の誤嚥防止として側臥位にする'},
+
+  {id:'q062',unit:'u05',cat:'血液透析の食事指導',src:'第100回午前41',
+   q:'血液透析を受けている患者への食事指導で適切なのはどれか。',
+   c:['乳製品の摂取を勧める。','レバーの摂取を勧める。','穀物の摂取を制限する。','生野菜の摂取を制限する。'],a:4,
+   e:'正解は4：生野菜の摂取を制限する。\n\n生野菜や果物にはカリウムが多く含まれ、腎機能低下時は排泄が阻害されて心停止の原因になるため、制限する必要があります。\n\n【誤りの選択肢】\n・1：乳製品にはリンが多く含まれているため、血液透析中の患者が積極的に摂取すると高リン血症となり、血清カルシウムを低下させる。またリンとカルシウムが結合して、血管などに石灰化を起こす原因となる\n・2：レバーにはプリン体が多く含まれるため、尿の排泄ができない血液透析中の患者は高尿酸血症の原因となる\n・3：穀物の制限は必要ない'},
+
+  {id:'q063',unit:'u05',cat:'CAPDの特徴',src:'第96回午前93',
+   q:'血液透析と比較した連続携行式腹膜灌流法〈CAPD〉の特徴はどれか。',
+   c:['カリウム制限が厳しい。','シャント造設が必要ない。','週あたりの透析回数が少ない。','不均衡症候群が出現しやすい。'],a:2,
+   e:'正解は2：シャント造設が必要ない。\n\nCAPDは腹腔内に透析液を注入し、腹膜を透析膜として用いる方法。導入にはシャント造設ではなく、腹腔内に透析用のカテーテル留置術が必要となる。\n\n【誤りの選択肢】\n・1：CAPDは血液透析と比較して食事制限が緩やかで、特にカリウムを多く含む果物や野菜の制限は少ない\n・3：CAPDは1日3〜5回透析液を交換する（血液透析は週2〜3回）\n・4：不均衡症候群は血液透析の合併症（急速に老廃物が除去されることで起こる）。CAPDは持続的にゆっくり老廃物を除去するため起こりにくい'},
+
+  // ── u06 腎移植 ──
+  {id:'q064',unit:'u06',cat:'腎移植後の生活',src:'QB頻出',
+   q:'腎移植後の患者への生活指導で正しいのはどれか。',
+   c:['免疫抑制薬は症状がなくなれば中止してよい。','生ワクチンの接種が推奨される。','感染予防のため手洗い・うがいを心がける。','妊娠は禁忌である。'],a:3,
+   e:'正解は3：感染予防のため手洗い・うがいを心がける。\n\n腎移植後は免疫抑制薬の服用により易感染状態となるため、感染予防が重要です。\n\n【誤りの選択肢】\n・1：免疫抑制薬は拒絶反応を防ぐため生涯服用する必要がある。自己判断で中止すると拒絶反応が起こる\n・2：生ワクチン（風疹・麻疹・水痘・BCGなど）は免疫抑制薬服用中は禁忌。発症の危険がある\n・4：腎機能が安定していれば妊娠は可能だが、計画的に行う必要がある（薬剤調整など）'},
+
+  // ── u07 膀胱・膀胱鏡 ──
+  {id:'q065',unit:'u07',cat:'膀胱の構造',src:'QB頻出',
+   q:'膀胱の構造について正しいのはどれか。',
+   c:['膀胱容量は平均100mLである。','男性では子宮の前方に位置する。','粘膜は移行上皮である。','尿意は500mL以上で生じる。'],a:3,
+   e:'正解は3：粘膜は移行上皮である。\n\n膀胱の粘膜は移行上皮で、伸縮性に富んでいるため尿の貯留時に膀胱が大きく拡張できます。腎盂・尿管・後部尿道も同じく移行上皮です。\n\n【誤りの選択肢】\n・1：膀胱容量は平均300〜500mL\n・2：男性は直腸の前方、女性は子宮の前方に位置する（男性に子宮はない）\n・4：尿意は通常150〜200mL程度で感じる'},
+
+  // ── u08 排尿機序と尿失禁 ──
+  {id:'q066',unit:'u08',cat:'尿の生成と排尿',src:'QB頻出',
+   q:'排尿に関する記述で正しいのはどれか。',
+   c:['排尿中枢は延髄にある。','蓄尿時は副交感神経が優位となる。','排尿時に膀胱平滑筋は収縮する。','内尿道括約筋は随意筋である。'],a:3,
+   e:'正解は3：排尿時に膀胱平滑筋は収縮する。\n\n排尿時：骨盤内臓神経（副交感神経）の刺激により、膀胱平滑筋（排尿筋）は収縮し、内尿道括約筋は弛緩します。同時に陰部神経（体性神経）の制御で外尿道括約筋も弛緩します。\n\n【誤りの選択肢】\n・1：排尿中枢は腰髄・仙髄にあり、大脳皮質や橋によって制御される\n・2：蓄尿時は交感神経（下腹神経）が優位となり、排尿筋を弛緩させ内尿道括約筋を収縮させる\n・4：内尿道括約筋は平滑筋（不随意筋）。外尿道括約筋は横紋筋（随意筋）'},
+
+  {id:'q067',unit:'u08',cat:'夜間頻尿',src:'QB頻出',
+   q:'夜間頻尿の原因として最も考えにくいのはどれか。',
+   c:['前立腺肥大症','過活動膀胱','心不全','尿崩症'],a:4,
+   e:'正解は4：尿崩症。\n\n尿崩症はバソプレシン（ADH）の分泌不全または作用不全により大量の希釈尿が出る疾患で、「多尿」（3,000mL/日以上）が特徴。夜間頻尿というよりは1日を通して尿量が増加する状態です。\n\n【他の選択肢が原因となる理由】\n・1：前立腺肥大症 → 残尿が増えるため頻尿（特に夜間頻尿）を起こしやすい\n・2：過活動膀胱 → 尿意切迫感と頻尿（夜間頻尿）が主症状\n・3：心不全 → 日中は下肢に貯留した水分が、就寝後の臥位で循環血漿量増加 → 夜間多尿・頻尿\n\n※ただし尿崩症でも夜間に複数回トイレに行くことはあるため、「最も考えにくい」という相対比較で選ぶ問題'},
+
+  // ── u09 腎結石・尿路結石 ──
+  {id:'q068',unit:'u09',cat:'尿管結石症の治療',src:'第110回午前88',
+   q:'尿管結石症の治療で適切なのはどれか。2つ選べ。',
+   c:['尿路変更術','血管拡張薬の投与','カルシウム製剤の投与','体外衝撃波結石破砕術〈ESWL〉','非ステロイド系抗炎症薬の投与'],a:[4,5],
+   e:'正解は4・5：ESWLとNSAIDsの投与。\n\n・4：体外衝撃波砕石術（ESWL）は尿管内の結石に衝撃波をあて、結石を破砕する治療\n・5：尿管結石症の疼痛に対して、抗コリン薬や非ステロイド系抗炎症薬（NSAIDs）を用いる\n\n【誤りの選択肢】\n・1：尿路変更術は膀胱癌などで行われる\n・2：血管拡張薬とはニトログリセリンなどのことを指し、狭心症治療に用いる\n・3：尿管結石症ではカルシウム含有結石が最も多いため、カルシウム製剤を投与すると結石が発生しやすくなる'},
+
+  {id:'q069',unit:'u09',cat:'尿酸結石の予防',src:'第108回午前52',
+   q:'Aさん（47歳、男性、会社員）は、痛風の既往があり、ほぼ毎日、飲酒を伴う外食をしている。1週前に尿管結石による疝痛発作があり、体外衝撃波結石破砕術〈ESWL〉を受けた。その結果、排出された結石は尿酸結石であることがわかった。Aさんへの結石の再発予防に対する生活指導で適切なのはどれか。',
+   c:['「飲酒量に制限はありません」','「負荷の大きい運動をしましょう」','「1日2L程度の水分摂取をしましょう」','「動物性蛋白質を多く含む食品を摂取しましょう」'],a:3,
+   e:'正解は3：「1日2L程度の水分摂取をしましょう」。\n\n痛風は高尿酸血症で、栄養価の高い食事を摂る肥満の男性に多い疾患。尿酸塩結晶が析出することで、急性関節炎や痛風腎、尿酸結石を合併することがある。\n\n【再発予防のポイント】\n・尿路への尿酸やシュウ酸などの沈着を防ぐために、1日2L程度の水分を摂取する\n\n【誤りの選択肢】\n・1：アルコールの過剰摂取が高尿酸血症の原因となるため、飲酒は控えた方がよい\n・2：尿酸値の改善のためには有酸素運動（ウォーキング・ジョギングなど）が適切。無酸素運動・負荷の大きいベンチプレスやウェイトトレーニングは筋繊維を破壊することで尿酸値を上げやすい\n・4：動物性蛋白質を多く含む食品のレバーやホルモンなどはプリン体も多く、尿酸値を上げやすいので控えた方がよい'},
+
+  // ── u10 膀胱癌 ──
+  {id:'q070',unit:'u10',cat:'膀胱癌の特徴',src:'第110回午後28',
+   q:'膀胱癌について正しいのはどれか。',
+   c:['女性に多い。','尿路上皮癌より腺癌が多い。','経尿道的生検によって治療法を決定する。','表在性の癌に対して膀胱全摘除術が行われる。'],a:3,
+   e:'正解は3：経尿道的生検によって治療法を決定する。\n\n通常がんの確定診断は生検により行われる。膀胱癌においても経尿道的生検によって確定診断することが常である。生検部位が病巣の場合は治療を兼ねることができる。さらにがん細胞の浸潤の程度などから、具体的な治療方針を決定していく。\n\n【誤りの選択肢】\n・1：膀胱癌は、女性より男性の方が3〜5倍多い\n・2：膀胱癌の中で最も多いのは尿路上皮癌（移行上皮癌）\n・4：一般に筋層まで浸潤していない表在性の膀胱癌であれば、経尿道的膀胱腫瘍切除術（TUR-BT）が行われることが多い'},
+
+  {id:'q071',unit:'u10',cat:'回腸導管造設術後',src:'第101回午前104',
+   q:'術後5日、順調に回復しているAさん（膀胱全摘除術・回腸導管造設術後）のストーマの色はどれか。',
+   c:['白色〜淡黄色','黄土色〜茶色','桃色〜鮮紅色','灰色〜黒色'],a:3,
+   e:'正解は3：桃色〜鮮紅色。\n\n回腸導管造設術とは、小腸（回腸）の一部を利用して尿管をつなぎ、人工肛門のように右下腹部皮膚に固定する。人工肛門の色は桃色〜鮮紅色である。\n\n【異常な色の見極め】\n・白色や淡黄色 → 血行障害をきたしている\n・灰色〜黒色 → 壊死の可能性がある\n・茶色や紫色 → 循環不全の可能性\n\nストーマの色調は循環状態を反映する重要なサインなので、毎日観察することが大切。'},
+
+  // ── u11 男性生殖器・前立腺 ──
+  {id:'q072',unit:'u11',cat:'男性生殖器',src:'第105回午前30',
+   q:'男性生殖器について正しいのはどれか。',
+   c:['精巣は腹腔内にある。','精囊は精子を貯留する。','前立腺は直腸の前面に位置する。','右精巣静脈は腎静脈に流入する。'],a:3,
+   e:'正解は3：前立腺は直腸の前面に位置する。\n\n前立腺は男性の骨盤腔内で、膀胱の真下、直腸の前面に位置する。前立腺肥大や前立腺癌では、直腸診で肥大した前立腺を触知できる。\n\n【誤りの選択肢】\n・1：精巣は発生後期に鼠径管を通って腹腔から脱出して、陰嚢という袋の中に収まっている\n・2：精子は精巣の後部にある精巣上体の尾部に貯留される。精囊は膀胱の後ろにあって、精子にエネルギーを供給する分泌液を出す\n・4：腎静脈に流入しているのは左精巣静脈。右精巣静脈は直接下大静脈に流入する。下大静脈がやや右側に位置するため、左右で非対称となる'},
+
+  {id:'q073',unit:'u11',cat:'前立腺肥大症',src:'第108回午後85',
+   q:'前立腺肥大症で正しいのはどれか。2つ選べ。',
+   c:['進行すると水腎症となる。','外科治療は経尿道的前立腺切除術を行う。','直腸診で石の様な硬さの前立腺を触知する。','前立腺を縮小させるために男性ホルモン薬を用いる。','前立腺特異抗原〈prostate specific antigen：PSA〉値が100ng/mL以上となる。'],a:[1,2],
+   e:'正解は1・2。\n\n・1：前立腺肥大が進行して尿が排出されなくなると、腎盂や腎杯に尿がうっ滞し腎臓が腫れあがったような状態になる（水腎症）\n・2：肥大症の主な手術療法はTURP（経尿道的前立腺切除術）。尿道から電気メスを用いて肥大した前立腺組織を削り取るような術式\n\n【誤りの選択肢】\n・3：前立腺肥大症では直腸診で表面が平滑で弾力性がある所見となる。前立腺癌では表面が不整で石のように硬い前立腺が触知される\n・4：薬物療法では抗アンドロゲン薬など男性ホルモン抑制作用がある薬を用いる（前立腺は男性ホルモン依存性のため）\n・5：PSAは前立腺癌で上昇する腫瘍マーカー。PSAが4ng/mLを超えると前立腺癌を疑うが、100ng/mL以上というのは誤り'},
+
+  {id:'q074',unit:'u11',cat:'TURP術後の退院指導',src:'第107回午前88',
+   q:'Aさん（63歳、男性）。BMI24。前立腺肥大症のため経尿道的前立腺切除術を受け、手術後3日で膀胱留置カテーテルが抜去された。数日後に退院する予定である。Aさんへの退院指導で適切なのはどれか。2つ選べ。',
+   c:['散歩を控える。','水分摂取を促す。','長時間の座位を控える。','時間をかけて入浴する。','排便時に強くいきまないようにする。'],a:[2,5],
+   e:'正解は2・5。\n\n・2：尿の流出を良くし尿路感染を防止するため、水分摂取を促す\n・5：下腹部に力をかけすぎると出血をすることがあるため、努責しないよう話す。便秘を予防することが大切\n\n【誤りの選択肢】\n・1：術後出血を防ぐため激しい運動は控えるが、散歩など軽い運動は行ってもよい\n・3：座位は基本姿勢である。またウォーキングなどは可能だが、自転車やバイクに乗ることは控える\n・4：熱めのお湯に浸かること、長風呂をすることで出血を起こすことがあるため控える'},
+
+  // ── u12 全般 ──
+  {id:'q075',unit:'u12',cat:'尿の異常',src:'QB頻出',
+   q:'1日尿量が400mL以下の状態を表すのはどれか。',
+   c:['多尿','頻尿','乏尿','無尿'],a:3,
+   e:'正解は3：乏尿。\n\n【尿量の異常の定義】\n・乏尿：1日尿量が400mL以下\n・無尿：1日尿量が100mL以下\n・尿閉：尿が膀胱内に存在するにもかかわらず排出不能な状態\n・多尿：1日尿量が3,000mL以上\n\n【乏尿・無尿の原因】\n・腎前性：ショック、脱水（循環血液量減少）\n・腎性：急性尿細管壊死、急性糸球体腎炎（腎臓自体の障害）\n・腎後性：両側尿路閉塞（前立腺肥大、結石など）\n\n通常、体内の老廃物を排泄するためには、1日最低約500mLの尿量が必要とされる。'},
+];
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+const STORAGE_KEY = 'jinhinyouki_state_v1';
+let state = loadState();
+
+function loadState(){
+  try{
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+    return {
+      ranks: s.ranks || {},          // {u01:'A'/'B'/'C'/null}
+      done:  s.done  || {},          // {u01:true}
+      progress: s.progress || {},    // {u01:{correct:n,total:n}}
+      review: s.review || [],        // [qid, qid, ...]
+      fcMastered: s.fcMastered || [],// [fcid, fcid, ...] 覚えたフラッシュカード
+    };
+  }catch(e){
+    return {ranks:{},done:{},progress:{},review:[],fcMastered:[]};
+  }
+}
+function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+// ═══════════════════════════════════════════
+//  NAV
+// ═══════════════════════════════════════════
+function nav(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.querySelectorAll('.tnav').forEach(b=>b.classList.remove('on'));
+  // top button highlight
+  const map = {home:0, study:1, flash:2, start:3, review:4};
+  const idx = map[p];
+  if(idx !== undefined){
+    document.querySelectorAll('.tnav')[idx].classList.add('on');
+  }
+  if(p==='home') renderHome();
+  if(p==='start') renderStart();
+  if(p==='review') renderReview();
+  if(p==='flash') initFC();
+  window.scrollTo(0,0);
+}
+
+// ═══════════════════════════════════════════
+//  STUDY : 学習ページタブ切り替え
+// ═══════════════════════════════════════════
+function showStudy(sid){
+  document.querySelectorAll('.study-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('study-'+sid).classList.add('active');
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('on'));
+  if(event && event.target) event.target.classList.add('on');
+  // ページ上部までスクロール
+  document.getElementById('page-study').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// 単元カードの「📖」ボタンから対応する学習ノートへジャンプ
+function gotoStudy(uid){
+  // u01 → s01 に変換
+  const sid = 's' + uid.slice(1);
+  // 学習ページへ遷移
+  nav('study');
+  // セクションを切り替え
+  document.querySelectorAll('.study-section').forEach(s=>s.classList.remove('active'));
+  const target = document.getElementById('study-'+sid);
+  if(target){
+    target.classList.add('active');
+    // 該当タブをハイライト
+    document.querySelectorAll('.stab').forEach(b=>b.classList.remove('on'));
+    document.querySelectorAll('.stab').forEach(b=>{
+      if(b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${sid}'`)){
+        b.classList.add('on');
+      }
+    });
+  }
+}
+
+// ═══════════════════════════════════════════
+//  HOME : 単元一覧
+// ═══════════════════════════════════════════
+function getQuestionsByUnit(uid){
+  return QUESTIONS.filter(q=>q.unit===uid);
+}
+
+function renderHome(){
+  // 進捗サマリー
+  const total = UNITS.length;
+  const done = Object.values(state.done).filter(Boolean).length;
+  const aCount = Object.values(state.ranks).filter(r=>r==='A').length;
+  const cCount = Object.values(state.ranks).filter(r=>r==='C').length;
+  const reviewCount = state.review.length;
+
+  document.getElementById('progress-summary').innerHTML = `
+    <div class="prog-card green"><div class="prog-num" style="color:var(--ac3)">${done}/${total}</div><div class="prog-label">完了単元</div></div>
+    <div class="prog-card blue"><div class="prog-num" style="color:var(--ac)">${aCount}</div><div class="prog-label">A（確認済み）</div></div>
+    <div class="prog-card red"><div class="prog-num" style="color:var(--ac2)">${cCount}</div><div class="prog-label">C（苦手）</div></div>
+    <div class="prog-card amber"><div class="prog-num" style="color:var(--ac5)">${reviewCount}</div><div class="prog-label">復習待ち</div></div>
+  `;
+
+  // 単元一覧
+  const grid = document.getElementById('unit-grid');
+  grid.innerHTML = '';
+  UNITS.forEach(u=>{
+    const rank = state.ranks[u.id] || 'none';
+    const isDone = !!state.done[u.id];
+    const qs = getQuestionsByUnit(u.id);
+    const qcount = qs.length;
+    const prog = state.progress[u.id] || {correct:0, total:0};
+    const progPct = qcount>0 && prog.total>0 ? Math.round((prog.correct/prog.total)*100) : 0;
+
+    const card = document.createElement('div');
+    card.className = `unit-card rank-${rank}`;
+    card.onclick = (e)=>{
+      // クリックイベントを防止する子要素のチェック
+      if(e.target.closest('.rank-btn')||e.target.closest('input[type=checkbox]')) return;
+      startUnitQuiz(u.id);
+    };
+
+    card.innerHTML = `
+      <div class="unit-top">
+        <div class="unit-icon">${u.icon}</div>
+        <div style="flex:1;">
+          <div class="unit-name">${u.name}</div>
+          <div class="unit-desc">${u.desc}</div>
+          <div class="unit-qcount ${qcount===0?'empty':''}">${qcount===0?'問題準備中':`${qcount}問`}</div>
+        </div>
+      </div>
+      <div class="unit-meta">
+        <span class="rank-badge ${rank}">${rank==='none'?'未評価':rank}</span>
+        <label class="done-check" onclick="event.stopPropagation();">
+          <input type="checkbox" ${isDone?'checked':''} onchange="toggleDone('${u.id}', this.checked)">
+          ${isDone?'完了':'未完了'}
+        </label>
+        <button class="study-btn" onclick="event.stopPropagation();gotoStudy('${u.id}')" title="解説を見る">📖</button>
+        <div class="rank-selector">
+          <button class="rank-btn A ${rank==='A'?'sel':''}" onclick="event.stopPropagation();setRank('${u.id}','A')">A</button>
+          <button class="rank-btn B ${rank==='B'?'sel':''}" onclick="event.stopPropagation();setRank('${u.id}','B')">B</button>
+          <button class="rank-btn C ${rank==='C'?'sel':''}" onclick="event.stopPropagation();setRank('${u.id}','C')">C</button>
+        </div>
+      </div>
+      ${qcount>0 && prog.total>0 ? `<div class="unit-progress-bar"><div class="unit-progress-fill" style="width:${progPct}%"></div></div>` : ''}
+    `;
+    grid.appendChild(card);
+  });
+
+  // 復習バッジ
+  const rb = document.getElementById('review-badge');
+  if(reviewCount>0){ rb.textContent = reviewCount; rb.style.display = ''; }
+  else rb.style.display = 'none';
+}
+
+function setRank(uid, rank){
+  if(state.ranks[uid] === rank) state.ranks[uid] = null;
+  else state.ranks[uid] = rank;
+  saveState();
+  renderHome();
+}
+
+function toggleDone(uid, checked){
+  state.done[uid] = checked;
+  saveState();
+  renderHome();
+  toast(checked ? '完了にしました ✓' : '未完了に戻しました');
+}
+
+// ═══════════════════════════════════════════
+//  START : 演習開始
+// ═══════════════════════════════════════════
+let selectedUnits = new Set();
+
+function renderStart(){
+  document.getElementById('total-q-count').textContent = QUESTIONS.length;
+  document.getElementById('unit-select-area').style.display = 'none';
+  selectedUnits.clear();
+  document.getElementById('start-selected-btn').disabled = true;
+
+  const list = document.getElementById('unit-select-list');
+  list.innerHTML = '';
+  UNITS.forEach(u=>{
+    const qs = getQuestionsByUnit(u.id);
+    const disabled = qs.length===0;
+    const item = document.createElement('label');
+    item.className = `unit-select-item ${disabled?'disabled':''}`;
+    item.innerHTML = `
+      <input type="checkbox" ${disabled?'disabled':''} onchange="toggleUnitSel('${u.id}', this.checked)">
+      <span>${u.icon} ${u.name}</span>
+      <span style="margin-left:auto;color:var(--txd);font-family:'DM Mono',monospace;font-size:11px;">${qs.length}問</span>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function toggleUnitSelect(){
+  const area = document.getElementById('unit-select-area');
+  area.style.display = area.style.display==='none' ? '' : 'none';
+}
+
+function toggleUnitSel(uid, checked){
+  if(checked) selectedUnits.add(uid);
+  else selectedUnits.delete(uid);
+  document.getElementById('start-selected-btn').disabled = selectedUnits.size===0;
+
+  // 視覚的に選択を反映
+  const items = document.querySelectorAll('.unit-select-item');
+  items.forEach(it=>{
+    const cb = it.querySelector('input');
+    if(cb) it.classList.toggle('sel', cb.checked);
+  });
+}
+
+function startQuizAll(){
+  if(QUESTIONS.length===0){ toast('問題がまだ登録されていません'); return; }
+  beginQuiz([...QUESTIONS], '全問題ランダム演習');
+}
+
+function startQuizSelected(){
+  const pool = QUESTIONS.filter(q=>selectedUnits.has(q.unit));
+  if(pool.length===0){ toast('選択した単元には問題がありません'); return; }
+  const names = UNITS.filter(u=>selectedUnits.has(u.id)).map(u=>u.name).join('・');
+  beginQuiz(pool, names);
+}
+
+function startUnitQuiz(uid){
+  const pool = getQuestionsByUnit(uid);
+  if(pool.length===0){ toast('この単元はまだ問題が準備中です'); return; }
+  const u = UNITS.find(x=>x.id===uid);
+  beginQuiz(pool, u.name);
+}
+
+// ═══════════════════════════════════════════
+//  QUIZ
+// ═══════════════════════════════════════════
+let quiz = null;
+
+function beginQuiz(pool, title){
+  // shuffle
+  const arr = [...pool];
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  quiz = {
+    questions: arr,
+    idx: 0,
+    correctIds: [],
+    wrongIds: [],
+    title: title,
+    answered: false,
+  };
+  document.getElementById('quiz-title').textContent = title;
+  nav('quiz');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = quiz.questions[quiz.idx];
+  const isMulti = Array.isArray(q.a);
+  quiz.answered = false;
+  quiz.selectedMulti = new Set();
+
+  document.getElementById('quiz-meta').textContent = `Q ${quiz.idx+1} / ${quiz.questions.length}`;
+  document.getElementById('quiz-prog').style.width = ((quiz.idx)/(quiz.questions.length))*100 + '%';
+
+  const area = document.getElementById('quiz-area');
+  area.innerHTML = `
+    <div class="qcard">
+      <div class="qtext">
+        <span class="qcat">${q.cat}</span>
+        ${q.src?`<span class="qsrc">${q.src}</span>`:''}
+        ${isMulti?'<span class="qsrc" style="background:rgba(167,139,250,.15);color:var(--ac6);">2つ選べ</span>':''}
+        <br><br>
+        ${q.q.replace(/\n/g,'<br>')}
+      </div>
+      <div id="choice-list">
+        ${q.c.map((choice,i)=>`
+          <button class="choice" data-i="${i+1}" onclick="selectChoice(${i+1})">
+            <span class="choice-num">${i+1}</span>
+            <span>${choice}</span>
+          </button>
+        `).join('')}
+      </div>
+      ${isMulti?`<div style="margin-top:10px;text-align:right;"><button class="btn btn-primary" id="multi-submit" onclick="submitMulti()" disabled>解答する</button></div>`:''}
+      <div class="expbox" id="expbox">
+        <div class="exp-label">解説</div>
+        <div id="exp-text"></div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('q-next-btn').style.display = 'none';
+}
+
+function selectChoice(n){
+  if(quiz.answered) return;
+  const q = quiz.questions[quiz.idx];
+  const isMulti = Array.isArray(q.a);
+
+  if(isMulti){
+    // 複数選択モード
+    if(quiz.selectedMulti.has(n)) quiz.selectedMulti.delete(n);
+    else{
+      if(quiz.selectedMulti.size>=2){ toast('2つまで選択できます'); return; }
+      quiz.selectedMulti.add(n);
+    }
+    // 表示更新
+    document.querySelectorAll('.choice').forEach(btn=>{
+      const i = parseInt(btn.dataset.i);
+      btn.classList.toggle('selected', quiz.selectedMulti.has(i));
+    });
+    document.getElementById('multi-submit').disabled = quiz.selectedMulti.size!==2;
+  } else {
+    // 単一選択 → 即判定
+    judgeAnswer([n]);
+  }
+}
+
+function submitMulti(){
+  judgeAnswer([...quiz.selectedMulti]);
+}
+
+function judgeAnswer(selected){
+  const q = quiz.questions[quiz.idx];
+  const isMulti = Array.isArray(q.a);
+  const correct = isMulti ? q.a : [q.a];
+  const isCorrect = (selected.length===correct.length) &&
+                    selected.every(x=>correct.includes(x));
+
+  quiz.answered = true;
+
+  // 表示
+  document.querySelectorAll('.choice').forEach(btn=>{
+    const i = parseInt(btn.dataset.i);
+    btn.disabled = true;
+    btn.classList.remove('selected');
+    if(correct.includes(i)) btn.classList.add('correct');
+    else if(selected.includes(i)) btn.classList.add('wrong');
+  });
+
+  if(isMulti){
+    const sb = document.getElementById('multi-submit');
+    if(sb) sb.style.display = 'none';
+  }
+
+  document.getElementById('exp-text').innerHTML = q.e.replace(/\n/g,'<br>');
+  document.getElementById('expbox').classList.add('show');
+
+  if(isCorrect){
+    quiz.correctIds.push(q.id);
+  } else {
+    quiz.wrongIds.push(q.id);
+    // 復習リストに追加
+    if(!state.review.includes(q.id)){
+      state.review.push(q.id);
+      saveState();
+    }
+  }
+
+  document.getElementById('q-next-btn').style.display = '';
+  document.getElementById('q-next-btn').textContent = quiz.idx === quiz.questions.length-1 ? '結果を見る →' : '次の問題 →';
+}
+
+function nextQuestion(){
+  if(quiz.idx < quiz.questions.length-1){
+    quiz.idx++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function confirmQuit(){
+  if(confirm('演習を中断しますか？\n（途中の結果は保存されません）')) nav('home');
+}
+
+// ═══════════════════════════════════════════
+//  RESULT
+// ═══════════════════════════════════════════
+function showResult(){
+  const total = quiz.questions.length;
+  const correct = quiz.correctIds.length;
+  const wrong = quiz.wrongIds.length;
+  const pct = total>0 ? Math.round((correct/total)*100) : 0;
+
+  document.getElementById('result-score').textContent = pct + '%';
+  document.getElementById('result-correct').textContent = correct;
+  document.getElementById('result-wrong').textContent = wrong;
+  document.getElementById('result-total').textContent = total;
+
+  let msg = '';
+  if(pct===100) msg = '🎉 全問正解！素晴らしい！';
+  else if(pct>=80) msg = '✨ 高得点！この調子で復習しましょう';
+  else if(pct>=60) msg = '💪 もう少し！間違えた問題を復習しましょう';
+  else msg = '📚 重要な単元です。じっくり復習しましょう';
+  document.getElementById('result-msg').textContent = msg;
+
+  // 間違えた問題のサマリー
+  const ws = document.getElementById('result-wrong-summary');
+  if(quiz.wrongIds.length>0){
+    const qWrong = QUESTIONS.filter(q=>quiz.wrongIds.includes(q.id));
+    ws.innerHTML = `<div style="font-size:12px;color:var(--ac2);margin-bottom:8px;">⚠️ 間違えた問題（${qWrong.length}問）→ 復習リストに追加済み</div>` +
+      qWrong.map(q=>`<div style="font-size:12px;color:var(--txm);padding:6px 10px;background:var(--sf2);border-radius:6px;margin-bottom:4px;line-height:1.5;">${q.cat}：${q.q.length>50?q.q.slice(0,50)+'…':q.q}</div>`).join('');
+    document.getElementById('result-review-btn').style.display = '';
+  } else {
+    ws.innerHTML = '';
+    document.getElementById('result-review-btn').style.display = 'none';
+  }
+
+  // 単元の進捗を保存（単一単元演習の場合）
+  const allSameUnit = quiz.questions.every(q=>q.unit===quiz.questions[0].unit);
+  if(allSameUnit && quiz.questions.length>0){
+    const uid = quiz.questions[0].unit;
+    state.progress[uid] = {correct: correct, total: total};
+    saveState();
+  }
+
+  nav('result');
+}
+
+// ═══════════════════════════════════════════
+//  REVIEW
+// ═══════════════════════════════════════════
+function renderReview(){
+  const list = document.getElementById('review-list');
+  if(state.review.length===0){
+    list.innerHTML = '<div class="review-empty"><div class="icon">🎉</div><div>復習リストは空です。<br>演習で間違えた問題が自動的に追加されます。</div></div>';
+    document.getElementById('review-start-btn').disabled = true;
+    return;
+  }
+  document.getElementById('review-start-btn').disabled = false;
+
+  const items = state.review.map(qid=>{
+    const q = QUESTIONS.find(x=>x.id===qid);
+    if(!q) return '';
+    const u = UNITS.find(x=>x.id===q.unit);
+    return `<div class="review-item">
+      <div style="font-size:20px;">${u?u.icon:'📌'}</div>
+      <div class="review-item-body">
+        <div class="review-q">${q.q.length>80?q.q.slice(0,80)+'…':q.q}</div>
+        <div class="review-tags">
+          <span class="rtag rtag-unit">${u?u.name:q.cat}</span>
+          ${q.src?`<span class="rtag" style="background:rgba(245,158,11,.15);color:var(--ac5);">${q.src}</span>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  list.innerHTML = items;
+}
+
+function startReviewQuiz(){
+  const pool = QUESTIONS.filter(q=>state.review.includes(q.id));
+  if(pool.length===0){ toast('復習リストは空です'); return; }
+  beginQuiz(pool, '復習問題');
+}
+
+function clearReview(){
+  if(!confirm('復習リストをすべてクリアしますか？')) return;
+  state.review = [];
+  saveState();
+  renderReview();
+  toast('復習リストをクリアしました');
+}
+
+// ═══════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+// ═══════════════════════════════════════════
+//  FLASHCARDS
+// ═══════════════════════════════════════════
+const FC_DATA = [
+  // ── u01 腎臓の構造と機能 ──
+  {u:'u01',f:'腎臓の位置',s:'解剖',b:'後腹膜にある左右1対のソラマメ形臓器\n長さ約10cm・幅約5cm・厚さ約3cm\n重量：片方約120〜150g\n肝臓の影響で右腎は左腎より2〜3cm低い'},
+  {u:'u01',f:'腎門の並び順',s:'解剖：覚え方VAU',b:'前方から V→A→U の順\n・V：腎静脈\n・A：腎動脈\n・U：尿管（腎盂）\n腎動脈→腹大動脈から分岐\n腎静脈→下大静脈に合流'},
+  {u:'u01',f:'腎血流量',s:'機能',b:'心拍出量の20〜25%\n（800〜1,200mL/分）\n腎臓は血液を濾過して尿を生成するため\n大量の血流が必要'},
+  {u:'u01',f:'蠕動運動するのは？',s:'解剖',b:'腎盂・尿管\n（血管・膀胱・尿道は蠕動しない）\n尿管は1分間に4〜5回の蠕動で\n尿を膀胱へ運ぶ'},
+  {u:'u01',f:'移行上皮の部位',s:'解剖',b:'腎盂・尿管・膀胱・後部尿道\n伸縮性に富み、尿の貯留に対応\n（前部尿道は重層扁平上皮）'},
+  {u:'u01',f:'男女の尿道',s:'解剖',b:'男性：約16〜20cm\n女性：約3〜4cm\n女性は短いため逆行性尿路感染を\n起こしやすい'},
+  {u:'u01',f:'膀胱容量と尿意',s:'機能',b:'膀胱容量：平均300〜500mL\n尿意：150〜200mL程度で生じる\n膀胱壁の伸展が最初の刺激'},
+
+  // ── u02 細胞外液の調節 ──
+  {u:'u02',f:'ネフロンの構成',s:'機能',b:'1つの腎臓に約100万個\n腎小体（糸球体＋ボウマン嚢）\n＋尿細管\n1日の原尿：約150L\n最終尿：原尿の約1%'},
+  {u:'u02',f:'Na再吸収部位',s:'尿細管',b:'近位尿細管が主\n（原尿成分の65〜80%を再吸収）\nヘンレ上行脚：Na・Cl\n遠位尿細管：アルドステロンの作用'},
+  {u:'u02',f:'バソプレシン',s:'ホルモン',b:'抗利尿ホルモン（ADH）\n下垂体後葉から分泌\n集合管に作用→水を再吸収\n（Naは再吸収しない）\n血漿浸透圧で調節'},
+  {u:'u02',f:'アルドステロン',s:'ホルモン',b:'副腎皮質ホルモン（電解質コルチコイド）\n遠位尿細管・集合管に作用\nNa再吸収・K排泄を促進\n→ 循環血漿量を維持'},
+  {u:'u02',f:'RAA系',s:'血圧調節',b:'血圧低下→傍糸球体細胞からレニン分泌\nアンジオテンシノーゲン→Ⅰ→（ACE）→Ⅱ\nアンジオテンシンⅡ：血管収縮+\nアルドステロン分泌→血圧上昇'},
+  {u:'u02',f:'エリスロポエチン',s:'腎臓のホルモン',b:'赤血球生成促進因子\n腎臓で産生される造血ホルモン\n低酸素血症に反応して産生\n腎不全→分泌低下→腎性貧血'},
+  {u:'u02',f:'血液pH',s:'酸塩基平衡',b:'7.35〜7.45の狭い範囲\n肺：CO2（PaCO2）を調整\n腎臓：HCO3⁻を調整\n両者で血液pHを保つ'},
+  {u:'u02',f:'酸塩基平衡 異常',s:'覚え方',b:'下痢→代謝性アシドーシス（腸液喪失）\n嘔吐→代謝性アルカローシス（胃酸喪失）\n慢性腎不全→代謝性アシドーシス\n過換気症候群→呼吸性アルカローシス'},
+  {u:'u02',f:'GFRの推定物質',s:'検査',b:'クレアチニン（Cr）\n→生体内物質、eGFRに使用\nイヌリン：最も正確だが外因性\nパラアミノ馬尿酸：腎血漿流量（RPF）'},
+  {u:'u02',f:'糸球体で濾過されるか？',s:'検査',b:'分子量で決まる\n濾過される：ミオグロビン（17,200）\n濾過されない：\n　アルブミン（66,000）\n　γグロブリン（156,000）\n　フィブリノーゲン（340,000）'},
+
+  // ── u03 腎盂腎炎・腎炎 ──
+  {u:'u03',f:'急性腎盂腎炎',s:'症状',b:'女性に多い（尿道短い・上行性感染）\n片腎性が多い\n悪寒戦慄を伴う高熱\n腰背部痛・CVA叩打痛\n中間尿で細菌培養（初尿は破棄）'},
+  {u:'u03',f:'腎盂腎炎の原因菌',s:'微生物',b:'グラム陰性桿菌が多い\n→特に大腸菌が約9割\n（グラム陽性球菌ではない）'},
+  {u:'u03',f:'急性糸球体腎炎',s:'病態',b:'溶連菌感染後10日〜2週間後\n3〜10歳の男児に好発\n三大徴候：血尿・浮腫・高血圧\nⅢ型アレルギー\n小児予後良好（成人20〜30%慢性化）'},
+  {u:'u03',f:'IgA腎症',s:'病態',b:'糸球体性血尿・蛋白尿が持続\nメサンギウム領域へのIgA沈着\n（腎生検で確定診断）\n感冒時の肉眼的血尿で発見\n20年で約40%が末期腎不全'},
+  {u:'u03',f:'経皮的腎生検',s:'検査',b:'体位：腹臥位（後腹膜臓器のため）\n穿刺時：呼吸を止める\n検査後：6〜24時間ベッド上安静\n4週間は重い荷物NG'},
+
+  // ── u04 ネフローゼ・腎不全 ──
+  {u:'u04',f:'ネフローゼ症候群\n診断基準',s:'必須は2つ',b:'①蛋白尿3.5g/日以上 ★必須\n②低アルブミン血症3.0g/dL以下 ★必須\n③浮腫\n④脂質異常症\n（必須は①②）'},
+  {u:'u04',f:'ネフローゼの浮腫',s:'機序',b:'低アルブミン血症\n→血漿膠質浸透圧低下\n→水分が間質へ移行\n→浮腫・腹水・胸水'},
+  {u:'u04',f:'急性腎障害（AKI）',s:'分類',b:'腎前性：循環の異常（心不全・出血・ショック）\n腎性：腎臓自体の異常（急性尿細管壊死・急性糸球体腎炎）\n腎後性：尿路の異常（前立腺肥大・結石）\nAKIは可逆性、慢性腎不全は不可逆性'},
+  {u:'u04',f:'CKDの定義',s:'慢性腎臓病',b:'腎障害（蛋白尿など）または\nGFR60mL/分/1.73m²未満が\n3か月以上持続\nCGA分類：原因(C)・GFR区分(G1〜G5)・\n蛋白尿区分(A1〜A3)で評価'},
+  {u:'u04',f:'CKDの症状',s:'腎機能低下に伴う',b:'浮腫・高血圧・うっ血性心不全\n肺水腫・尿毒症\n高K血症・高P血症・低Ca血症\n代謝性アシドーシス\n腎性貧血（エリスロポエチン低下）'},
+  {u:'u04',f:'透析導入の原因疾患',s:'1〜3位',b:'1位：糖尿病腎症（38.7%）\n2位：腎硬化症（18.7%）\n3位：慢性糸球体腎炎（14.0%）\n（令和4年末・日本透析医学会）'},
+  {u:'u04',f:'CKD-MBD',s:'骨ミネラル代謝異常',b:'高P血症→Caと結合→低Ca血症\n→副甲状腺ホルモン↑（二次性副甲状腺機能亢進症）\n→骨からCa取り出し→骨痛・骨折\n活性型ビタミンD産生も低下'},
+  {u:'u04',f:'CKDの食事療法',s:'治療',b:'高カロリー・低蛋白食が中心\n食塩制限：3〜6g/日\n進行に応じてK・Pの制限\n水分制限を行うこともある'},
+  {u:'u04',f:'糖尿病腎症',s:'特徴',b:'透析導入原因の第1位\n進行は不可逆性\n初期：微量アルブミン尿\n（試験紙法では蛋白尿－）\n微量アルブミン尿の測定が早期診断に有用\n血糖HbA1c<7.0% / 血圧<130/80mmHg'},
+
+  // ── u05 透析 ──
+  {u:'u05',f:'透析の目的',s:'3つ',b:'①除水\n②電解質バランスの是正\n③尿毒症物質の除去\n→高血圧・肺水腫・高K血症・\n代謝性アシドーシスの改善'},
+  {u:'u05',f:'血液透析（HD）',s:'特徴',b:'1回3〜5時間、週2〜3回\n通院（医療機関）\nバスキュラーアクセス：内シャント\n（橈骨動脈と橈側皮静脈を吻合）\n食事制限：食塩・P・K（厳しい）'},
+  {u:'u05',f:'CAPD',s:'特徴',b:'持続携行式腹膜透析\n1日3〜5回交換、月1〜2回通院\n在宅で実施可能\n食事制限：HDより緩やか\n心血管系への負荷小・残存腎機能保持'},
+  {u:'u05',f:'不均衡症候群',s:'HD合併症',b:'透析後半〜終了直後に出現\n頭痛・悪心・嘔吐・痙攣\n初回導入時に多い\n原因：血液と脳脊髄液の浸透圧差\n→脳浮腫'},
+  {u:'u05',f:'シャント肢の禁忌',s:'血液透析',b:'シャント肢で：\n・採血NG\n・血圧測定NG\n・駆血NG\nシャント音の確認は重要\n透析日は入浴は控える（感染・出血予防）'},
+  {u:'u05',f:'CAPDの最大合併症',s:'要注意',b:'腹膜炎\n→透析中止の原因となる\n早期発見ポイント：\n・腹痛\n・透析液の排液のにごり（混濁）\n・発熱'},
+  {u:'u05',f:'透析中の食事指導',s:'制限すべきもの',b:'生野菜・果物（K多い→心停止リスク）\n乳製品（P多い→低Ca・血管石灰化）\nレバー（プリン体→高尿酸血症）\n穀物の制限は不要'},
+
+  // ── u06 腎移植 ──
+  {u:'u06',f:'生体腎移植',s:'手術',b:'自分の腎は残す\n提供腎を骨盤腔内に入れ膀胱と接続\n術直後の最重要観察項目：尿量\n（尿量増加が順調な経過）'},
+  {u:'u06',f:'タクロリムス',s:'免疫抑制薬',b:'グレープフルーツ併用注意\n（代謝阻害→血中濃度上昇）\n生ワクチン禁忌（風疹・麻疹・水痘）\n2回分まとめて服用禁忌\n生涯服用が必要'},
+
+  // ── u07 膀胱・膀胱鏡 ──
+  {u:'u07',f:'膀胱鏡検査',s:'注意点',b:'無菌操作で行う\n体位：砕石位\n男性：局所麻酔\n女性：無麻酔\n検査後：水分摂取を促す（感染予防）'},
+
+  // ── u08 排尿機序と尿失禁 ──
+  {u:'u08',f:'蓄尿期の神経',s:'交感神経',b:'下腹神経（交感）+陰部神経（体性）\n排尿筋：弛緩\n内尿道括約筋：収縮\n外尿道括約筋：収縮\n→がんばってためる'},
+  {u:'u08',f:'排尿期の神経',s:'副交感神経',b:'骨盤内臓神経（副交感）\n排尿筋：収縮\n内尿道括約筋：弛緩\n外尿道括約筋：弛緩\n→リラックスして出す'},
+  {u:'u08',f:'下部尿路症状3分類',s:'症状の種類',b:'蓄尿症状：頻尿・尿意切迫感・尿失禁\n排尿症状：尿勢低下・腹圧排尿・尿線途絶\n排尿後症状：残尿感・排尿後滴下'},
+  {u:'u08',f:'乏尿・無尿の定義',s:'尿量の異常',b:'乏尿：400mL/日以下\n無尿：100mL/日以下\n多尿：3,000mL/日以上\n頻尿：日中8回以上'},
+  {u:'u08',f:'過活動膀胱',s:'OAB',b:'尿意切迫感（急な強い尿意）が主症状\n通常は頻尿、ときに切迫性尿失禁\n加齢とともに増加（80歳以上が最多）\n治療：膀胱訓練・抗コリン薬・β刺激薬\n水分制限はNG（脱水リスク）'},
+  {u:'u08',f:'腹圧性尿失禁',s:'尿失禁',b:'咳・くしゃみ・運動で漏れる\n原因：妊娠・出産・肥満・加齢\n（骨盤底筋群の弛緩）\n→骨盤底筋群訓練が有効'},
+  {u:'u08',f:'切迫性尿失禁',s:'尿失禁',b:'急な尿意でトイレに間に合わない\n原因：過活動膀胱・神経因性膀胱・\n細菌性膀胱炎\n→膀胱訓練・抗コリン薬'},
+  {u:'u08',f:'溢流性尿失禁',s:'尿失禁',b:'残尿が大量となり溢れて漏れる\n原因：前立腺肥大・神経因性膀胱・\n低活動膀胱\n→原疾患治療＋間欠的自己導尿'},
+  {u:'u08',f:'反射性尿失禁',s:'尿失禁',b:'尿意なく排尿筋の不随意収縮で流出\n原因：橋〜仙髄より上位の脊髄障害\n→抗コリン薬＋間欠的自己導尿\n（排尿日誌で膀胱容量把握）'},
+  {u:'u08',f:'機能性尿失禁',s:'尿失禁',b:'排尿機能は正常だがトイレに間に合わない\n原因：認知症・ADL障害\n→環境整備（トイレに近い部屋）・\nトイレ誘導・段差解消'},
+  {u:'u08',f:'尿閉の処置',s:'緊急対応',b:'膀胱内に尿はあるが排出不能\n→緊急の処置（導尿）が必要\nただし急激な排尿は低血圧の原因\n→ゆっくり排尿させる'},
+
+  // ── u09 腎結石・尿路結石 ──
+  {u:'u09',f:'尿路結石の予防',s:'生活指導',b:'1日2L以上の水分摂取\n（尿量を増やし結石を排出）\n適度な運動\n（過度な安静は骨脱灰→高Ca尿症）\n再発率高いため継続的予防が必要'},
+  {u:'u09',f:'尿管結石の治療',s:'治療法',b:'疼痛コントロール：NSAIDs・抗コリン薬\nESWL（体外衝撃波結石破砕術）\nPNL（経皮的腎結石破砕術）\nTUL（経尿道的尿管結石破砕術）'},
+  {u:'u09',f:'尿酸結石の予防',s:'痛風',c:'食事指導',b:'飲酒制限（アルコール→尿酸↑）\n動物性蛋白質・プリン体食品制限\n（レバー・ホルモン）\n有酸素運動（無酸素運動はNG）\n1日2L以上の水分摂取'},
+
+  // ── u10 膀胱癌 ──
+  {u:'u10',f:'膀胱癌',s:'特徴',b:'男性に多い（女性の3〜5倍）\n50〜70歳に好発\nほとんどが尿路上皮癌（移行上皮癌）\n喫煙・芳香族アミン（染料工場）が原因\n症状：無症候性肉眼的血尿（80%）'},
+  {u:'u10',f:'膀胱癌の治療',s:'病期別',b:'表在性：TUR-BT（経尿道的膀胱腫瘍切除術）\n　＋膀胱内注入療法（BCG・マイトマイシン）\n浸潤癌：根治的膀胱全摘除術\n　＋骨盤リンパ節郭清＋尿路変更術'},
+  {u:'u10',f:'回腸導管造設術',s:'尿路ストーマ',b:'回腸の一部を尿管導管として利用\n右下腹部にストーマ造設\n失禁型尿路変向術\n→パウチ（集尿バッグ）装着\n装着したまま入浴可能'},
+  {u:'u10',f:'ストーマの正常色',s:'観察',b:'桃色〜鮮紅色：正常\n白色〜淡黄色：血行障害\n灰色〜黒色：壊死の可能性\n茶色・紫色：循環不全\n→色調は循環状態を反映'},
+
+  // ── u11 男性生殖器・前立腺 ──
+  {u:'u11',f:'前立腺の位置',s:'解剖',b:'膀胱の真下、直腸の前面\nクルミ大、後部尿道を取り囲む\n直腸診で触知可能\n肥大症：弾性硬で腫大\n前立腺癌：石のように硬い'},
+  {u:'u11',f:'精子の通過経路',s:'男性生殖器',b:'精巣→精巣上体→精管→射精管\n→（前立腺内で尿道に合流）→尿道\n精嚢は精液の成分を分泌するが\n精子は通らない'},
+  {u:'u11',f:'前立腺肥大症',s:'BPH',b:'移行領域（内腺）が肥大\n高齢男性に多い（男性ホルモン関与）\n症状：頻尿・夜間頻尿・尿勢低下・残尿\n進行すると：溢流性尿失禁・水腎症\n外科治療：TURP（経尿道的前立腺切除術）'},
+  {u:'u11',f:'TURP術後',s:'看護',b:'逆行性射精・尿道狭窄に注意\n後出血の有無を観察\n術後出血予防：腹圧をかけない\n（排便コントロール）\n持続膀胱洗浄でカテーテル閉塞予防\nTUR反応：低Na血症（灌流液吸収）'},
+  {u:'u11',f:'前立腺癌',s:'特徴',b:'前立腺の辺縁領域に好発\n95%以上が腺癌\n50歳以上に多い、近年増加傾向\nPSA（前立腺特異抗原）が腫瘍マーカー\n骨転移が多い（造骨性転移→ALP上昇）'},
+  {u:'u11',f:'前立腺癌の治療',s:'治療',b:'手術療法・放射線療法・ホルモン療法\nホルモン療法：\n　LH-RHアナログ・抗アンドロゲン薬\n　（更年期障害様症状・女性化乳房）\n抗エストロゲンではなく抗アンドロゲン'},
+
+  // ── u12 全般 ──
+  {u:'u12',f:'水腎症',s:'病態',b:'尿路の通過障害により\n腎盂・腎杯が拡張した状態\n原因：前立腺癌・尿管癌・膀胱癌・\n尿路結石・神経因性膀胱（尿閉）\n→腎後性腎不全に移行する可能性'},
+  {u:'u12',f:'造影検査の延期',s:'禁忌・注意',b:'食事を摂取した（絶食必要）\nヨード過敏症・喘息（造影剤アレルギー）\n腎機能低下（造影剤腎症のリスク）\n排卵後（妊娠の可能性）'},
+];
+
+// 各カードに固有IDを付与（覚えた管理用）
+FC_DATA.forEach((c, i) => { c.id = 'fc' + String(i+1).padStart(3,'0'); });
+
+let fcList = [], fcIdx = 0, fcFlipped = false, fcCurrentFilter = 'all';
+let fcAutoSpeed = 0;     // 0=手動, 2/3/4=秒
+let fcAutoTimer = null;
+let fcAutoProgressTimer = null;
+let fcIsPlaying = false;
+
+// state.fcMastered に覚えたカードIDを保存（既に state システムに統合）
+if(!state.fcMastered) state.fcMastered = [];
+
+function initFC(){
+  // 単元フィルタボタンを生成（初回のみ）
+  const filter = document.getElementById('fc-unit-filter');
+  if(filter.children.length === 1){
+    UNITS.forEach(u=>{
+      const count = FC_DATA.filter(c=>c.u===u.id).length;
+      if(count===0) return;
+      const btn = document.createElement('button');
+      btn.className = 'fc-filter-btn';
+      btn.onclick = ()=>filterFC(u.id);
+      btn.innerHTML = `${u.icon} ${u.name}<span style="opacity:.6;margin-left:4px;font-size:10px;">${count}</span>`;
+      filter.appendChild(btn);
+    });
+  }
+  // 初期表示で speed=0 をハイライト
+  if(!document.querySelector('.fc-speed-btn.on')){
+    const btn0 = document.querySelector('.fc-speed-btn[data-speed="0"]');
+    if(btn0) btn0.classList.add('on');
+  }
+  refreshFCList();
+  updateMasteredCount();
+  if(fcList.length === 0){
+    showFCEmpty();
+  } else {
+    renderFC();
+  }
+}
+
+// 覚えていないカードのみのリストを構築
+function refreshFCList(){
+  const base = fcCurrentFilter === 'all' ? FC_DATA : FC_DATA.filter(c=>c.u===fcCurrentFilter);
+  fcList = base.filter(c => !state.fcMastered.includes(c.id));
+  if(fcIdx >= fcList.length) fcIdx = 0;
+}
+
+function showFCEmpty(){
+  document.getElementById('fc-front').textContent = '🎉';
+  document.getElementById('fc-sub').textContent = 'すべて覚えました！';
+  document.getElementById('fc-back').textContent = '「覚えたリセット」で再挑戦できます。';
+  document.getElementById('fc-unit-tag').textContent = '';
+  document.getElementById('fc-cnt').textContent = '0 / 0';
+  document.getElementById('fc-mastered-btn').disabled = true;
+}
+
+function filterFC(uid){
+  fcCurrentFilter = uid;
+  fcIdx = 0;
+  stopAutoPlay();
+  // ボタンのアクティブ表示
+  document.querySelectorAll('.fc-filter-btn').forEach(b=>b.classList.remove('on'));
+  if(event && event.target){
+    let btn = event.target;
+    while(btn && !btn.classList.contains('fc-filter-btn')) btn = btn.parentElement;
+    if(btn) btn.classList.add('on');
+  }
+  refreshFCList();
+  if(fcList.length===0){
+    toast('この単元はすべて覚えました🎉');
+    showFCEmpty();
+    return;
+  }
+  renderFC();
+}
+
+function renderFC(){
+  if(fcList.length===0){ showFCEmpty(); return; }
+  const c = fcList[fcIdx];
+  document.getElementById('fc-card').classList.remove('flipped');
+  fcFlipped = false;
+  document.getElementById('fc-front').textContent = c.f;
+  document.getElementById('fc-sub').textContent = c.s;
+  document.getElementById('fc-back').textContent = c.b;
+  document.getElementById('fc-cnt').textContent = `${fcIdx+1} / ${fcList.length}`;
+  // 単元タグ
+  const u = UNITS.find(x=>x.id===c.u);
+  document.getElementById('fc-unit-tag').textContent = u ? `${u.icon} ${u.name}` : '';
+  // 覚えたボタンを有効化
+  document.getElementById('fc-mastered-btn').disabled = false;
+}
+
+function flipFC(){
+  if(fcList.length === 0) return;
+  fcFlipped = !fcFlipped;
+  document.getElementById('fc-card').classList.toggle('flipped', fcFlipped);
+}
+
+function prevFC(){
+  if(fcList.length === 0) return;
+  fcIdx = (fcIdx - 1 + fcList.length) % fcList.length;
+  renderFC();
+  if(fcIsPlaying) restartAutoTimer();
+}
+
+function nextFC(){
+  if(fcList.length === 0) return;
+  fcIdx = (fcIdx + 1) % fcList.length;
+  renderFC();
+  if(fcIsPlaying) restartAutoTimer();
+}
+
+function shuffleFC(){
+  if(fcList.length === 0) return;
+  for(let i=fcList.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [fcList[i], fcList[j]] = [fcList[j], fcList[i]];
+  }
+  fcIdx = 0;
+  renderFC();
+  toast('🔀 シャッフルしました');
+  if(fcIsPlaying) restartAutoTimer();
+}
+
+function resetFC(){
+  fcIdx = 0;
+  renderFC();
+  if(fcIsPlaying) restartAutoTimer();
+}
+
+// ═══════════════════════════════════════════
+//  自動再生機能
+// ═══════════════════════════════════════════
+function setFCSpeed(sec){
+  fcAutoSpeed = sec;
+  // ボタンのアクティブ表示
+  document.querySelectorAll('.fc-speed-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`.fc-speed-btn[data-speed="${sec}"]`).classList.add('on');
+  // 再生ボタンの有効/無効
+  const playBtn = document.getElementById('fc-play-btn');
+  if(sec === 0){
+    playBtn.disabled = true;
+    stopAutoPlay();
+  } else {
+    playBtn.disabled = false;
+    if(fcIsPlaying){
+      // 再生中なら新しい速度で再開
+      restartAutoTimer();
+    }
+  }
+}
+
+function toggleAutoPlay(){
+  if(fcAutoSpeed === 0) return;
+  if(fcList.length === 0){ toast('カードがありません'); return; }
+  if(fcIsPlaying) stopAutoPlay();
+  else startAutoPlay();
+}
+
+function startAutoPlay(){
+  fcIsPlaying = true;
+  const playBtn = document.getElementById('fc-play-btn');
+  playBtn.textContent = '⏸ 停止';
+  playBtn.classList.add('playing');
+  document.getElementById('fc-progress-bar').style.display = '';
+  startAutoTimer();
+}
+
+function stopAutoPlay(){
+  fcIsPlaying = false;
+  if(fcAutoTimer){ clearTimeout(fcAutoTimer); fcAutoTimer = null; }
+  if(fcAutoProgressTimer){ clearInterval(fcAutoProgressTimer); fcAutoProgressTimer = null; }
+  const playBtn = document.getElementById('fc-play-btn');
+  playBtn.textContent = '▶ 再生';
+  playBtn.classList.remove('playing');
+  document.getElementById('fc-progress-bar').style.display = 'none';
+  document.getElementById('fc-progress-fill').style.width = '0%';
+}
+
+function restartAutoTimer(){
+  if(fcAutoTimer){ clearTimeout(fcAutoTimer); fcAutoTimer = null; }
+  if(fcAutoProgressTimer){ clearInterval(fcAutoProgressTimer); fcAutoProgressTimer = null; }
+  startAutoTimer();
+}
+
+function startAutoTimer(){
+  if(fcAutoSpeed === 0 || !fcIsPlaying) return;
+  // 進捗バーをアニメーション
+  const fill = document.getElementById('fc-progress-fill');
+  const totalMs = fcAutoSpeed * 1000;
+  const startTime = Date.now();
+  fill.style.width = '0%';
+  fcAutoProgressTimer = setInterval(()=>{
+    const elapsed = Date.now() - startTime;
+    const pct = Math.min((elapsed / totalMs) * 100, 100);
+    fill.style.width = pct + '%';
+  }, 50);
+  // 自動めくり: 半分の時間で表→裏に反転、残り時間で次のカードへ
+  const flipMs = totalMs * 0.5;
+  fcAutoTimer = setTimeout(()=>{
+    // 表→裏
+    if(!fcFlipped) flipFC();
+    // 残り時間で次のカードへ
+    fcAutoTimer = setTimeout(()=>{
+      if(fcIsPlaying){
+        // 次のカードへ
+        if(fcIdx < fcList.length - 1){
+          fcIdx++;
+          renderFC();
+          startAutoTimer();
+        } else {
+          // 最後まで再生したら自動停止
+          stopAutoPlay();
+          toast('🎉 最後まで再生しました');
+        }
+      }
+    }, totalMs - flipMs);
+  }, flipMs);
+}
+
+// ═══════════════════════════════════════════
+//  覚えた機能
+// ═══════════════════════════════════════════
+function markMastered(){
+  if(fcList.length === 0) return;
+  const c = fcList[fcIdx];
+  if(!state.fcMastered.includes(c.id)){
+    state.fcMastered.push(c.id);
+    saveState();
+  }
+  toast('✓ 覚えた！カードから外しました');
+  // 自動再生を一時停止
+  const wasPlaying = fcIsPlaying;
+  if(wasPlaying){
+    if(fcAutoTimer){ clearTimeout(fcAutoTimer); fcAutoTimer = null; }
+    if(fcAutoProgressTimer){ clearInterval(fcAutoProgressTimer); fcAutoProgressTimer = null; }
+  }
+  // リスト更新
+  refreshFCList();
+  updateMasteredCount();
+  if(fcList.length === 0){
+    stopAutoPlay();
+    showFCEmpty();
+    toast('🎉 すべて覚えました！');
+    return;
+  }
+  // 同じインデックス（次のカード）を表示
+  if(fcIdx >= fcList.length) fcIdx = 0;
+  renderFC();
+  // 自動再生中なら継続
+  if(wasPlaying) startAutoTimer();
+}
+
+function resetMastered(){
+  if(state.fcMastered.length === 0){ toast('覚えたカードはありません'); return; }
+  if(!confirm(`覚えたカード（${state.fcMastered.length}枚）をすべてリセットしますか？\n（再びフラッシュカードに表示されるようになります）`)) return;
+  state.fcMastered = [];
+  saveState();
+  refreshFCList();
+  updateMasteredCount();
+  fcIdx = 0;
+  renderFC();
+  toast('🔄 覚えたカードをリセットしました');
+}
+
+function updateMasteredCount(){
+  const el = document.getElementById('fc-mastered-count');
+  if(el){
+    if(state.fcMastered.length > 0){
+      el.textContent = `（${state.fcMastered.length}）`;
+    } else {
+      el.textContent = '';
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+renderHome();
+</script>
+
+</body>
+</html>
